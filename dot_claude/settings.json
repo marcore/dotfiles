@@ -1,0 +1,12 @@
+{
+  "model": "Opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/marcore/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {},
+  "tui": "fullscreen"
+}

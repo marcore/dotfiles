@@ -1,0 +1,29 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Marco Re
+	email = mre@adobe.com
+[includeIf "gitdir:~/Projects/MIT/development/"]
+    path = ~/Projects/MIT/development/.gitconfig_include
+[includeIf "gitdir:~/Projects/Volkswagen/development/"]
+    path = ~/Projects/Volkswagen/development/.gitconfig_include
+   
+[core]
+	excludesfile = /Users/marcore/.gitignore_global
+
+# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
+#[include]
+#  path = /Users/marcore/Library/Preferences/netlify/helper/git-config
+[credential "git.cloudmanager.adobe.com"]
+	useHttpPath = true
+[color]
+	diff = auto
+
+
+[include]
+  path = ~/.gitconfig_custom
+[http]
+	postBuffer = 524288000

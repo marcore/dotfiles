@@ -1,0 +1,9 @@
+# See custom `Host adobe.github.com` in ~/.ssh/config
+[url "adobe-github.com:OneAdobe"]
+  insteadOf = github.com:OneAdobe
+
+[url "adobe-github.com:Adobe-AIFoundations"]
+  insteadOf = github.com:Adobe-AIFoundations
+
+[url "adobe-github.com:mre_adobe"]
+  insteadOf = github.com:mre_adobe

@@ -1,0 +1,23 @@
+packages:
+  darwin:
+    taps:
+    - 'azure/kubelogin'
+    - 'dagger/tap'
+    - 'go-task/tap'
+    - 'hashicorp/tap'
+    - 'homebrew/bundle'
+    brews:
+    - 'git'
+    - 'gh'
+    - 'azure-cli'
+    - 'chezmoi'
+    - 'docker'
+    - 'docker-compose'
+    - 'httpie'
+    - 'jq'
+    - 'k9s'
+    - 'pnpm'
+    - 'pyenv'
+    - 'zsh'
+    casks:
+    - 'google-chrome'
