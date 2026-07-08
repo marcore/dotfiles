@@ -1,16 +1,65 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
 
-{{ range .packages.darwin.taps -}}
-brew tap {{ . | quote }}
+
+# Generate combined Brewfile in a temp file
+brewfile=$(mktemp)
+cat > "$brewfile" <<BREWEOF
+{{ range .packages.universal.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
 {{ end -}}
-
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
+{{ range .packages.universal.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.darwin.casks -}}
+{{ range .packages.universal.casks -}}
 cask {{ . | quote }}
 {{ end -}}
-EOF
+{{ range .packages.universal.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+{{ if .isWorkComputer -}}
+{{ range .packages.work.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.work.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.work.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ range .packages.work.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+{{ else -}}
+{{ range .packages.private.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.private.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.private.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ range .packages.private.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+{{ end -}}
+BREWEOF
+
+brew bundle --file="$brewfile"
+
+# Warn about and remove undeclared packages
+undeclared=$(brew bundle cleanup --file="$brewfile" 2>/dev/null)
+if [[ -n "$undeclared" ]]; then
+    echo ""
+    echo "WARNING: Removing packages not declared in packages.yaml:"
+    echo "$undeclared"
+    brew bundle cleanup --force --file="$brewfile"
+    brew autoremove
+fi
+
+
+# Enable colima to auto-start at login
+brew services start colima
+
 {{ end -}}

@@ -1,23 +1,96 @@
 packages:
-  darwin:
-    taps:
-    - 'azure/kubelogin'
-    - 'dagger/tap'
-    - 'go-task/tap'
-    - 'hashicorp/tap'
-    - 'homebrew/bundle'
-    brews:
-    - 'git'
-    - 'gh'
-    - 'azure-cli'
-    - 'chezmoi'
-    - 'docker'
-    - 'docker-compose'
-    - 'httpie'
-    - 'jq'
-    - 'k9s'
-    - 'pnpm'
-    - 'pyenv'
-    - 'zsh'
-    casks:
-    - 'google-chrome'
+    universal:
+        taps:
+            - "hashicorp/tap"
+            - "homebrew/bundle"
+        brews:
+            - "ansible"
+            - "bash"
+            - "bat"
+            - "chezmoi"
+            - "colima"
+            - "docker"
+            - "docker-compose"
+            - "docker-credential-helper"
+            - "editorconfig"
+            - "ffmpeg"
+            - "fontconfig"
+            - "gh"
+            - "git"
+            - "git-extras"
+            - "git-lfs"
+            - "gpg"
+            - "httpie"
+            - "jq"
+            - "k9s"
+            - "mas"
+            - "oven-sh/bun/bun"
+            - "pyenv"
+            - "rsync"
+            - "tree"
+            - "typescript-language-server"
+            - "vhs"
+            - "vim"
+            - "zsh"
+        casks:
+            - "google-chrome"
+            - "obs"
+        mas:
+            - name: "Xcode"
+              id: "497799835"
+            - name: "Ghostery – Privacy Ad Blocker"
+              id: "21436953057"
+
+    work:
+        taps:
+            - "azure/kubelogin"
+            - "dagger/tap"
+            - "go-task/tap"
+        brews:
+            - "ansible"
+            - "awscli"
+            - "azure-cli"
+        casks:
+            - "copilot-cli"
+            - "microsoft-teams"
+
+        mas:
+            - name: "Okta Verify"
+              id: "490179405"
+            - name: "iMovie"
+              id: "408981434"
+            - name: "Slack"
+              id: "803453959"
+            - name: "OneDrive"
+              id: "823766827"
+            - name: "Microsoft Excel" 
+              id:  "462058435"
+            - name: "Microsoft OneNote" 
+              id:  "784801555"
+            - name: "Microsoft Outlook" 
+              id:  "985367838"
+            - name: "Microsoft PowerPoint" 
+              id:  "462062816"
+            - name: "Microsoft Remote Desktop" 
+              id:  "1295203466"
+            - name: "Microsoft Word" 
+              id:  "462054704"
+
+
+    private:
+        taps: []
+        brews:
+            - "bash"
+            - "bat"
+            - "chezmoi"
+            - "cloudflared"
+            - "typescript-language-server"
+        casks:
+            - "spotify"
+        mas:
+            - name: "Kindle"
+              id: "302584613"
+            - name: "Pages"
+              id: "409201541"
+            - name: "Numbers"
+              id: "409203825"

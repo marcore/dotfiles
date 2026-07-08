@@ -3,9 +3,15 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+{{ if .isWorkComputer -}}
 [user]
 	name = Marco Re
 	email = mre@adobe.com
+{{ else -}}
+	name = Marco Re
+	email = mrc.re@tiscali.it
+{{ end -}}
 [includeIf "gitdir:~/Projects/MIT/development/"]
     path = ~/Projects/MIT/development/.gitconfig_include
 [includeIf "gitdir:~/Projects/Volkswagen/development/"]

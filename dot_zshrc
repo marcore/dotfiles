@@ -117,9 +117,6 @@ alias gitmarcore='ssh-add -D && ssh-add ~/.ssh/id_rsa_adobepc'
 source ~/.bash_profile;
 source /Users/marcore/.zprofile;
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/marcore/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 eval 
 AIO_AC_ZSH_SETUP_PATH=/Users/marcore/Library/Caches/@adobe/aio-cli/autocomplete/zsh_setup && test -f $AIO_AC_ZSH_SETUP_PATH && source $AIO_AC_ZSH_SETUP_PATH; # aio autocomplete setup
 export PATH="$HOME/.local/bin:$PATH"
