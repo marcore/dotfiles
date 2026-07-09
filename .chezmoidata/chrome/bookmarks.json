@@ -1,0 +1,2018 @@
+{
+   "checksum": "0e8bfe1a77522820107902e226cc28e1",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13290017183440825",
+               "date_last_used": "0",
+               "guid": "f27461c3-8e1e-4dd5-b0c1-97d87d02865c",
+               "id": "8",
+               "name": "IAM Portal",
+               "type": "url",
+               "url": "https://iam.corp.adobe.com/#/dashboard"
+            }, {
+               "date_added": "13290017226708171",
+               "date_last_used": "0",
+               "guid": "6a01df59-9a02-46b3-a8b6-7c16e087256c",
+               "id": "10",
+               "name": "Support Center - Home - Support Center",
+               "type": "url",
+               "url": "https://adobe.service-now.com/sc"
+            }, {
+               "date_added": "13290017189190579",
+               "date_last_used": "0",
+               "guid": "61749a0a-a755-4c34-ad4b-2d41fc0d98bc",
+               "id": "9",
+               "name": "Inside Adobe",
+               "type": "url",
+               "url": "https://inside.corp.adobe.com/"
+            }, {
+               "date_added": "13290885575131427",
+               "date_last_used": "13345663621662871",
+               "guid": "0724d71e-aef7-4ea7-bd48-42c30b2fdb83",
+               "id": "19",
+               "name": "Learner - My Home",
+               "type": "url",
+               "url": "https://cpcontents.adobe.com/public/newlearner/newlearner_036400a7.html#/home"
+            }, {
+               "date_added": "13291120631954203",
+               "date_last_used": "0",
+               "guid": "75d2e040-3d1d-4984-bc5e-8ba77517c7e2",
+               "id": "22",
+               "name": "PSA Salesforce",
+               "type": "url",
+               "url": "https://adobe.my.salesforce.com/home/home.jsp"
+            }, {
+               "date_added": "13293215901607446",
+               "date_last_used": "0",
+               "guid": "074b0d31-ed82-479d-882b-43d90cec217a",
+               "id": "52",
+               "name": "Login Screen",
+               "type": "url",
+               "url": "https://portal.immedis.com/#/account/login"
+            }, {
+               "date_added": "13302258228465153",
+               "date_last_used": "0",
+               "guid": "ca8e1b8e-b380-4307-bfa6-302b00a9b62b",
+               "id": "93",
+               "name": "My University Dashboard",
+               "type": "url",
+               "url": "https://digitalu.adobe.com/content/Enablement/en/programs/myuniversity-dashboard.html.html"
+            }, {
+               "date_added": "13307128659472839",
+               "date_last_used": "0",
+               "guid": "20f6140e-3dbc-4ea8-9f5c-b420bf0baa26",
+               "id": "122",
+               "name": "Module introduction | Certified Kubernetes Application Developer (CKAD), 2nd Edition",
+               "type": "url",
+               "url": "https://learning.oreilly.com/videos/certified-kubernetes-application/9780137841509/9780137841509-CKAD_01_00_00/"
+            }, {
+               "date_added": "13307131460766561",
+               "date_last_used": "13331744261860499",
+               "guid": "3fba7cf7-175d-4355-a806-7dcd4bfab947",
+               "id": "123",
+               "name": "Learner - My Home",
+               "type": "url",
+               "url": "https://cpcontents.adobe.com/public/newlearner/newlearner_4e20f36d.html?i_qp_user_id=15539158&accountId=29997#/newLearnerExperience"
+            }, {
+               "date_added": "13309366132066259",
+               "date_last_used": "13352381013133192",
+               "guid": "6fd48773-e693-4ef3-b48b-aa34e08e35d2",
+               "id": "135",
+               "name": "Global Utilization Report - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/4b6c8f6a-764c-439b-8ec3-0e8caeaa3a33/reports/7d91c216-2e07-477f-aedd-a6b4690a97f6/ReportSection0b43f93ce03c501c73ee"
+            }, {
+               "date_added": "13310757763377673",
+               "date_last_used": "13319571757814499",
+               "guid": "cdb75b9d-29be-4e0c-8714-7c3d30186c1d",
+               "id": "140",
+               "name": "inps.it Traffic Analytics & Market Share | Similarweb",
+               "type": "url",
+               "url": "https://www.similarweb.com/website/inps.it/#overview"
+            }, {
+               "date_added": "13311255992529574",
+               "date_last_used": "0",
+               "guid": "ab2e3ad9-5bb1-442b-a4dd-58ed7fb19e11",
+               "id": "142",
+               "name": "adobe/generator-app-api-mesh",
+               "type": "url",
+               "url": "https://github.com/adobe/generator-app-api-mesh"
+            }, {
+               "date_added": "13317842794474249",
+               "date_last_used": "0",
+               "guid": "69cc3204-0f69-49eb-9c75-43ff0516c058",
+               "id": "165",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Time Entry",
+               "type": "url",
+               "url": "https://adobe.lightning.force.com/lightning/n/pse__Time_Entry"
+            }, {
+               "date_added": "13333457186618592",
+               "date_last_used": "13406379515247769",
+               "guid": "09b38225-d254-411a-9268-9e617c04306a",
+               "id": "192",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "My Attainment Dashboard - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/4d94ee49-c590-4a9b-9ccc-9de0092d3d91/reports/12560fb8-19b9-47f8-8f89-490b7aa8ddcd/ReportSection9adf842d65a0157322c5?experience=power-bi"
+            }, {
+               "date_added": "13343909081465702",
+               "date_last_used": "0",
+               "guid": "84e00542-c18b-45a0-b812-8e41e511f8f7",
+               "id": "201",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "egress/nets.json at master · IT-Network/egress",
+               "type": "url",
+               "url": "https://git.corp.adobe.com/IT-Network/egress/blob/master/nets.json"
+            }, {
+               "date_added": "13343996958974831",
+               "date_last_used": "0",
+               "guid": "0c96e007-cf11-43bd-97e6-eec933a446e9",
+               "id": "202",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "1H 2024 AEM Co-Innovation Projects List - Web Experience Management - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=WEM&title=1H+2024+AEM+Co-Innovation+Projects+List"
+            }, {
+               "date_added": "13367500709953274",
+               "date_last_used": "13367501038406407",
+               "guid": "62883d0b-8cb9-4942-9007-ae5e6bea3ed9",
+               "id": "269",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Certification Info",
+               "type": "url",
+               "url": "https://helpx-internal.corp.adobe.com/content/help/en/dmacc-internal/QualityofSupport/dx-support-certification.html"
+            }, {
+               "date_added": "13369223500559116",
+               "date_last_used": "0",
+               "guid": "b6053fcc-532d-4883-acdc-e55dcd039833",
+               "id": "271",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "JFrog- Service Pack AEM",
+               "type": "url",
+               "url": "https://artifactory.corp.adobe.com/ui/native/maven-aem-release-local/com/adobe/cq/aem-service-pkg/"
+            } ],
+            "date_added": "13290881089650586",
+            "date_last_used": "0",
+            "date_modified": "13370345823179294",
+            "guid": "a98a165e-4201-41ca-b054-5aa5b9b08f18",
+            "id": "12",
+            "name": "Adobe Position",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13291408478494852",
+                  "date_last_used": "0",
+                  "guid": "5a57d3f0-fb0b-4e9d-845f-dc54a20760ce",
+                  "id": "32",
+                  "name": "JFrog",
+                  "type": "url",
+                  "url": "https://artifactory.corp.adobe.com/ui/login/"
+               }, {
+                  "date_added": "13291123891925517",
+                  "date_last_used": "13309286784175045",
+                  "guid": "ed8d8cac-5525-4fdc-8df3-e7d3b387826e",
+                  "id": "23",
+                  "name": "Cloud Acceleration Bootcamp - Web Experience Management - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=WEM&title=Cloud+Acceleration+Bootcamp"
+               }, {
+                  "date_added": "13291118585734281",
+                  "date_last_used": "0",
+                  "guid": "d5529a01-b825-4d3c-a8e7-74ef15e25be5",
+                  "id": "21",
+                  "name": "My Cloud Manager",
+                  "type": "url",
+                  "url": "https://experience.adobe.com/#/@psc/cloud-manager/home.html/program/58809"
+               }, {
+                  "date_added": "13292592455440095",
+                  "date_last_used": "0",
+                  "guid": "8fe85d11-ecee-424d-9cfe-d05e5edf5019",
+                  "id": "48",
+                  "name": "Adobe Experience Manager as a Cloud Service Experts Series | Adobe Experience Manager",
+                  "type": "url",
+                  "url": "https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/aem-experts-series.html?lang=en"
+               }, {
+                  "date_added": "13293198142689382",
+                  "date_last_used": "0",
+                  "guid": "3e25ed71-ed20-42b1-a464-4eab7428c224",
+                  "id": "51",
+                  "name": "Converting ClientLibs to FrontEnd pipelines - Web Experience Management - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/display/WEM/Converting+ClientLibs+to+FrontEnd+pipelines"
+               }, {
+                  "date_added": "13295439812112498",
+                  "date_last_used": "0",
+                  "guid": "8a367c11-8a1d-40b7-a358-7aacf521d13e",
+                  "id": "69",
+                  "name": "Run Docker without Docker Desktop on macOS | Dhwaneet Bhatt",
+                  "type": "url",
+                  "url": "https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos"
+               }, {
+                  "date_added": "13297359310148576",
+                  "date_last_used": "0",
+                  "guid": "66067f6e-8cf5-4488-b5eb-abfe8bf6fb14",
+                  "id": "75",
+                  "name": "Query Performance",
+                  "type": "url",
+                  "url": "http://localhost:4502/libs/granite/operations/content/diagnosistools/queryPerformance.html"
+               }, {
+                  "date_added": "13298574748136525",
+                  "date_last_used": "0",
+                  "guid": "e98d892f-2537-4e6b-b80f-940c132209b6",
+                  "id": "78",
+                  "name": "Demo System Experience Builder",
+                  "type": "url",
+                  "url": "https://builder.adobedemo.com/"
+               }, {
+                  "date_added": "13298974692815297",
+                  "date_last_used": "13311276689473986",
+                  "guid": "c2a3c9cb-76de-4ab7-a7b8-76f99bba4a57",
+                  "id": "80",
+                  "name": "Project Franklin - AEM Sites - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/display/AEMSites/Project+Franklin"
+               }, {
+                  "date_added": "13292419662761685",
+                  "date_last_used": "0",
+                  "guid": "ff09a0d3-6d22-4d58-9c14-adb40b07852a",
+                  "id": "46",
+                  "name": "CQ/wcm: Adobe CQ WCM Module",
+                  "type": "url",
+                  "url": "https://git.corp.adobe.com/CQ/wcm"
+               }, {
+                  "date_added": "13299320204999413",
+                  "date_last_used": "13313701067247719",
+                  "guid": "7491a967-ad9f-4aa4-9c9c-85989b2c67e3",
+                  "id": "81",
+                  "name": "Granite/dispatcher: Dispatcher",
+                  "type": "url",
+                  "url": "https://git.corp.adobe.com/Granite/dispatcher"
+               }, {
+                  "date_added": "13300462607747388",
+                  "date_last_used": "0",
+                  "guid": "261acdd4-79da-4d0a-926a-fd6e2427a0ac",
+                  "id": "83",
+                  "name": "botha/design-shapes: A bunch of custom draw.io shapes I've created over the years for AEM technical designs",
+                  "type": "url",
+                  "url": "https://git.corp.adobe.com/botha/design-shapes"
+               }, {
+                  "date_added": "13302897248358127",
+                  "date_last_used": "0",
+                  "guid": "a6dfc198-82f0-44bd-963b-c6ef2080780c",
+                  "id": "97",
+                  "name": "experience-platform/self-service-sonarqube-cqrules",
+                  "type": "url",
+                  "url": "https://git.corp.adobe.com/experience-platform/self-service-sonarqube-cqrules"
+               }, {
+                  "date_added": "13302980760654847",
+                  "date_last_used": "0",
+                  "guid": "eb165314-3d02-4a6d-85db-3b943611c616",
+                  "id": "98",
+                  "name": "ref-squad",
+                  "type": "url",
+                  "url": "https://git.corp.adobe.com/ref-squad"
+               }, {
+                  "date_added": "13303317765280899",
+                  "date_last_used": "0",
+                  "guid": "57d456c4-0694-4dd3-b480-095ca5afc6ea",
+                  "id": "100",
+                  "name": "https://cpcontents.adobe.com/public/newlearner/newlearner_bacb7942.html?accountId=29997&userId=1073034#/course/1889153/overview",
+                  "type": "url",
+                  "url": "https://cpcontents.adobe.com/public/newlearner/newlearner_bacb7942.html?accountId=29997&userId=1073034#/course/1889153/overview"
+               }, {
+                  "date_added": "13303823352851179",
+                  "date_last_used": "0",
+                  "guid": "f11a02e4-8091-44e2-9147-8bfe62879f45",
+                  "id": "105",
+                  "name": "jlentink/aem: AEM command line interface",
+                  "type": "url",
+                  "url": "https://github.com/jlentink/aem"
+               }, {
+                  "date_added": "13305736866437604",
+                  "date_last_used": "0",
+                  "guid": "3d59cee0-863a-42b8-98f6-600dd446bf82",
+                  "id": "110",
+                  "name": "GitHub - adobe/aem-nextjs-template: This app demonstrates how to write a simple app rendering AEM Pages and Content fragments in Next.js",
+                  "type": "url",
+                  "url": "https://github.com/adobe/aem-nextjs-template"
+               }, {
+                  "date_added": "13306352367054762",
+                  "date_last_used": "0",
+                  "guid": "d4299122-b74f-4ef2-a768-1a5de76b4c78",
+                  "id": "118",
+                  "name": "AdobeDocs/adobeio-samples-assets-compute-photoshop: This is a sample app that implements a custom Assets Compute Worker for AEM to generate cutout and automatically toned renditions by leveraging Photoshop APIs.",
+                  "type": "url",
+                  "url": "https://github.com/AdobeDocs/adobeio-samples-assets-compute-photoshop"
+               }, {
+                  "date_added": "13309272957226937",
+                  "date_last_used": "0",
+                  "guid": "47fb9f10-e73b-47f0-aeb5-792d4e7763a2",
+                  "id": "134",
+                  "name": "Getting started with Franklin - Developer Tutorial",
+                  "type": "url",
+                  "url": "https://www.hlx.live/developer/tutorial"
+               }, {
+                  "date_added": "13309884324290644",
+                  "date_last_used": "0",
+                  "guid": "82c63eec-dd78-472f-b5eb-abaff73124b6",
+                  "id": "137",
+                  "name": "Helix Brown Bag Session with David Nüscheler supported by Conrad Wöltge-20220720_140130-Meeting Recording.mp4",
+                  "type": "url",
+                  "url": "https://adobe-my.sharepoint.com/personal/lukas_adobe_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Flukas%5Fadobe%5Fcom%2FDocuments%2FRecordings%2FHelix%20Brown%20Bag%20Session%20with%20David%20N%C3%BCscheler%20supported%20by%20Conrad%20W%C3%B6ltge%2D20220720%5F140130%2DMeeting%20Recording%2Emp4"
+               }, {
+                  "date_added": "13312306311171712",
+                  "date_last_used": "0",
+                  "guid": "d14b48dd-d18c-458f-967b-4caffa11321d",
+                  "id": "147",
+                  "name": "Design systems | The Component Gallery",
+                  "type": "url",
+                  "url": "https://component.gallery/design-systems/"
+               }, {
+                  "date_added": "13312403445119471",
+                  "date_last_used": "0",
+                  "guid": "150bd30c-6105-4910-a368-d30c90e5c430",
+                  "id": "149",
+                  "name": "fastthread.corp.adobe.com",
+                  "type": "url",
+                  "url": "https://fastthread.corp.adobe.com/ft-error.jsp"
+               }, {
+                  "date_added": "13317739981649534",
+                  "date_last_used": "0",
+                  "guid": "1150f659-5e13-4c6f-9389-1e9621133e40",
+                  "id": "162",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "The illusion of speed – why perceived performance matters | Enterspeed blog",
+                  "type": "url",
+                  "url": "https://www.enterspeed.com/blog/the-illusion-of-speed-why-perceived-performance-matters"
+               }, {
+                  "date_added": "13318686776081339",
+                  "date_last_used": "0",
+                  "guid": "8ea5b9ae-0922-4a1a-be38-ff4639f43063",
+                  "id": "171",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "jenkinsci/adobe-cloud-manager-plugin: A Jenkins Plugin to integrate with Adobe Cloud Manager Pipelines",
+                  "type": "url",
+                  "url": "https://github.com/jenkinsci/adobe-cloud-manager-plugin"
+               }, {
+                  "date_added": "13318689235282763",
+                  "date_last_used": "13319313686895891",
+                  "guid": "5c3c097e-2e53-4c0f-aa20-b54a36ed5b87",
+                  "id": "172",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Site speed audit for www.sisal.it - Treo.sh",
+                  "type": "url",
+                  "url": "https://treo.sh/sitespeed/www.sisal.it"
+               }, {
+                  "date_added": "13320410175349245",
+                  "date_last_used": "0",
+                  "guid": "ab5e0446-fec1-4784-9f11-d115b5c9dc95",
+                  "id": "174",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "GTM - ACS Performance and Security Testing Competency - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=ACSPSTC&title=GTM"
+               }, {
+                  "date_added": "13320769741280614",
+                  "date_last_used": "0",
+                  "guid": "67daf040-e161-48af-8dc6-1f1adc197f92",
+                  "id": "175",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Publish Persistence - RCA - Grafana",
+                  "type": "url",
+                  "url": "https://grafana-ns-team-aem-cm-prd-n87811.corp.ethos13-prod-deu6.ethos.adobe.net/d/SjM673W7d/publish-persistence-rca?orgId=1&from=now-3h&to=now&refresh=30s&var-namespace=ns-team-aem-cm-prd-n87811&var-release_name=cm-p93356-e854662&var-pod_container_name=cm-p93356-e854662-aem-publish&var-pod_name=All&var-container_port=8080&var-percentile=0.99&var-alertstate=All"
+               }, {
+                  "date_added": "13323532176471636",
+                  "date_last_used": "0",
+                  "guid": "e331776b-af34-47eb-84e3-a49f9876c1d7",
+                  "id": "182",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Adobe Corporate Authenication Self-Service",
+                  "type": "url",
+                  "url": "https://oss.corp.adobe.com/okta/index.jsp?code=FlPo-UgUmD86eD9ILvJpbR7_AZZD9ULzpdxW15L_Q_A&state=osscreate#/register"
+               }, {
+                  "date_added": "13324647472703239",
+                  "date_last_used": "0",
+                  "guid": "32fd8586-6485-413f-818c-a002b049d962",
+                  "id": "184",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "How to create private developer releases? - Web Experience Management - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=1897367428"
+               }, {
+                  "date_added": "13324664196687749",
+                  "date_last_used": "0",
+                  "guid": "704c9c46-109d-4926-ae77-d48af0e5bb76",
+                  "id": "185",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Project Franklin - ACS Enablement - ACS Global Project Franklin Collaboration - Adobe Wiki",
+                  "type": "url",
+                  "url": "https://wiki.corp.adobe.com/display/acsglobalprojectfranklin/Project+Franklin+-+ACS+Enablement"
+               }, {
+                  "date_added": "13349208661346171",
+                  "date_last_used": "0",
+                  "guid": "ecabd095-fc3a-4686-bdae-d1607270bf32",
+                  "id": "212",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Okta Develop Application with SSO",
+                  "type": "url",
+                  "url": "https://oss.corp.adobe.com/"
+               }, {
+                  "date_added": "13349370246723604",
+                  "date_last_used": "0",
+                  "guid": "99615518-e78d-4507-b6df-2b446072245f",
+                  "id": "214",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "All [experience-platform] [Jenkins]",
+                  "type": "url",
+                  "url": "https://skyline-ops.ci.corp.adobe.com/job/experience-platform/"
+               }, {
+                  "date_added": "13351338810123344",
+                  "date_last_used": "0",
+                  "guid": "e033b865-91ee-4a3c-a3a8-fc4bade09517",
+                  "id": "222",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "AEM Dispatcher Flushing | Adobe Experience Manager",
+                  "type": "url",
+                  "url": "https://experienceleague.adobe.com/docs/experience-manager-learn/ams/dispatcher/disp-flushing.html?lang=en"
+               }, {
+                  "date_added": "13352203785331449",
+                  "date_last_used": "0",
+                  "guid": "a1d17456-97b3-40bb-9571-5ea1825a4313",
+                  "id": "224",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Author Persistence - RCA - Grafana",
+                  "type": "url",
+                  "url": "https://grafana-ns-team-aemops.corp.ethos13-prod-nld2.ethos.adobe.net/d/58QSZn-ih/author-persistence-rca?orgId=1&var-namespace=ns-team-aem-cm-prd-n23032&var-release_name=cm-p29690-e97938&var-pod_container_name=cm-p29690-e97938-aem-author&var-pod_name=All&var-container_port=8080&var-percentile=0.95&var-alertstate=firing&from=1706544000000&to=1706659199000"
+               }, {
+                  "date_added": "13373129701520843",
+                  "date_last_used": "0",
+                  "guid": "30b6f787-4ade-40f3-ba9c-af3fc1dde1eb",
+                  "id": "277",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "CrUX Vis - Core Web Vitals",
+                  "type": "url",
+                  "url": "https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https%3A%2F%2Fwww.openreach.com%2F&identifier=url&device=PHONE&periodStart=0&periodEnd=-1&display=p75s"
+               } ],
+               "date_added": "13291408498193133",
+               "date_last_used": "0",
+               "date_modified": "13373648794833847",
+               "guid": "2f675dde-6f60-44ec-8b96-8151f37c9597",
+               "id": "33",
+               "name": "DevAdobe",
+               "type": "folder"
+            }, {
+               "date_added": "13290881969699404",
+               "date_last_used": "13354385465927752",
+               "guid": "2c1b538e-aeee-4e92-9797-b9c8cc27c8ad",
+               "id": "15",
+               "name": "ACS Project Repository - Home",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/ProjectRepository"
+            }, {
+               "date_added": "13290881997552964",
+               "date_last_used": "13342095235752343",
+               "guid": "45f1701d-4bc5-4ddc-8ab2-b810e5fd6566",
+               "id": "16",
+               "name": "Premier Support - Documents - All Documents",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/PremierSupport/Shared%20Documents/Forms/AllItems.aspx"
+            }, {
+               "date_added": "13294942935517773",
+               "date_last_used": "0",
+               "guid": "2c828e01-ea58-495a-af71-05f16b025d8b",
+               "id": "67",
+               "name": "Search | Splunk 8.2.4",
+               "type": "url",
+               "url": "https://splunk.or1.adobe.net/en-GB/app/TA-aem_skyline/search"
+            }, {
+               "date_added": "13290881742062682",
+               "date_last_used": "0",
+               "guid": "411636bf-20fd-4e7a-8bc8-a1aada8080a8",
+               "id": "14",
+               "name": "Home | Field Readiness",
+               "type": "url",
+               "url": "https://fieldreadiness-adobe.highspot.com/"
+            }, {
+               "date_added": "13290882704840627",
+               "date_last_used": "0",
+               "guid": "921cddd5-d5b6-458c-adc0-5d32614597da",
+               "id": "18",
+               "name": "Adobe Experience Manager Quick Reference Guide",
+               "type": "url",
+               "url": "https://fieldreadiness-adobe.highspot.com/items/62196ad493b7ec16c1437812?lfrm=shp.10#5"
+            }, {
+               "date_added": "13294915128762574",
+               "date_last_used": "0",
+               "guid": "d8fd9647-0e35-4ccf-af02-a0efbb717f84",
+               "id": "64",
+               "name": "AMS Cloud Service Station",
+               "type": "url",
+               "url": "https://amsconfigviewer.adobecqms.net/amsconfigviewer/customer"
+            }, {
+               "date_added": "13294933836304482",
+               "date_last_used": "13342094942750375",
+               "guid": "9bd6f610-4481-4259-ab89-987a87f9ceeb",
+               "id": "65",
+               "name": "Monitoring - SPLUNK - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Monitoring+-+SPLUNK#MonitoringSPLUNK-RequestingAccessto%22Digital-Marketing%22-Splunk"
+            }, {
+               "date_added": "13294933917530352",
+               "date_last_used": "0",
+               "guid": "642b1a0e-1ab9-4546-bea3-e8a0bbbdc8a5",
+               "id": "66",
+               "name": "DX LDAP groups : allowed indexes - Adobe TechOps Core Services Team - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/CoreServicesTeam/DX+LDAP+groups+%3A+allowed+indexes"
+            }, {
+               "date_added": "13295698355631563",
+               "date_last_used": "13310143237479512",
+               "guid": "a13dcbe7-8cda-4914-b1f3-0c3565d5c017",
+               "id": "70",
+               "name": "AEM Cloud Manager Helper Tool",
+               "type": "url",
+               "url": "https://helpx-internal.corp.adobe.com/content/help/en/experience-manager/kb/tools/cm-helper.html/"
+            }, {
+               "date_added": "13296151315002465",
+               "date_last_used": "0",
+               "guid": "17bf670b-be33-439d-8f26-e1501302077d",
+               "id": "71",
+               "name": "AEM Knowledge Transfer (KT) Repository - Experience Cloud - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/DMSArchitecture/AEM+Knowledge+Transfer+%28KT%29+Repository"
+            }, {
+               "date_added": "13296903733813844",
+               "date_last_used": "0",
+               "guid": "4478158c-331b-454a-b497-bbd6703d5fdb",
+               "id": "73",
+               "name": "Template 02.00_Ricerca",
+               "type": "url",
+               "url": "https://aidigital.invisionapp.com/share/QY1269NZ4RZ9#/screens/464291718"
+            }, {
+               "date_added": "13297971830538941",
+               "date_last_used": "0",
+               "guid": "b745f8ba-3433-4c26-8bba-9c00973318bd",
+               "id": "77",
+               "name": "AEMaaCS-DailyUpdates: Release Orchestrator Debug - Customers - Tableau Server",
+               "type": "url",
+               "url": "https://dashdiscovery.corp.adobe.com/#/views/AEMaaCS-DailyUpdates/Debug-Customers?:iid=1"
+            }, {
+               "date_added": "13301482968911992",
+               "date_last_used": "13321463253607403",
+               "guid": "9059f81c-d0ce-4805-896a-c0d691ddae24",
+               "id": "88",
+               "name": "Acronyms | Glossary | Collibra Data Governance Center",
+               "type": "url",
+               "url": "https://adobe.collibra.com/vocabulary/bfe510c9-02a8-47d0-ba3a-2637cc42ef90?view=eb53c4cd-f522-471c-914f-45dd4a435ba4"
+            }, {
+               "date_added": "13301655506010261",
+               "date_last_used": "0",
+               "guid": "490e7c0d-128d-435c-ad70-f0ba1fc10cba",
+               "id": "90",
+               "name": "release-digger.corp.adobe.com",
+               "type": "url",
+               "url": "https://release-digger.corp.adobe.com/"
+            }, {
+               "date_added": "13302199587253993",
+               "date_last_used": "13331033108097144",
+               "guid": "215459c5-a2c9-41e4-9aad-f4064d215ce3",
+               "id": "92",
+               "name": "Global PSC Enablement Center of Excellence - Site Pages - By Author",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/EnablementCoE/SitePages/Forms/ByAuthor.aspx"
+            }, {
+               "date_added": "13302693095870173",
+               "date_last_used": "0",
+               "guid": "d0613e51-a6b7-486d-aa12-1515c92ccfe3",
+               "id": "95",
+               "name": "Adobe Support Plans - changes for LA.pptx",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/:p:/s/LFSLeadership/EVskmPZ_tkhFhk-0We1VFE0BfttxfGD9uDMYciu811O6Vw?e=0s3QO7&CID=6756A684-4B02-4BD8-ACE2-1C126E943AB0&wdLOR=c66AEAFCF-0D27-4BF6-81EE-3C28E6C2C20E&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjA2MDYxNDgwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"
+            }, {
+               "date_added": "13303402677305099",
+               "date_last_used": "13354884162416496",
+               "guid": "f39b59eb-d72b-4433-b9d8-f09011b323b8",
+               "id": "101",
+               "name": "AEM CS Contract Realization : AEM CONTENT REQUEST - Tableau Server",
+               "type": "url",
+               "url": "https://dashdiscovery.corp.adobe.com/#/views/AEMCSContractRealization/AEMCONTENTREQUEST?:iid=1"
+            }, {
+               "date_added": "13303408568316122",
+               "date_last_used": "0",
+               "guid": "fe6e50cd-fef8-46c2-b247-5eac5e943fa0",
+               "id": "102",
+               "name": "Initiate Stage Adobe Support Plan Engagement - Power Apps",
+               "type": "url",
+               "url": "https://apps.powerapps.com/play/5798e62a-cc15-490c-b7a3-bd547016f17a?tenantId=fa7b1b5a-7b34-4387-94ae-d2c178decee1"
+            }, {
+               "date_added": "13303492014126161",
+               "date_last_used": "13354385484083854",
+               "guid": "5c088df9-f67c-442f-9cd0-573f9495bb9c",
+               "id": "103",
+               "name": "Global Premier Support - Home",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/AGSConsulting/opex/GlobalPremierSupport/SitePages/Home.aspx?CT=1659018358885&OR=OWA%2DNT&CID=f74aeeb2%2D009d%2D9a09%2D5f6c%2De48ae79b5af3"
+            }, {
+               "date_added": "13305662106329867",
+               "date_last_used": "0",
+               "guid": "ec5a7c8b-b773-4801-a745-4f2d9bb387b2",
+               "id": "109",
+               "name": "AEM & Adobe Commerce Integration - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=2681352545"
+            }, {
+               "date_added": "13305811332351637",
+               "date_last_used": "13313072194546318",
+               "guid": "f8df5693-f182-44d8-861e-8d9e163d6281",
+               "id": "112",
+               "name": "MS1 to 4 - AEM - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/MS1+to+4+-+AEM"
+            }, {
+               "date_added": "13306003314441303",
+               "date_last_used": "0",
+               "guid": "a68a3ce7-ca7c-4564-a9f3-7df2ad0623af",
+               "id": "114",
+               "name": "Release Digger",
+               "type": "url",
+               "url": "https://release-digger.corp.adobe.com/diff/8484...8487"
+            }, {
+               "date_added": "13306259334925628",
+               "date_last_used": "13309286108753536",
+               "guid": "1c35d040-4d9e-49cc-a438-1767d899a8e1",
+               "id": "116",
+               "name": "Your Devices - Support Center",
+               "type": "url",
+               "url": "https://adobe.service-now.com/sc?id=dmp_devices"
+            }, {
+               "date_added": "13306337406324429",
+               "date_last_used": "0",
+               "guid": "b03128cf-03eb-4883-9832-4d84ea63368d",
+               "id": "117",
+               "name": "BlueJeans Network | Video Collaboration in the Cloud",
+               "type": "url",
+               "url": "https://primetime.bluejeans.com/a2m/events/playback/62cc5bbb-6126-4efe-bdd4-8987656a9d0d"
+            }, {
+               "date_added": "13306519843086906",
+               "date_last_used": "13331655554653897",
+               "guid": "e964a3a7-376c-4f25-94e8-e9b6c73b9166",
+               "id": "119",
+               "name": "Launch Advisory Toolset - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=PremierSupport&title=Launch+Advisory+Toolset"
+            }, {
+               "date_added": "13306928985831993",
+               "date_last_used": "0",
+               "guid": "05b169c3-b53b-44d7-96ea-d9e10d1147ea",
+               "id": "121",
+               "name": "DX Products Regions Support",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/AEMintheCloud/SitePages/DX-Products-Regions-Supports.aspx"
+            }, {
+               "date_added": "13307528245466789",
+               "date_last_used": "13327748746473611",
+               "guid": "488cca37-28c7-48b4-b29c-dfbb78ffc454",
+               "id": "125",
+               "name": "Launch Advisory Toolset - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Launch+Advisory+Toolset"
+            }, {
+               "date_added": "13308168526716923",
+               "date_last_used": "0",
+               "guid": "b862f7f0-9fe6-4b27-8676-15c7803a9dfb",
+               "id": "127",
+               "name": "Panorama",
+               "type": "url",
+               "url": "https://pmg.corp.adobe.com/PanoramaECJ/dashboard/bXJl"
+            }, {
+               "date_added": "13308246456113355",
+               "date_last_used": "13321735573585662",
+               "guid": "ff6ad9ca-d64b-4114-be89-4a78319fc5e2",
+               "id": "128",
+               "name": "6108",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=2681476172"
+            }, {
+               "date_added": "13308399757940353",
+               "date_last_used": "0",
+               "guid": "df8fc62a-d878-4d94-8347-f2d42215400b",
+               "id": "130",
+               "name": "Price list",
+               "type": "url",
+               "url": "https://aecpricelist.corp.adobe.com/price_list.php?page=Adobe%20Experience%20Manager"
+            }, {
+               "date_added": "13308843892383030",
+               "date_last_used": "0",
+               "guid": "54c0d589-e135-4f9a-a286-94ce8aa4bc69",
+               "id": "131",
+               "name": "Dynamics Project Operations (DPO) - Home",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/PSProjectOperations"
+            }, {
+               "date_added": "13309259389207847",
+               "date_last_used": "13328641574838340",
+               "guid": "24fbfb5b-7372-4eb7-ae2a-76aa5960ad52",
+               "id": "132",
+               "name": "Adobe Acronym Glossary",
+               "type": "url",
+               "url": "https://git.corp.adobe.com/pages/dernonco/acronymglossary/"
+            }, {
+               "date_added": "13311348282371433",
+               "date_last_used": "0",
+               "guid": "48d5a756-a45a-4d47-b511-b92dcdcc0654",
+               "id": "144",
+               "name": "Content Sync Accelerator",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/SCoE/SitePages/Content-sync-Accelerator.aspx?xsdata=MDV8MDF8fDNkYzk4ZjIxM2ViZTQyOTdhYmNiMDhkYWI4MThmNjIwfGZhN2IxYjVhN2IzNDQzODc5NGFlZDJjMTc4ZGVjZWUxfDF8MHw2MzgwMjQ3MTQ1NzQ0MDg2NTF8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2YldWbGRHbHVaMTlQUjFVMVRsUnJORnBVVlhSTmVsVTFXa013TUZwVVZYcE1WR2hwVG5wTmRGcHFXWGhhYWs1c1RXMU5NazlIUlRKQWRHaHlaV0ZrTG5ZeXx8&sdata=MzIwOEl4ckNUUVoxMXhTYjcwSnhxano5WDFXSmFwTnphR0xlU0pJdEkvQT0%3D&ovuser=fa7b1b5a-7b34-4387-94ae-d2c178decee1%2Cmre%40adobe.com&OR=Teams-HL&CT=1666874674416&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjEwMTQwNjMwMCIsIkhhc0ZlZGVyYXRlZFVzZXIiOnRydWV9"
+            }, {
+               "date_added": "13311853199757683",
+               "date_last_used": "13313085443722785",
+               "guid": "acb8fd4e-7431-41cb-afd4-dedd7b711da4",
+               "id": "146",
+               "name": "E | Launch Advisory Adobe Experience Manager (AEM) MS2 Enablement",
+               "type": "url",
+               "url": "https://cpcontents.adobe.com/public/newlearner/newlearner_92d2947f.html?accountId=29997#/learningProgram/102834/instance/145564"
+            }, {
+               "date_added": "13312488293799492",
+               "date_last_used": "13316177463601050",
+               "guid": "9007d4b1-484f-4e44-9b99-1e4aaf71cd46",
+               "id": "150",
+               "name": "Adobe Experience Manager as a Cloud Service | Product Description",
+               "type": "url",
+               "url": "https://helpx.adobe.com/legal/product-descriptions/aem-cloud-service.html"
+            }, {
+               "date_added": "13313001337277029",
+               "date_last_used": "0",
+               "guid": "8dd3de39-2eaa-4f2c-a3d2-e3b20df3477c",
+               "id": "152",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "(SitesCloud) Scrum Board - Agile Board - Jira",
+               "type": "url",
+               "url": "https://jira.corp.adobe.com/secure/RapidBoard.jspa?rapidView=31444&projectKey=SITES&view=planning&issueLimit=100"
+            }, {
+               "date_added": "13316002834721879",
+               "date_last_used": "13319543522827759",
+               "guid": "752dad31-c32c-4b0e-b185-b4a68f4f7bbf",
+               "id": "160",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM CS Workspace",
+               "type": "url",
+               "url": "https://aemcs-workspace.adobe.com/?authToken=dee1ec1e6c80c362aaac92263803bdad38f9aa9487532d7e5adc4645dca5624f"
+            }, {
+               "date_added": "13317817678249052",
+               "date_last_used": "13344014336886086",
+               "guid": "191b2c99-19bf-4dda-824c-5005107e24fb",
+               "id": "164",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "DX Solution Engagement Operational Reporting - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/0b6e808d-1da1-4708-99ae-ca0940ac066d/reports/0ed38ae2-9f62-43e6-ac2b-764c559828f8/ReportSection32745c97c58a60383b63?chromeless=1"
+            }, {
+               "date_added": "13321365229370976",
+               "date_last_used": "0",
+               "guid": "5606d44e-693d-49a0-b6e1-3e5494083307",
+               "id": "177",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Onboarding Status - Grafana",
+               "type": "url",
+               "url": "https://rollingstones.gf.corp.adobe.com/d/KzF_vCPMk/onboarding-status?orgId=1&var-program=62913&var-environment=Prod&var-datasource_ro=RO%20Prod%20Postgres&var-datasource_rv=RV%20Prod%20Postgres"
+            }, {
+               "date_added": "13321551716905721",
+               "date_last_used": "13322232750708242",
+               "guid": "25d30e8a-1019-41dd-8cd9-64541fa75e69",
+               "id": "179",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Columbus - User Details",
+               "type": "url",
+               "url": "https://columbus.corp.adobe.com/organizations/49DBA42E58DE4C560A495C19@AdobeOrg/users/198141449"
+            }, {
+               "date_added": "13323281507984274",
+               "date_last_used": "13354034131285242",
+               "guid": "c2b80753-5580-4fe6-bb26-5f43f68e4896",
+               "id": "181",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Action Performance Metrics - Grafana",
+               "type": "url",
+               "url": "https://ioruntime.gf.corp.adobe.com/d/Oew1lvymk/action-performance-metrics?orgId=1&refresh=1m&var-k8s_cluster=ethos651prodirl1&var-k8s_namespace=ns-team-ethos651prodirl1-runtime-prod-b&var-region=All&var-stack=All&var-initiator=All&var-namespace=84306-692tealclownfish&var-action=All&var-interval=$__auto_interval_interval"
+            }, {
+               "date_added": "13333018567835350",
+               "date_last_used": "0",
+               "guid": "9b11f269-e530-4c86-92a1-438b40b3ec83",
+               "id": "191",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "ACS Business Operations Hub",
+               "type": "url",
+               "url": "https://pmg.corp.adobe.com/ACSBizOpsHub/Main/ACSBizOps/#"
+            }, {
+               "date_added": "13333806053482799",
+               "date_last_used": "13354385503901906",
+               "guid": "94b47162-47f3-4dbd-9f59-8a00ae9ae0a1",
+               "id": "193",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Content & Commerce Center of Excellence - Home",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/ContentCommerceCenterofExcellence?e=1%3Ace70a16a2eaa441ea78a5b4ee1c1c0ab&CT=1689332442302&OR=OWA-NT&CID=8726ec9f-6014-9513-8125-ff40c60050a9"
+            }, {
+               "children": [ {
+                  "date_added": "13338658252873786",
+                  "date_last_used": "0",
+                  "guid": "91c610c4-543b-4e1e-96ef-110206530d28",
+                  "id": "195",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Adobe Workfront",
+                  "type": "url",
+                  "url": "https://digitalu.adobe.com/content/Enablement/en/solutions/adobe-experience-cloud/marketing-workflow/workfront.html.html"
+               }, {
+                  "date_added": "13346782016541895",
+                  "date_last_used": "0",
+                  "guid": "4185361d-3218-47f8-92fd-7712e8db566b",
+                  "id": "207",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Adobe Tech Blog",
+                  "type": "url",
+                  "url": "https://blog.developer.adobe.com/"
+               }, {
+                  "date_added": "13347643330021843",
+                  "date_last_used": "0",
+                  "guid": "625be7d3-8f61-4c21-bee3-a38329f4f08d",
+                  "id": "209",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Inside Adobe TV -",
+                  "type": "url",
+                  "url": "https://iatv.adobe.com/"
+               } ],
+               "date_added": "13338658284826263",
+               "date_last_used": "0",
+               "date_modified": "13347731332684353",
+               "guid": "c3ee6ecc-8949-4051-ac40-ea0c57f7c606",
+               "id": "196",
+               "name": "Adobe Learning",
+               "type": "folder"
+            }, {
+               "date_added": "13343839890681503",
+               "date_last_used": "13344023228569723",
+               "guid": "1eb930a5-cd22-44d4-bdc2-b1e7982cc5a3",
+               "id": "198",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM CS Contract Realization : AEM CONTENT REQUEST - Tableau Server",
+               "type": "url",
+               "url": "https://dashdiscovery.corp.adobe.com/#/views/AEMCSContractRealization/AEMCONTENTREQUEST?=null&:iid=2"
+            }, {
+               "date_added": "13349984132339120",
+               "date_last_used": "0",
+               "guid": "b44ed724-0bb0-4e7f-a064-34d96bef3167",
+               "id": "216",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Field Resource Hub - Adobe Success plans - CE&S Strategy, Intelligence & Ops - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=CESTRATINTELandOPS&title=Field+Resource+Hub+-+Adobe+Success+plans"
+            }, {
+               "date_added": "13350734030810090",
+               "date_last_used": "13351188085849702",
+               "guid": "5ec62391-5f98-41f9-9a6b-bbcf4b732b32",
+               "id": "218",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Toyota Clone Prod",
+               "type": "url",
+               "url": "https://20.224.119.220/libs/granite/core/content/login.html"
+            }, {
+               "date_added": "13351177423056808",
+               "date_last_used": "0",
+               "guid": "b318f12d-608c-4914-868d-0cd775eb2bef",
+               "id": "220",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Crosswalk - Getting started - AEM Sites - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=AEMSites&title=Crosswalk+-+Getting+started"
+            }, {
+               "date_added": "13370345823179294",
+               "date_last_used": "0",
+               "guid": "83dfdde3-2793-4cf2-ad19-ebf3e51aa633",
+               "id": "273",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "VIP Connect dashboard - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/18e1d510-9556-4245-bc2d-25c843bf1944/reports/8af6e9bc-3b02-4110-a097-79a1ea29b9d4/ReportSection7dbbb556571e1e632a1f?ctid=fa7b1b5a-7b34-4387-94ae-d2c178decee1&experience=power-bi"
+            }, {
+               "date_added": "13372350330958999",
+               "date_last_used": "0",
+               "guid": "9fadae9f-f1b9-4241-99f6-3d8d08fed2c4",
+               "id": "275",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM environment replication performance | Splunk 9.1.4",
+               "type": "url",
+               "url": "https://splunk.or1.adobe.net/en-US/app/TA-aem_skyline/replication_environment_performance?form.aem_service=cm-p72657-e958802&form.global_time.earliest=-24h%40h&form.global_time.latest=now&form.search=*&form.index=dx_aem_engineering"
+            }, {
+               "date_added": "13374065976963783",
+               "date_last_used": "13383661500042275",
+               "guid": "fc7dcc6a-2a84-423c-b4b6-3142d3daead5",
+               "id": "281",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Adobe Success Activity Surveys - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/0889cfd6-13e1-4212-a9c0-676d906c2e47/reports/4f51c3d6-71ba-45c1-b472-44cd78f57f5d/ReportSection833f2104909ea6a02e99?experience=power-bi&clientSideAuth=0"
+            }, {
+               "date_added": "13375184888680482",
+               "date_last_used": "0",
+               "guid": "f41a8732-5f1d-4e60-93d7-3f4e2569b991",
+               "id": "283",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Adobe GenStudio - WIP - Services for Ultimate Success - All Documents",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/AdobeGenStudio/Shared%20Documents/Forms/AllItems.aspx?e=5%3Aa7d6e19d513943bfb6b30d10e71e547e&sharingv2=true&fromShare=true&at=9&CT=1730711268176&OR=OWA%2DNT%2DMail&CID=64790713%2D1338%2D117b%2Dfb4e%2Db572001ced64&clickParams=eyJYLUFwcE5hbWUiOiJNaWNyb3NvZnQgT3V0bG9vayBXZWIgQXBwIiwiWC1BcHBWZXJzaW9uIjoiMjAyNDEwMjUwMDMuMTIiLCJPUyI6Ik1hYyBPUyBYIHVuZGVmaW5lZCJ9&cidOR=Client&FolderCTID=0x0120002731459853F6274EA1F2C69E90356EF8&id=%2Fsites%2FAdobeGenStudio%2FShared%20Documents%2F03%2E%20GenStudio%20Product%2F00%2E%20Beta%20Program%2FWIP%20%2D%20Services%20for%20Ultimate%20Success"
+            }, {
+               "date_added": "13375470465653615",
+               "date_last_used": "0",
+               "guid": "9ce578dd-5799-42c9-8060-c3cd3238c188",
+               "id": "284",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Timesheets | Adobe Workfront",
+               "type": "url",
+               "url": "https://experience.adobe.com/#/@wfadoberm/so:adoberm-Production/workfront/timesheets"
+            }, {
+               "date_added": "13376426681099910",
+               "date_last_used": "13376484944123260",
+               "guid": "bd2fa4be-52cd-4e27-a4b7-41ca744d06ad",
+               "id": "289",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Success Accelerator Toolset",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/FieldEngineeringTeam/SitePages/SA.aspx?cp_oauth_jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwIjoidXJsIiwicmFuZCI6IjdjYzA5MjcyZTk0NWMyOTA0YmQ0N2RlY2UxMGNhYzZjIiwidiI6IjEiLCJvcmlnaW5hbFVybEhhc2giOiI4Y2YzNTMwN2Q3MzAzOWFmMDdkNmY1MWQ0MTRiMjgwNDAyZmI3NjM0IiwiZXhwIjoxNzMyNTU3ODQ4LCJyaWQiOiIxNzk2MTc4NSIsImlhdCI6MTczMTk1MzA0OCwiY2lkIjoiMjIyNCJ9.SQIavTDwAOTSF7-KJFyRZy-bWjnBy-pCeUt4NGx_4Kg"
+            }, {
+               "date_added": "13378929377259379",
+               "date_last_used": "0",
+               "guid": "4dfaab0f-7bb7-4963-99ad-2bfcf12fd740",
+               "id": "291",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Dynamic Delivery Dashboard - D3 - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/662f8209-a6da-4c91-8258-f949148063e4/reports/d915d5de-392d-4996-b369-1e6c47fd68b9/c805e3acdb9fd141d96a?ctid=fa7b1b5a-7b34-4387-94ae-d2c178decee1&experience=power-bi"
+            }, {
+               "date_added": "13380892058842347",
+               "date_last_used": "0",
+               "guid": "5f642d16-eec3-4aba-83d5-ddef45ee1163",
+               "id": "293",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM CS DaaS Assistant",
+               "type": "url",
+               "url": "https://daas-smartassist.corp.adobe.com/config"
+            }, {
+               "date_added": "13383661550818889",
+               "date_last_used": "13401902109390580",
+               "guid": "6af33078-815b-4d01-8073-bb3dc5e942a9",
+               "id": "295",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Adobe Success Activity Surveys - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/662f8209-a6da-4c91-8258-f949148063e4/reports/919a27c3-14ba-40a8-9dee-87bff422138d/ReportSection0d9fe54847075837afe6?experience=power-bi"
+            }, {
+               "date_added": "13384282101696504",
+               "date_last_used": "0",
+               "guid": "57ef16c3-1eed-4ef0-b16e-5bc88a6890c7",
+               "id": "297",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AAUI - Agent Admin Console",
+               "type": "url",
+               "url": "https://agent.adminconsole.adobe.com/search-results/tokenizedName/BMW/"
+            }, {
+               "date_added": "13385054053855439",
+               "date_last_used": "0",
+               "guid": "21b0e578-ad01-4ba2-9823-6e06b3067ce2",
+               "id": "299",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Delivery Methodology",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/FieldEngineeringTeam/SitePages/Delivery-Methodology.aspx"
+            }, {
+               "date_added": "13392205006810694",
+               "date_last_used": "0",
+               "guid": "36d3750c-c370-41b4-a242-670e4ed6530e",
+               "id": "301",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Activities - Dynamic Delivery Dashboard - D3 - Power BI",
+               "type": "url",
+               "url": "https://app.powerbi.com/groups/me/apps/662f8209-a6da-4c91-8258-f949148063e4/reports/d915d5de-392d-4996-b369-1e6c47fd68b9/be94a3951a376425520d?ctid=fa7b1b5a-7b34-4387-94ae-d2c178decee1&experience=power-bi&clientSideAuth=0"
+            }, {
+               "date_added": "13392293577094349",
+               "date_last_used": "0",
+               "guid": "8fa9342a-d0fa-4858-974b-4e1ea9d38519",
+               "id": "303",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Content Request - populate-sites-contentrequests/loader/query/splunk_restrict_to_contentrequests.txt at main · aem-eng-ops/db-tools",
+               "type": "url",
+               "url": "https://git.corp.adobe.com/aem-eng-ops/db-tools/blob/main/cmd/populate-sites-contentrequests/loader/query/splunk_restrict_to_contentrequests.txt"
+            }, {
+               "date_added": "13394648900337453",
+               "date_last_used": "0",
+               "guid": "496dc139-c131-4704-afb1-a4125f7f8ca3",
+               "id": "305",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM Dispatcher Flushing | Adobe Experience Manager",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/ams/dispatcher/disp-flushing#:~:text=DISPATCHER%20FLUSH%20REPLICATION%20RECEIVING%20VIRTUAL,by%20the%20Dispatcher%20handler%20itself."
+            }, {
+               "date_added": "13398248582263212",
+               "date_last_used": "0",
+               "guid": "6645ff68-9734-42d7-ad3c-ece0ce092a59",
+               "id": "309",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Field Engineering",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/FieldEngineeringOrg"
+            }, {
+               "date_added": "13399058092592782",
+               "date_last_used": "0",
+               "guid": "5d46ef93-1659-4de5-a998-74edf381f306",
+               "id": "311",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Success Accelerator Launcher App - Power Apps",
+               "type": "url",
+               "url": "https://apps.powerapps.com/play/e/ca07448a-3505-480a-8caf-704287c6c931/a/6c92a60d-726b-4973-85b7-ebe8b2921839?tenantId=fa7b1b5a-7b34-4387-94ae-d2c178decee1&hint=9fbd8019-decd-4319-8570-3bc41730055b&sourcetime=1730813967285&skipAppMetadata=true&hidenavbar=true#"
+            }, {
+               "date_added": "13425400725587734",
+               "date_last_used": "0",
+               "guid": "c1590e21-665a-4ecf-a2cd-0d7764742d79",
+               "id": "313",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Content Request Analysis - AEM Data Services - Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/spaces/AEMEO/pages/3502411468/Content+Request+Analysis"
+            } ],
+            "date_added": "13290882016175328",
+            "date_last_used": "0",
+            "date_modified": "13425400725587734",
+            "guid": "20dadb74-5b13-438e-a689-4856af107406",
+            "id": "17",
+            "name": "Adobe Premier Support",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13291397040924765",
+               "date_last_used": "0",
+               "guid": "5dac8aa7-07fd-45d8-ad87-2dd2e2e5059c",
+               "id": "31",
+               "name": "Field Services - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Field+Services"
+            }, {
+               "date_added": "13291393645831523",
+               "date_last_used": "0",
+               "guid": "d7e44d03-b191-4fad-9d8e-0422195c4f98",
+               "id": "28",
+               "name": "Field Services - Food for Thought (List of finalized FieldService-EMEA Deliverables / Activities) - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=2310945786"
+            }, {
+               "date_added": "13291393857208603",
+               "date_last_used": "0",
+               "guid": "f736a7c6-076a-4aac-81f4-0b486fb5cd2c",
+               "id": "29",
+               "name": "Upgrade Impact Analyzer",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/GCoE/SitePages/Upgrade-Impact-Analyzer.aspx"
+            }, {
+               "date_added": "13290881726694952",
+               "date_last_used": "0",
+               "guid": "6ca370dc-b046-47ba-8d8f-eb9d3b77248e",
+               "id": "13",
+               "name": "Premier Support - Jira",
+               "type": "url",
+               "url": "https://jira.corp.adobe.com/projects/TAM/summary"
+            }, {
+               "date_added": "13292610145865295",
+               "date_last_used": "0",
+               "guid": "786879e4-ee67-4cd4-a93b-cdfc8fda3aa6",
+               "id": "49",
+               "name": "Adobe Experience Platform - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Adobe+Experience+Platform"
+            }, {
+               "date_added": "13293894972046280",
+               "date_last_used": "0",
+               "guid": "f0056313-a2da-42d3-95ac-a5d9f5e30c5f",
+               "id": "54",
+               "name": "ACS Services Quick Click | Field Readiness",
+               "type": "url",
+               "url": "https://fieldreadiness-adobe.highspot.com/items/5ebd35d63f65f6682b8973e1#1"
+            }, {
+               "date_added": "13294248603208098",
+               "date_last_used": "0",
+               "guid": "19b224a5-29d4-4078-8bc4-64298329801d",
+               "id": "57",
+               "name": "Kickoff Deck Template",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/:p:/r/sites/EMEAPremierSupportConsulting/Shared%20Documents/General/Templates/Premier%20Support-Field-Services-Activity-Kick-off.pptx?d=wfefa2071d1bc40c881895ee6816770fb&csf=1&web=1&e=vpNr2A"
+            }, {
+               "date_added": "13297884661808315",
+               "date_last_used": "0",
+               "guid": "045d187d-5494-4d7a-aee1-4bcf7fcd22c1",
+               "id": "76",
+               "name": "Thread Dump Analyzer",
+               "type": "url",
+               "url": "http://threaddumpanalyzer.adobecqms.net/amsanalyzer/index.html"
+            }, {
+               "date_added": "13317746731691292",
+               "date_last_used": "13317845784727805",
+               "guid": "8139f03a-fbfa-45ff-9c30-6080333bfe4b",
+               "id": "163",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AMS Performance Dashboard (New) | Splunk 8.2.4",
+               "type": "url",
+               "url": "https://splunk.or1.adobe.net/en-US/app/TA-AMS_ui/ams_performance_dashboard_new?form.field1.earliest=-30d%40d&form.field1.latest=now&form.field6=10m&form.field2=NV%20Bekaert%20SA&form.field3=prod&form.field4=*publish*"
+            }, {
+               "date_added": "13317845241148530",
+               "date_last_used": "0",
+               "guid": "2bc5351a-0948-4c5b-b361-68860c967fda",
+               "id": "166",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Initial IMS troubleshooting - Jose Insua Fernandez - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/~insuafer/Initial+IMS+troubleshooting"
+            }, {
+               "date_added": "13318419156806335",
+               "date_last_used": "0",
+               "guid": "8db478f2-6db1-41bc-96b5-297ae1ec284b",
+               "id": "167",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "AEM CS Workspace",
+               "type": "url",
+               "url": "https://aemcs-workspace.adobe.com/governance/prr?csme=&openItems=&team=&imsOrgId=&search=ferrari"
+            }, {
+               "date_added": "13318507288769743",
+               "date_last_used": "0",
+               "guid": "c4f3c515-99fd-4b7e-b8cc-afdf67b1d0ba",
+               "id": "168",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Frontend - Quick site creation and Frontend Pipeline - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Frontend+-+Quick+site+creation+and+Frontend+Pipeline"
+            }, {
+               "date_added": "13318507393913419",
+               "date_last_used": "0",
+               "guid": "12a4b478-b589-4ac4-9dd4-cbe6916a0d43",
+               "id": "169",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Summit 2022 Demo for AEM Sites - Cedric Huesler - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/~chuesler/Summit+2022+Demo+for+AEM+Sites"
+            }, {
+               "date_added": "13318686712014761",
+               "date_last_used": "0",
+               "guid": "0ac3e26e-670e-4584-9a9a-f123adf93bd3",
+               "id": "170",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Jenkins Cloud Manager Plugin - AEM Emerging Technologies - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/aememergingtech/Jenkins+Cloud+Manager+Plugin"
+            } ],
+            "date_added": "13291397038362855",
+            "date_last_used": "0",
+            "date_modified": "13318686776081339",
+            "guid": "75dba292-d4ae-48b8-997a-dc4ad684687b",
+            "id": "30",
+            "name": "Field Services",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13291725131560773",
+               "date_last_used": "0",
+               "guid": "bd7d6ec6-8d49-4f23-a8d4-feb1a3e74f12",
+               "id": "36",
+               "name": "MS1 to 5 - AEM - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/MS1+to+5+-+AEM"
+            }, {
+               "date_added": "13291141999354442",
+               "date_last_used": "13313085410965485",
+               "guid": "e127f924-811d-4074-84be-683ef60849ed",
+               "id": "24",
+               "name": "Launch Advisory Enablemrnt Video",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/:v:/r/sites/PremierSupport/Shared%20Documents/Enablement/Launch%20Advisory%20Enablement/Launch%20Advisory%20Enablement%20Recordings%20and%20Decks/AEM%20Launch%20Advisory%20Enablement/AEM%20Launch%20Advisory%20Redefined%20(Delivery%20team%20enablement)%20-%20Session%202%20of%202-20210519_150147-Meeting%20Recording.mp4?csf=1&web=1&e=fEpbhh"
+            }, {
+               "date_added": "13291142314084371",
+               "date_last_used": "0",
+               "guid": "54b81b89-4e6f-4cc7-abd7-38b98f6143db",
+               "id": "25",
+               "name": "Launch Advisory Delivery Enablement - Premier Support - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/PremierSupport/Launch+Advisory+Delivery+Enablement"
+            }, {
+               "date_added": "13291808798098183",
+               "date_last_used": "0",
+               "guid": "bdf7e437-c684-49aa-ba0d-bbddc1a8f490",
+               "id": "38",
+               "name": "Support Engineer Dashboard - Dynamics 365",
+               "type": "url",
+               "url": "https://adobe-ent.crm.dynamics.com/main.aspx?appid=f2e74f34-7119-ea11-a811-000d3a5936c5&forceUCI=1&pagetype=dashboard&id=adb175ca-92a6-e811-a970-000d3a108ae0&type=system&_canOverride=true"
+            }, {
+               "date_added": "13292358102232281",
+               "date_last_used": "0",
+               "guid": "d8532ed7-9e08-472f-af16-13488c4abfe0",
+               "id": "44",
+               "name": "Adobe Experience Manager LFS: Milestones & Getting Started",
+               "type": "url",
+               "url": "https://adobe.sharepoint.com/sites/GCoE/SitePages/AEM-LFS-2.0.aspx"
+            }, {
+               "date_added": "13292423595414419",
+               "date_last_used": "0",
+               "guid": "819846b0-0df9-471e-a0d9-e0bc1a839590",
+               "id": "47",
+               "name": "My Launch Advisory Projects - Planner",
+               "type": "url",
+               "url": "https://tasks.office.com/adobe.onmicrosoft.com/en-US/Home/Planner/#/plantaskboard?groupId=b40a0c2b-eafb-4a60-a2f9-e4ea4d05fab5&planId=PONgemLXZEWUqrePPN0Gr2QACGS6"
+            }, {
+               "children": [ {
+                  "date_added": "13300813629898398",
+                  "date_last_used": "0",
+                  "guid": "0c58221d-b534-4be1-80fa-d86a733b915f",
+                  "id": "84",
+                  "name": "AEM as a Cloud Service - Cache Dashboard | Splunk 8.2.4",
+                  "type": "url",
+                  "url": "https://splunk.or1.adobe.net/en-GB/app/TA-aem_skyline/aem_cs_cache_ratio?form.field1.earliest=-60m%40m&form.field1.latest=now&form.field4=Ministero%20Del%20Turismo&form.field5=prod&form.field3=cm-p52903-e530534&form.field6=publish&form.field2=www.italia.it"
+               }, {
+                  "date_added": "13300893692896693",
+                  "date_last_used": "13313092751617373",
+                  "guid": "7d957d00-d1ed-45e9-a178-5c895ed17f84",
+                  "id": "86",
+                  "name": "MiTur Go-Live Dashboard \u003C New Relic One",
+                  "type": "url",
+                  "url": "https://one.newrelic.com/dashboards/detail/MzM4NzczMnxWSVp8REFTSEJPQVJEfGRhOjE0MTk3NjU?account=3387732&state=b5a1879f-c53b-6c1d-cb86-da7e0d88e612"
+               } ],
+               "date_added": "13300813647642130",
+               "date_last_used": "0",
+               "date_modified": "13301482968911992",
+               "guid": "61645fad-6957-4ff6-beb4-7879fb74efb7",
+               "id": "85",
+               "name": "Mitur",
+               "type": "folder"
+            } ],
+            "date_added": "13291725124991908",
+            "date_last_used": "0",
+            "date_modified": "13292592455440095",
+            "guid": "a9f500d3-506c-4b4c-a50e-6b55e0ea3bde",
+            "id": "35",
+            "name": "Launch Advisory",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13292332254378787",
+                  "date_last_used": "0",
+                  "guid": "30b052a3-7fd5-473a-a5a5-0a2dc5d2e313",
+                  "id": "42",
+                  "name": "Refactoring portale internet - Documents - All Documents",
+                  "type": "url",
+                  "url": "https://itinps.sharepoint.com/sites/Refactoringportaleinternet/Documenti%20condivisi/Forms/AllItems.aspx"
+               }, {
+                  "date_added": "13303815381055884",
+                  "date_last_used": "0",
+                  "guid": "44f0f812-40d7-4167-a230-7cf06309f1a7",
+                  "id": "104",
+                  "name": "INPS - Home",
+                  "type": "url",
+                  "url": "https://adobe.sharepoint.com/sites/amscs/inps"
+               } ],
+               "date_added": "13292332227087098",
+               "date_last_used": "0",
+               "date_modified": "13303823352851179",
+               "guid": "69055c44-0fb5-47be-96d2-29470b0c894c",
+               "id": "41",
+               "name": "INPS",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13304171474548753",
+                  "date_last_used": "13312997229428475",
+                  "guid": "aacf1159-1dae-4f8d-9511-6147e717fe90",
+                  "id": "106",
+                  "name": "Università Cattolica del Sacro Cuore - Home",
+                  "type": "url",
+                  "url": "https://adobe.sharepoint.com/sites/aemcs_unicatt?e=1%3a82f1f68a330b4b5dbc803812c3233d9a&CT=1659697827016&OR=OWA-NT&CID=8319f465-c796-93e6-d36a-61aea1711cba"
+               } ],
+               "date_added": "13304171486467048",
+               "date_last_used": "0",
+               "date_modified": "13305662106329867",
+               "guid": "b21303a2-0a11-4423-843a-087562081f08",
+               "id": "107",
+               "name": "Cattolica",
+               "type": "folder"
+            } ],
+            "date_added": "13292332219273903",
+            "date_last_used": "0",
+            "date_modified": "13292332254378787",
+            "guid": "f71caa9d-d370-4e16-b10d-5d7c077c4d15",
+            "id": "40",
+            "name": "Customers",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13294250138888787",
+               "date_last_used": "0",
+               "guid": "0b4f3008-ebe9-440d-b713-212374a5962f",
+               "id": "59",
+               "name": "Optimizing AEM Site Caches | Adobe Experience Cloud",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/docs/experience-cloud-kcs/kbarticles/KA-17461.html?lang=en"
+            }, {
+               "date_added": "13294250483100099",
+               "date_last_used": "0",
+               "guid": "3d420b90-12ad-4de3-8864-276d559aeb58",
+               "id": "60",
+               "name": "Caching in AEM as a Cloud Service | Adobe Experience Manager",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html?lang=en#html-text"
+            }, {
+               "date_added": "13294168678769173",
+               "date_last_used": "0",
+               "guid": "5c684507-4bb9-4df6-adca-a1ed5cd7b0db",
+               "id": "56",
+               "name": "experience-manager-learn.en/chapter-1.md at main · AdobeDocs/experience-manager-learn.en",
+               "type": "url",
+               "url": "https://github.com/AdobeDocs/experience-manager-learn.en/blob/main/help/dispatcher-tutorial/chapter-1.md"
+            }, {
+               "date_added": "13294250559707189",
+               "date_last_used": "0",
+               "guid": "98bdd2b9-aee3-43d1-8e75-4fadab4abb7e",
+               "id": "61",
+               "name": "UX Patterns: Stale-While-Revalidate",
+               "type": "url",
+               "url": "https://www.infoq.com/news/2020/11/ux-stale-while-revalidate/#:~:text=stale%2Dwhile%2Drevalidate%20helps%20developers,of%20the%20HTTP%20response%20header."
+            }, {
+               "date_added": "13294250706148767",
+               "date_last_used": "0",
+               "guid": "e60d32b1-3c1c-4a89-ba72-08c329234d9c",
+               "id": "62",
+               "name": "Soft purges | Fastly Help Guides",
+               "type": "url",
+               "url": "https://docs.fastly.com/en/guides/soft-purges"
+            } ],
+            "date_added": "13294250136470329",
+            "date_last_used": "0",
+            "date_modified": "13294915128762574",
+            "guid": "8d8abece-327e-4766-858f-81539cc6f20c",
+            "id": "58",
+            "name": "Caching Strategy",
+            "type": "folder"
+         }, {
+            "date_added": "13310733619174080",
+            "date_last_used": "13400690667096427",
+            "guid": "37443275-8ada-4e57-ac35-1fc7b2200515",
+            "id": "139",
+            "name": "MAX Sneaks with Kevin Hart & Bria Alexander",
+            "type": "url",
+            "url": "https://www.adobe.com/max/2022/sessions/max-sneaks-mb6.html"
+         }, {
+            "date_added": "13314392154016098",
+            "date_last_used": "0",
+            "guid": "23380d8e-c95e-46e3-afe3-b5163bed6379",
+            "id": "154",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Search | Splunk 8.2.4",
+            "type": "url",
+            "url": "https://splunk.or1.adobe.net/en-GB/app/TA-AMS_ui/search?sid=1669918458.82718_89D2A891-A57C-4842-88B4-B457CCFD3156"
+         }, {
+            "date_added": "13330796179755345",
+            "date_last_used": "13330796259753162",
+            "guid": "7e7f0305-9ec4-4132-96fd-d7f4f7cc6287",
+            "id": "189",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Hancock QA Env",
+            "type": "url",
+            "url": "https://75.101.197.247/libs/granite/core/content/login.html"
+         }, {
+            "date_added": "13314456594715659",
+            "date_last_used": "13369848545061416",
+            "guid": "efe82049-c869-4f08-946c-2e1104d8f2e5",
+            "id": "155",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "SyncAI - AEM Content Downsync Script - Managed Services Team - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/display/MSTeam/SyncAI+-+AEM+Content+Downsync+Script"
+         }, {
+            "date_added": "13315396889829348",
+            "date_last_used": "13376509527662118",
+            "guid": "ea9713b9-9e45-480d-8ac8-0a47876800d5",
+            "id": "157",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "AEM Support Process - Web Experience Management - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=WEM&title=AEM+Support+Process"
+         }, {
+            "date_added": "13397225620991135",
+            "date_last_used": "0",
+            "guid": "b96e33b4-bb4e-4a8b-a8d2-f31ea6a036b7",
+            "id": "307",
+            "name": "On-Boarding Tool",
+            "type": "url",
+            "url": "javascript:(%20%20%20%20function()%7B%20%20%20%20%20%20var%20script=document.createElement('script');%20%20%20%20%20%20script.src='https://demo-about-adobe--sneak--aemdemos.aem.page/blocks/bookmarklet/client.js';%20%20%20%20%20%20document.body.appendChild(script);%20%20%20%20%7D%20%20)();"
+         }, {
+            "date_added": "13315926779748059",
+            "date_last_used": "13373979636352416",
+            "guid": "d21de61a-1a73-47f4-89e8-980958572e42",
+            "id": "159",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "DM Usage Dashboard - Power BI",
+            "type": "url",
+            "url": "https://app.powerbi.com/groups/me/apps/8c022095-f22c-4c80-9c27-556eae154290/reports/4df1b2ea-79e9-4a56-84f4-960413d88e87/ReportSectionae462103b5836d56dbba?ctid=fa7b1b5a-7b34-4387-94ae-d2c178decee1"
+         }, {
+            "date_added": "13328027652251200",
+            "date_last_used": "0",
+            "guid": "9b0ca5ac-43d5-4027-9061-3bf0615a22c6",
+            "id": "187",
+            "name": "Apache Sling :: Content Distribution (org.apache.sling.distribution)",
+            "type": "url",
+            "url": "https://sling.apache.org/documentation/bundles/content-distribution.html#:~:text=The%20Sling%20Content%20Distribution%20(SCD,of%20specific%20paths%20between%20instances."
+         }, {
+            "children": [ {
+               "date_added": "13343851001167572",
+               "date_last_used": "13367410902596659",
+               "guid": "82aad382-6c9f-4963-beb0-e0d0e149f341",
+               "id": "199",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Api Explorer",
+               "type": "url",
+               "url": "https://developer.adobe.com/workfront/api-explorer/"
+            }, {
+               "date_added": "13345663991715417",
+               "date_last_used": "0",
+               "guid": "6d944aa2-ba24-4926-82f8-4f002940df34",
+               "id": "204",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Filter and condition modifiers | Adobe Workfront",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/docs/workfront/using/reporting/reports/report-elements/filter-condition-modifiers.html?lang=en"
+            }, {
+               "date_added": "13345664024337733",
+               "date_last_used": "0",
+               "guid": "3a497153-fc2a-4d21-abe9-4fd19600c2f1",
+               "id": "205",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Wildcard filter variables | Adobe Workfront",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/docs/workfront/using/reporting/reports/report-elements/understand-wildcard-filter-variables.html?lang=en"
+            } ],
+            "date_added": "13343851013997038",
+            "date_last_used": "0",
+            "date_modified": "13346782016541895",
+            "guid": "07c8364d-c6a1-42db-bd8d-0476d68f337e",
+            "id": "200",
+            "name": "Workfront",
+            "type": "folder"
+         }, {
+            "date_added": "13347731332684353",
+            "date_last_used": "13347737630306792",
+            "guid": "df7f2435-bbdc-4e11-8db5-9c16575396d9",
+            "id": "210",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Volkswagen - Monitoring Daily Prod (TAM) | Splunk 9.0.4",
+            "type": "url",
+            "url": "https://splunk.or1.adobe.net/en-US/app/TA-AMS_ui/volkswagen__monitoring_daily_prod_tam"
+         }, {
+            "date_added": "13352554261943791",
+            "date_last_used": "0",
+            "guid": "1d72ed34-2365-41cb-bf92-742664e0f22b",
+            "id": "225",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Adobe Demo",
+            "type": "url",
+            "url": "https://www.adobedemo.com/content/demo-hub/welcome-page.html"
+         }, {
+            "date_added": "13354370697377435",
+            "date_last_used": "13354708339095461",
+            "guid": "add66ef7-afca-431d-b721-9ef6537675f0",
+            "id": "227",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Field Engineering CSAT Surveys",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/sites/FieldEngineeringTeam/SitePages/CSAT-Surveys.aspx"
+         }, {
+            "date_added": "13354641915492738",
+            "date_last_used": "0",
+            "guid": "2a86cb8b-6fb1-45df-a47d-c81cc9ab42e8",
+            "id": "229",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Developer Portal",
+            "type": "url",
+            "url": "https://developer.pe.corp.adobe.com/home"
+         }, {
+            "date_added": "13354711068194896",
+            "date_last_used": "0",
+            "guid": "896c49c9-969a-4d49-bce5-b105f61ae0d5",
+            "id": "230",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Update an AEM CS Development Environment to a Developer Release | Scribe",
+            "type": "url",
+            "url": "https://scribehow.com/shared/Update_an_AEM_CS_Development_Environment_to_a_Developer_Release__EjYFJuPQRYuiB3gC4wnTkQ"
+         }, {
+            "date_added": "13355345377674671",
+            "date_last_used": "13365702603630213",
+            "guid": "7734c34f-c430-4bde-b76f-2e93cebe056b",
+            "id": "232",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "What is Mentor Session? How do I use this site?",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/sites/DXCEKnowledgeTransferAssetLibrary/SitePages/What-is-Knowledge-Transfer--How-do-I-use-this-site-.aspx?source=https%3a//adobe.sharepoint.com/sites/DXCEKnowledgeTransferAssetLibrary/SitePages/Forms/ByAuthor.aspx"
+         }, {
+            "date_added": "13355581796481744",
+            "date_last_used": "0",
+            "guid": "83591c8f-1ff9-4392-b84b-5417e427f740",
+            "id": "233",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "home",
+            "type": "url",
+            "url": "https://internal.adobedemo.com/content/demo-hub/en/home.html"
+         }, {
+            "date_added": "13355585969232688",
+            "date_last_used": "0",
+            "guid": "796ab0b4-5256-4575-b799-c8865a820b64",
+            "id": "235",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Mentor Session Topics.xlsx",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/:x:/r/sites/FieldEngineeringTeam/_layouts/15/Doc.aspx?sourcedoc=%7BF6D8789D-7B75-4D78-877C-FB3B86729355%7D&file=Mentor%20Session%20Topics.xlsx&action=default&mobileredirect=true"
+         }, {
+            "date_added": "13356028549004320",
+            "date_last_used": "0",
+            "guid": "4f390247-ff99-496a-bcad-c5fc353fe29b",
+            "id": "237",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Pipeline Executions - on-call - Dashboards - Grafana",
+            "type": "url",
+            "url": "https://cm-dashboard.gf.corp.adobe.com/d/ZVwtSs-nk/pipeline-executions?orgId=1&var-datasource=PSQL%20Prod%20RO&var-tenant=All&var-customerType=All&var-programType=All&var-pipelineType=All&var-buildTrigger=All&var-stepName=All&var-region=All&var-granularity=1h&var-buildTransformEnabled=true"
+         }, {
+            "date_added": "13356034891826466",
+            "date_last_used": "0",
+            "guid": "7e3a8d2f-9e3c-4fbe-9a78-3f14ba039b93",
+            "id": "238",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Replication SLI and SLO Global - Grafana",
+            "type": "url",
+            "url": "https://grafana-ns-team-aemops4.corp.ethos13-prod-deu6.ethos.adobe.net/d/replication-global/replication-sli-and-slo-global?var-data_source=AEM_PROMETHEUS&var-cluster=ethos13-prod-deu6&var-namespace=ns-team-aem-cm-prd-n83663&var-aem_service=cm-p87853-e849979&var-averaging_interval=%24__auto_interval_averaging_interval&var-quantile=0.5&orgId=1&from=now-7d&to=now"
+         }, {
+            "date_added": "13356036960859611",
+            "date_last_used": "13356789415699447",
+            "guid": "d9ab1cae-b5ae-4ab7-a33e-7e8088057b4c",
+            "id": "239",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Uber Release Registry | Adobe Experience Cloud",
+            "type": "url",
+            "url": "https://experience.adobe.com/#/@adobedpsdemo/uber-release-registry/releases/15262"
+         }, {
+            "date_added": "13356611952712437",
+            "date_last_used": "0",
+            "guid": "c472e1b9-da18-4335-82f9-f1268779bee2",
+            "id": "241",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Customer image removal rollout - Grafana",
+            "type": "url",
+            "url": "https://grafana-ns-team-aemops.corp.ethos13-prod-va7.ethos.adobe.net/d/HLkxY1IIk/customer-image-removal-rollout?orgId=1"
+         }, {
+            "date_added": "13356640045564403",
+            "date_last_used": "0",
+            "guid": "9677b77f-3074-4b83-a063-c2e08c5fff77",
+            "id": "242",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Customer image removal rollout - Grafana",
+            "type": "url",
+            "url": "https://grafana-ns-team-aemops.corp.ethos13-prod-va7.ethos.adobe.net/d/HLkxY1IIk/customer-image-removal-rollout?orgId=1&from=now-7d&to=now"
+         }, {
+            "date_added": "13356711634873018",
+            "date_last_used": "0",
+            "guid": "45fc475f-99ee-4d9a-b77f-52e723422ae9",
+            "id": "243",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "FRED - View jobs",
+            "type": "url",
+            "url": "https://fred.corp.ethos11-prod-va7.ethos.adobe.net/static/jobs.html"
+         }, {
+            "date_added": "13356811810025907",
+            "date_last_used": "0",
+            "guid": "b701f37f-edbc-42e3-a24a-9b00198064e2",
+            "id": "244",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Build a React app which Queries AEM using GraphQL API - Getting Started with AEM Headless - GraphQL | Adobe Experience Manager",
+            "type": "url",
+            "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-with-aem-headless/graphql/multi-step/graphql-and-react-app"
+         }, {
+            "date_added": "13356811879044427",
+            "date_last_used": "0",
+            "guid": "ee4ce16a-c7da-4065-a690-a0ebee636010",
+            "id": "245",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Advanced Modeling for GraphQL | Adobe Experience Manager",
+            "type": "url",
+            "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-with-aem-headless/graphql/video-series/advanced-modeling"
+         }, {
+            "date_added": "13357651098345305",
+            "date_last_used": "13366916251797668",
+            "guid": "1775b684-252f-419e-b2cb-2c5d3711c45c",
+            "id": "247",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Search | Splunk 9.0.4",
+            "type": "url",
+            "url": "https://splunk-adobeio.corp.adobe.com/io/en-US/app/app_ioruntime/search?sid=1712930231.4590738_BDCEEA16-C009-49CC-860E-BB9E7A0520BA&dispatch.sample_ratio=1&display.page.search.mode=verbose&workload_pool=&q=search%20index%3Dadobeio_runtime%20(namespace%3A%3Ans-team-ethos62prod*-runtime-prod-*%20OR%20namespace%3A%3Ans-team-ethos651prod*-runtime-prod-*)%20activationResult%20ed54fe5c8719405594fe5c871970555d&earliest=-24h%40h&latest=now"
+         }, {
+            "date_added": "13357730118865187",
+            "date_last_used": "0",
+            "guid": "cf50b6d4-2a10-4e6f-9351-a824bb19a091",
+            "id": "248",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Upgrade / Migration Planning - Ultimate Support - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=1861070390"
+         }, {
+            "date_added": "13357730166233922",
+            "date_last_used": "0",
+            "guid": "3c5c8c25-195e-436b-a91f-aadc01c7d48a",
+            "id": "249",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Upgrade - Upgrade AEM (Migration to newer major Version) - Ultimate Support - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/pages/viewpage.action?pageId=1128568692"
+         }, {
+            "date_added": "13358360930514200",
+            "date_last_used": "0",
+            "guid": "37a4064d-bffa-408d-8cc8-991d6a55a22c",
+            "id": "250",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "AEM Version Updates | Adobe Experience Manager",
+            "type": "url",
+            "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/deploying/aem-version-updates"
+         }, {
+            "date_added": "13358861893876236",
+            "date_last_used": "0",
+            "guid": "99fe66cc-f5a6-4637-af97-3a8b05fb2326",
+            "id": "251",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Accelerator Impact Summary",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/sites/FieldEngineeringTeam/SitePages/Accelerator-Impact-Summary.aspx?web=1"
+         }, {
+            "date_added": "13359123538928340",
+            "date_last_used": "13367328665320960",
+            "guid": "b3be17cc-8e8a-415a-8734-aac2d0246518",
+            "id": "252",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Success Activities CSAT Surveys - CE&S Strategy, Intelligence & Ops - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=CESTRATINTELandOPS&title=Success+Activities+CSAT+Surveys"
+         }, {
+            "date_added": "13359636172723641",
+            "date_last_used": "0",
+            "guid": "ac1c0a50-6b48-40d1-81ba-6780992e6419",
+            "id": "254",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Accelerator Impact Summary",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/sites/FieldEngineeringTeam/SitePages/Accelerator-Impact-Summary.aspx?cp_oauth_jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwIjoidXJsIiwicmFuZCI6IjAzMWI5N2U2ZGQwMDk2MzdhNWI2NGUzNDUwZTNmYTk1IiwidiI6IjEiLCJvcmlnaW5hbFVybEhhc2giOiI2OTJkY2E5ZWZlN2Q5ZDE0NjQ5ZGE1ZWIwYTJjNzBiZjMxMTkyNzljIiwiZXhwIjoxNzE1NzY3MzY0LCJyaWQiOiIxNTk5NzYzMSIsImlhdCI6MTcxNTE2MjU2NCwiY2lkIjoiMjIyNCJ9.aRwRwp9_bTsdEQ7ZmMjLQOIPIC9DbH1lCnhv33UtkFE"
+         }, {
+            "date_added": "13359660901524145",
+            "date_last_used": "0",
+            "guid": "7d49dd20-2e76-440d-a455-99cf7f16707e",
+            "id": "255",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Using Sling Feature Flags to Manage Continuous Releases | by John Mitchell | Adobe Tech Blog",
+            "type": "url",
+            "url": "https://blog.developer.adobe.com/using-sling-feature-flags-to-manage-continuous-releases-b9d3f153cae6"
+         }, {
+            "date_added": "13360154054835448",
+            "date_last_used": "0",
+            "guid": "3f3371b0-5e39-437a-97df-ef60a5fa2dca",
+            "id": "257",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "AEM Dispatcher Flushing | Adobe Experience Manager",
+            "type": "url",
+            "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/ams/dispatcher/disp-flushing#dispatcher-flush-replication-receiving-virtual-host"
+         }, {
+            "date_added": "13360661904493188",
+            "date_last_used": "13365882486559285",
+            "guid": "187b1be4-423b-4175-a02d-6bd5f6b8912e",
+            "id": "259",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "New Hire Quick Reference Guide - Support Delivery - Adobe Wiki",
+            "type": "url",
+            "url": "https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=supportdelivery&title=New+Hire+Quick+Reference+Guide"
+         }, {
+            "date_added": "13362140455695754",
+            "date_last_used": "0",
+            "guid": "f12bf925-cbbe-49bf-af98-93fe78676fde",
+            "id": "261",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Algolia vs Elasticsearch: Relevance Isn’t Luck | Algolia",
+            "type": "url",
+            "url": "https://www.algolia.com/blog/engineering/algolia-v-elasticsearch-relevance/"
+         }, {
+            "date_added": "13362766607852268",
+            "date_last_used": "0",
+            "guid": "d4f47c62-9884-47ad-9b00-5f348aa2707f",
+            "id": "263",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "bigbear-enterprise.ent.ams-cloud.net/cxf/bigbear/api/v0.1.0/topologies/635nqgijr0kam3esbi8nnqbit/author1westeurope/actions",
+            "type": "url",
+            "url": "https://bigbear-enterprise.ent.ams-cloud.net/cxf/bigbear/api/v0.1.0/topologies/635nqgijr0kam3esbi8nnqbit/author1westeurope/actions"
+         }, {
+            "date_added": "13363192380914655",
+            "date_last_used": "13367352141156185",
+            "guid": "95806cdc-5bd3-4dd1-8a9d-0c7b4213b9fc",
+            "id": "265",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "LARA Reporting - Power BI",
+            "type": "url",
+            "url": "https://app.powerbi.com/groups/me/apps/0889cfd6-13e1-4212-a9c0-676d906c2e47/reports/6d15b922-1839-421d-8a6e-4f3f743cca2d/ReportSectione711fad5c39d0309e255?ctid=fa7b1b5a-7b34-4387-94ae-d2c178decee1&openReportSource=EmailSubscription&experience=power-bi"
+         }, {
+            "date_added": "13363870669059213",
+            "date_last_used": "0",
+            "guid": "e1eeb968-c338-4c44-8f69-2ac2f1dc5e04",
+            "id": "267",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Impact Metric Library.xlsx",
+            "type": "url",
+            "url": "https://adobe.sharepoint.com/:x:/r/sites/Ultimate-Success-CS/_layouts/15/Doc.aspx?sourcedoc=%7B16F91FB0-3434-4C37-9910-FAADF56C9C7B%7D&file=Impact%20Metric%20Library.xlsx&wdLOR=c0C8A5125-DA29-F344-BBA1-BC20296FDA05&action=default&mobileredirect=true"
+         }, {
+            "date_added": "13373648794833847",
+            "date_last_used": "13373649347737628",
+            "guid": "9d328da8-7f47-45a8-b192-205149082821",
+            "id": "279",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Pipeline: REST API | Jenkins plugin",
+            "type": "url",
+            "url": "https://plugins.jenkins.io/pipeline-rest-api/"
+         }, {
+            "children": [ {
+               "date_added": "13375903079078130",
+               "date_last_used": "0",
+               "guid": "1af3848f-381b-4a31-93b4-259542431e62",
+               "id": "285",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Adobe GenStudio User Guide | Adobe GenStudio for Performance Marketing",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/en/docs/genstudio-for-performance-marketing/user-guide/home?cp_oauth_jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwIjoidXJsIiwicmFuZCI6ImMzZDY2ODU4YzQyYmExNWQ1NDFjZmYwYjg2ZmY1NGQ5IiwidiI6IjEiLCJvcmlnaW5hbFVybEhhc2giOiJlMThmZWJmZTJiMzY2Njg2MDBmNTQ3MmFlNmU3YzYxNDE1Y2VkMTRmIiwiZXhwIjoxNzMyMDM0MjcwLCJyaWQiOiIxNzk2MTc4NSIsImlhdCI6MTczMTQyOTQ3MCwiY2lkIjoiMjIyNCJ9.r3Mn84OJFdZLp0mQFgmYSeH7Snv7rbfMiw-wTgdOPJM"
+            }, {
+               "date_added": "13375903191403535",
+               "date_last_used": "0",
+               "guid": "b9d6c47d-fa96-479d-97a5-f6f0ba61c135",
+               "id": "287",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "GenStudio Academy | Adobe GenStudio for Performance Marketing",
+               "type": "url",
+               "url": "https://experienceleague.adobe.com/en/docs/genstudio-for-performance-marketing/user-guide/genstudioacademy"
+            }, {
+               "date_added": "13376425341270111",
+               "date_last_used": "0",
+               "guid": "06b5cc2e-1269-4f1a-9ec5-df03a9d77dd6",
+               "id": "288",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "GenStudio Home - GenStudio - Adobe Wiki",
+               "type": "url",
+               "url": "https://wiki.corp.adobe.com/display/genstudio"
+            } ],
+            "date_added": "13375903103377369",
+            "date_last_used": "0",
+            "date_modified": "13376426681099910",
+            "guid": "9d001540-0a3c-4b13-bf50-7cbe98eba573",
+            "id": "286",
+            "name": "GenStudio",
+            "type": "folder"
+         } ],
+         "date_added": "13290017118004291",
+         "date_last_used": "0",
+         "date_modified": "13398248582263212",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "13292336068406661",
+            "date_last_used": "0",
+            "guid": "1def6417-e551-4ac0-a4e0-4281d3a6ca65",
+            "id": "43",
+            "name": "Milan 03 floor | Engage",
+            "type": "url",
+            "url": "https://engage.spaceiq.com/floor/763"
+         } ],
+         "date_added": "13290017118004343",
+         "date_last_used": "0",
+         "date_modified": "13343839890681503",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13290017118004344",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile Bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

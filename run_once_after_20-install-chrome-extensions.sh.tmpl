@@ -1,0 +1,52 @@
+#!/bin/bash
+{{- /*
+  run_once_after_20-install-chrome-extensions.sh.tmpl
+
+  Runs once after chezmoi apply on a NEW machine. Reads chrome/extensions.json
+  from the repo and writes a Chrome enterprise policy (ExtensionInstallForcelist)
+  so Chrome silently installs each extension from the Web Store on next launch.
+  No Google Sync / no sign-in required.
+
+  Requires sudo (writes to /Library/Preferences, a system-level plist) and jq.
+*/ -}}
+set -euo pipefail
+
+EXTENSIONS_SRC="{{ .chezmoi.sourceDir }}/.chezmoidata/chrome/extensions.json"
+POLICY_DOMAIN="/Library/Preferences/com.google.Chrome"
+
+if [ ! -f "$EXTENSIONS_SRC" ]; then
+  echo "chrome/extensions.json not found in dotfiles repo - skipping extension install."
+  exit 0
+fi
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo "jq is required for this step but was not found."
+  echo "Install it first (e.g. via your Brewfile) and re-run:"
+  echo "  chezmoi state delete-bucket --bucket=scriptState"
+  echo "  chezmoi apply"
+  exit 1
+fi
+
+echo "This step writes a system preference (requires sudo) so Chrome force-installs"
+echo "your extensions without needing Google Sync."
+read -r -p "Proceed with sudo now? [y/N] " reply
+case "$reply" in
+  [yY][eE][sS]|[yY]) ;;
+  *) echo "Skipped. Re-run this script manually later if you change your mind."; exit 0 ;;
+esac
+
+# Clear any existing forcelist so re-runs don't duplicate entries.
+sudo defaults delete "$POLICY_DOMAIN" ExtensionInstallForcelist 2>/dev/null || true
+
+ids=$(jq -r '.[].id' "$EXTENSIONS_SRC")
+count=0
+while IFS= read -r id; do
+  [ -z "$id" ] && continue
+  sudo defaults write "$POLICY_DOMAIN" ExtensionInstallForcelist -array-add \
+    "${id};https://clients2.google.com/service/update2/crx"
+  count=$((count + 1))
+done <<< "$ids"
+
+echo "Wrote forcelist policy for $count extension(s)."
+echo "Restart Chrome (fully quit, not just close windows) for it to apply."
+echo "You can verify at chrome://policy after restart."

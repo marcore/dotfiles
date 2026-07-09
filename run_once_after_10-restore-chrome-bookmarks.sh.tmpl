@@ -1,0 +1,35 @@
+#!/bin/bash
+{{- /*
+  run_once_after_10-restore-chrome-bookmarks.sh.tmpl
+
+  Runs once (per content hash) after chezmoi apply on a NEW machine.
+  Copies the repo's chrome/bookmarks.json into Chrome's Default profile.
+
+  chezmoi re-runs this automatically if you change bookmarks.json content,
+  since run_once_ scripts are keyed on a hash of their own contents - if you
+  edit the .tmpl itself, or bump the version marker below, it re-runs.
+  Editing bookmarks.json alone will NOT re-trigger this script; delete the
+  script's run-state entry with `chezmoi state delete-bucket --bucket=scriptState`
+  or just re-run manually if you need to re-sync bookmarks after the initial setup.
+*/ -}}
+set -euo pipefail
+
+CHROME_SUPPORT_DIR="$HOME/Library/Application Support/Google/Chrome"
+PROFILE_DIR="$CHROME_SUPPORT_DIR/Default"
+BOOKMARKS_SRC="{{ .chezmoi.sourceDir }}/.chezmoidata/chrome/bookmarks.json"
+
+if [ ! -f "$BOOKMARKS_SRC" ]; then
+  echo "chrome/bookmarks.json not found in dotfiles repo - skipping bookmark restore."
+  exit 0
+fi
+
+if pgrep -x "Google Chrome" >/dev/null 2>&1; then
+  echo "Quitting Google Chrome to safely write Bookmarks..."
+  osascript -e 'quit app "Google Chrome"' || true
+  sleep 1
+fi
+
+mkdir -p "$PROFILE_DIR"
+cp "$BOOKMARKS_SRC" "$PROFILE_DIR/Bookmarks"
+echo "Restored Chrome bookmarks to: $PROFILE_DIR/Bookmarks"
+echo "(Launch Chrome once to let it pick these up.)"
