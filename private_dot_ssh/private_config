@@ -1,0 +1,22 @@
+Host git.corp.adobe.com
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_git_corp_ed25519
+
+Host github.com
+  Hostname github.com
+  User git
+  IdentityFile /Users/marcore/.ssh/id_rsa_adobepc
+Host ssh.github.com
+  Hostname github.com
+  User git
+  IdentityFile /Users/marcore/.ssh/id_rsa_adobepc
+
+Host adobe-github.com
+  Hostname github.com
+  User git
+  IdentityFile ~/.ssh/id_git_corp_ed25519
+Host adobe-ssh.github.com
+  Hostname ssh.github.com
+  User git
+  IdentityFile ~/.ssh/id_git_corp_ed25519

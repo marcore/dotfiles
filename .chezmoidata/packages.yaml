@@ -3,12 +3,13 @@ packages:
         taps:
             - "hashicorp/tap"
             - "homebrew/bundle"
+            - "oven-sh/bun"
         brews:
-            - "ansible"
             - "bash"
             - "bat"
             - "chezmoi"
             - "colima"
+            - "coreutils"
             - "docker"
             - "docker-compose"
             - "docker-credential-helper"
@@ -17,14 +18,15 @@ packages:
             - "fontconfig"
             - "gh"
             - "git"
-            - "git-extras"
+            - "gitleaks"
             - "git-lfs"
             - "gpg"
             - "httpie"
             - "jq"
             - "k9s"
             - "mas"
-            - "oven-sh/bun/bun"
+            - "bun"
+            - "pnpm"
             - "pyenv"
             - "rsync"
             - "tree"
@@ -35,17 +37,14 @@ packages:
         casks:
             - "google-chrome"
             - "obs"
-        mas:
-            - name: "Xcode"
-              id: "497799835"
-            - name: "Ghostery – Privacy Ad Blocker"
-              id: "21436953057"
+        mas: []
 
     work:
         taps:
             - "azure/kubelogin"
             - "dagger/tap"
             - "go-task/tap"
+            - "experience-platform/internal git@git.corp.adobe.com:experience-platform/homebrew-internal.git"
         brews:
             - "ansible"
             - "awscli"
@@ -59,8 +58,6 @@ packages:
               id: "490179405"
             - name: "iMovie"
               id: "408981434"
-            - name: "Slack"
-              id: "803453959"
             - name: "OneDrive"
               id: "823766827"
             - name: "Microsoft Excel" 
