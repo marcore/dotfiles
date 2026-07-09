@@ -7,7 +7,7 @@ Darwin)
         echo "Bitwarden CLI is already installed"
     else
         brew install pnpm
-            
+        npm install -g @bitwarden/cli
     fi
 
     read -p "Please open Bitwarden, log into all accounts and set under Settings>CLI activate Integrate with Bitwarden CLI. Press any key to continue." -n 1 -r
