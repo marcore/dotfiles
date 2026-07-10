@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  setup:
+    name: Initial setup & prerequisites
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pre-seed chezmoi config (avoids interactive prompts)
+        run: |
+          mkdir -p "$HOME/.config/chezmoi"
+          cat > "$HOME/.config/chezmoi/chezmoi.toml" <<'EOF'
+          [data]
+              isWorkComputer = false
+              onedriveProjectsBackupDir = "/tmp/onedrive-ci"
+          EOF
+
+      - name: Run .install-prerequisites.sh
+        run: yes '' | ./.install-prerequisites.sh
+
+      - name: Run .initial-setup.sh up through chezmoi init
+        env:
+          CHEZMOI_INIT_SOURCE: ${{ github.workspace }}
+          CHEZMOI_APPLY: "false"
+        run: ./.initial-setup.sh
+
+      - name: Show resolved chezmoi config
+        run: chezmoi cat-config
+
+  bats:
+    name: Bats tests
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install test tooling
+        run: brew install bats-core yq
+
+      - name: Run bats tests
+        run: bats tests/
