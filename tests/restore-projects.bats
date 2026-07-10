@@ -135,3 +135,51 @@ EOF
     [[ "$output" == *"Summary: 1 item(s) failed to restore"* ]]
     [ ! -f "$repo_target/.env" ]
 }
+
+@test "unzips a folder root and then clones its nested repo" {
+    src_root="$WORK/src-fixture/fakejobfailurebundle"
+    mkdir -p "$src_root"
+    echo "hi" > "$src_root/README.md"
+
+    nested_remote="$WORK/remote/vendor-widget.git"
+    make_bare_repo "$nested_remote"
+
+    (cd "$WORK/src-fixture" && zip -qr "$ONEDRIVE_DIR/EY-fakejobfailurebundle.zip" "fakejobfailurebundle")
+
+    folder_target="$PROJECTS_ROOT/EY/fakejobfailurebundle"
+    nested_target="$folder_target/vendor/widget"
+
+    cat > "$WORK/projects.yaml" <<EOF
+root: "$PROJECTS_ROOT"
+repos:
+  - path: "$nested_target"
+    remotes:
+      - name: "origin"
+        url: "$nested_remote"
+    ignored_files: []
+folders:
+  - path: "$folder_target"
+    nested_repos:
+      - "vendor/widget"
+EOF
+
+    run "$RESTORE" "$WORK/projects.yaml"
+    [ "$status" -eq 0 ]
+    [ -f "$folder_target/README.md" ]
+    [ -d "$nested_target/.git" ]
+}
+
+@test "warns and continues when a folder root's archive is missing" {
+    cat > "$WORK/projects.yaml" <<EOF
+root: "$PROJECTS_ROOT"
+repos: []
+folders:
+  - path: "$PROJECTS_ROOT/EY/nowhere"
+    nested_repos: []
+EOF
+
+    run "$RESTORE" "$WORK/projects.yaml"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"WARN: archive not found"* ]]
+    [[ "$output" == *"Summary: 1 item(s) failed to restore"* ]]
+}

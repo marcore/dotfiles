@@ -86,6 +86,21 @@ restore_secret() {
     echo "Restored secret $secret_name -> $dest_path"
 }
 
+# Finds the index into repos[] whose path equals $1. Echoes the index and
+# returns 0 on success; returns 1 if no match is found.
+find_repo_index_by_path() {
+    local target="$1" count="$2"
+    for ((k = 0; k < count; k++)); do
+        local p
+        p=$(yq ".repos[$k].path" "$PROJECTS_YAML")
+        if [[ "$p" == "$target" ]]; then
+            echo "$k"
+            return 0
+        fi
+    done
+    return 1
+}
+
 # Clones repos[idx] if its path doesn't exist yet, then restores its
 # gitignored secret files from Bitwarden.
 restore_repo() {
@@ -122,6 +137,36 @@ for ((i = 0; i < repo_count; i++)); do
         continue
     fi
     restore_repo "$i"
+done
+
+echo "== Restoring folder roots =="
+for ((i = 0; i < folder_count; i++)); do
+    folder_path=$(yq ".folders[$i].path" "$PROJECTS_YAML")
+    parent_dir="$(dirname "$folder_path")"
+    archive_name="$(echo "${folder_path#"$projects_root"/}" | tr '/' '-').zip"
+    archive_path="$ONEDRIVE_DIR/$archive_name"
+
+    if [[ -d "$folder_path" ]]; then
+        echo "Skipping unzip, already exists: $folder_path"
+    elif [[ ! -f "$archive_path" ]]; then
+        echo "WARN: archive not found for $folder_path (expected $archive_path)" >&2
+        FAILED_ITEMS+=("$archive_path")
+    else
+        run mkdir -p "$parent_dir"
+        run unzip -q "$archive_path" -d "$parent_dir"
+    fi
+
+    nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
+    for ((j = 0; j < nested_count; j++)); do
+        nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
+        nested_path="$folder_path/$nested_rel"
+        idx=$(find_repo_index_by_path "$nested_path" "$repo_count") || {
+            echo "WARN: no repos[] entry found for nested repo $nested_path" >&2
+            FAILED_ITEMS+=("$nested_path")
+            continue
+        }
+        restore_repo "$idx"
+    done
 done
 
 if [[ "${#FAILED_ITEMS[@]}" -gt 0 ]]; then
