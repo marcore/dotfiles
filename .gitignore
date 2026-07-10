@@ -16,3 +16,4 @@ id_git_corp_ed25519
 # Local scratch files
 scratch/
 tmp/
+.superpowers/
