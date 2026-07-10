@@ -1,0 +1,18 @@
+# Curated subset of `$HOME/Projects` to back up and restore on a new
+# laptop. Produced by hand: run `./scan_repos.sh "$HOME/Projects"`, copy
+# its output here, and delete entries you don't want to carry forward
+# (also prune each repo's ignored_files down to actual secrets worth
+# restoring, e.g. drop cache/lock files).
+#
+# Schema (matches scan_repos.sh's output):
+#   root: absolute path scan_repos.sh was run against
+#   repos[].path: absolute path to a git repo
+#   repos[].remotes[].name / .url: git remotes
+#   repos[].ignored_files[]: gitignored files to restore via Bitwarden
+#     (proj-secret:<repo-path-relative-to-root>:<file-relative-path>)
+#   folders[].path: absolute path to a plain (non-git) project root
+#   folders[].nested_repos[]: paths of git repos found inside that root,
+#     relative to it — excluded from its zip archive, restored via clone
+root: ""
+repos: []
+folders: []

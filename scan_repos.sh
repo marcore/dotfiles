@@ -2,8 +2,15 @@
 
 # scan_repos.sh — recursively find git repos under a root directory and report
 # their remotes, dirty status, and ignored files (excluding common build artifacts).
-# Also flags plain (non-repo) folders that directly contain files.
+# Also reports plain (non-repo) folder roots — the shallowest directory in a
+# subtree that directly contains files — along with any git repos nested
+# inside that root (as nested_repos, relative to the root), so downstream
+# backup tooling can exclude nested repos from a root's zip archive.
 # Output is YAML, with repos and folders reported as two separate lists.
+#
+# See docs/superpowers/specs/2026-07-10-projects-backup-restore-design.md
+# for how this feeds .chezmoidata/projects.yaml, export-project-secrets.sh,
+# export-project-folders.sh, and restore-projects.sh.
 #
 # Usage: ./scan_repos.sh [ROOT_DIR] [MAX_JOBS]
 #   ROOT_DIR  defaults to current directory  (default: .)
