@@ -20,5 +20,10 @@ else
 fi
 
 brew install chezmoi
-chezmoi init marcore
-chezmoi apply
+
+CHEZMOI_INIT_SOURCE="${CHEZMOI_INIT_SOURCE:-marcore}"
+chezmoi init "$CHEZMOI_INIT_SOURCE"
+
+if [ "${CHEZMOI_APPLY:-true}" = "true" ]; then
+    chezmoi apply
+fi
