@@ -33,6 +33,7 @@ packages:
             - "typescript-language-server"
             - "vhs"
             - "vim"
+            - "yq"
             - "zsh"
         casks:
             - "google-chrome"
