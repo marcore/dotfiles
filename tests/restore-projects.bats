@@ -106,6 +106,8 @@ EOF
     [ "$status" -eq 0 ]
     [ -f "$repo_target/.env" ]
     [ "$(cat "$repo_target/.env")" = "SECRET=1" ]
+    perm=$(stat -f "%Lp" "$repo_target/.env" 2>/dev/null || stat -c "%a" "$repo_target/.env")
+    [ "$perm" = "600" ]
 }
 
 @test "reports a failure and continues when a Bitwarden item is missing" {
@@ -182,4 +184,67 @@ EOF
     [ "$status" -eq 0 ]
     [[ "$output" == *"WARN: archive not found"* ]]
     [[ "$output" == *"Summary: 1 item(s) failed to restore"* ]]
+}
+
+@test "reports a failure and continues to the next repo when git clone fails" {
+    bad_remote="$WORK/remote/does-not-exist.git"
+    good_remote_dir="$WORK/remote/good.git"
+    make_bare_repo "$good_remote_dir"
+
+    bad_target="$PROJECTS_ROOT/ENI/bad"
+    good_target="$PROJECTS_ROOT/ENI/good"
+
+    cat > "$WORK/projects.yaml" <<EOF
+root: "$PROJECTS_ROOT"
+repos:
+  - path: "$bad_target"
+    remotes:
+      - name: "origin"
+        url: "$bad_remote"
+    ignored_files: []
+  - path: "$good_target"
+    remotes:
+      - name: "origin"
+        url: "$good_remote_dir"
+    ignored_files: []
+folders: []
+EOF
+
+    run "$RESTORE" "$WORK/projects.yaml"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"WARN: git clone failed for $bad_target"* ]]
+    [[ "$output" == *"Summary: 1 item(s) failed to restore"* ]]
+    [ ! -d "$bad_target" ]
+    [ -d "$good_target/.git" ]
+}
+
+@test "warns and continues when a folder root's archive is corrupt, and skips its nested repos" {
+    folder_target="$PROJECTS_ROOT/EY/corruptbundle"
+    archive_path="$ONEDRIVE_DIR/EY-corruptbundle.zip"
+    echo "not a real zip" > "$archive_path"
+
+    nested_remote="$WORK/remote/vendor-widget2.git"
+    make_bare_repo "$nested_remote"
+    nested_target="$folder_target/vendor/widget"
+
+    cat > "$WORK/projects.yaml" <<EOF
+root: "$PROJECTS_ROOT"
+repos:
+  - path: "$nested_target"
+    remotes:
+      - name: "origin"
+        url: "$nested_remote"
+    ignored_files: []
+folders:
+  - path: "$folder_target"
+    nested_repos:
+      - "vendor/widget"
+EOF
+
+    run "$RESTORE" "$WORK/projects.yaml"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"WARN: unzip failed for $folder_target"* ]]
+    [[ "$output" == *"Summary: 1 item(s) failed to restore"* ]]
+    [ ! -d "$folder_target" ]
+    [ ! -d "$nested_target" ]
 }

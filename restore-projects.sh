@@ -83,6 +83,7 @@ restore_secret() {
     bw list items --search "$secret_name" \
         | jq -r --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0].notes' \
         | base64 -d > "$dest_path"
+    chmod 600 "$dest_path"
     echo "Restored secret $secret_name -> $dest_path"
 }
 
@@ -114,7 +115,11 @@ restore_repo() {
         echo "Skipping clone, already exists: $repo_path"
     else
         run mkdir -p "$(dirname "$repo_path")"
-        run git clone "$remote_url" "$repo_path"
+        if ! run git clone "$remote_url" "$repo_path"; then
+            echo "WARN: git clone failed for $repo_path (remote: $remote_url)" >&2
+            FAILED_ITEMS+=("$repo_path")
+            return 0
+        fi
     fi
 
     file_count=$(yq ".repos[$idx].ignored_files | length" "$PROJECTS_YAML")
@@ -129,6 +134,11 @@ restore_repo() {
 projects_root=$(yq '.root' "$PROJECTS_YAML")
 repo_count=$(yq '.repos | length' "$PROJECTS_YAML")
 folder_count=$(yq '.folders | length' "$PROJECTS_YAML")
+
+if [[ "$folder_count" -gt 0 && -z "$ONEDRIVE_DIR" ]]; then
+    echo "Error: onedriveProjectsBackupDir is not set (chezmoi data) and \$ONEDRIVE_PROJECTS_BACKUP_DIR is not set" >&2
+    exit 1
+fi
 
 echo "== Restoring top-level repos =="
 for ((i = 0; i < repo_count; i++)); do
@@ -153,20 +163,25 @@ for ((i = 0; i < folder_count; i++)); do
         FAILED_ITEMS+=("$archive_path")
     else
         run mkdir -p "$parent_dir"
-        run unzip -q "$archive_path" -d "$parent_dir"
+        if ! run unzip -q "$archive_path" -d "$parent_dir"; then
+            echo "WARN: unzip failed for $folder_path (archive: $archive_path)" >&2
+            FAILED_ITEMS+=("$archive_path")
+        fi
     fi
 
-    nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
-    for ((j = 0; j < nested_count; j++)); do
-        nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
-        nested_path="$folder_path/$nested_rel"
-        idx=$(find_repo_index_by_path "$nested_path" "$repo_count") || {
-            echo "WARN: no repos[] entry found for nested repo $nested_path" >&2
-            FAILED_ITEMS+=("$nested_path")
-            continue
-        }
-        restore_repo "$idx"
-    done
+    if [[ -d "$folder_path" ]]; then
+        nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
+        for ((j = 0; j < nested_count; j++)); do
+            nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
+            nested_path="$folder_path/$nested_rel"
+            idx=$(find_repo_index_by_path "$nested_path" "$repo_count") || {
+                echo "WARN: no repos[] entry found for nested repo $nested_path" >&2
+                FAILED_ITEMS+=("$nested_path")
+                continue
+            }
+            restore_repo "$idx"
+        done
+    fi
 done
 
 if [[ "${#FAILED_ITEMS[@]}" -gt 0 ]]; then

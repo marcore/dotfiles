@@ -12,7 +12,11 @@
 #     (proj-secret:<repo-path-relative-to-root>:<file-relative-path>)
 #   folders[].path: absolute path to a plain (non-git) project root
 #   folders[].nested_repos[]: paths of git repos found inside that root,
-#     relative to it — excluded from its zip archive, restored via clone
+#     relative to it — excluded from its zip archive, restored via clone.
+#     Each entry must have a matching repos[].path equal to
+#     folder_path + "/" + nested_repo_relative_path; if you prune that
+#     repos[] entry but leave the nested_repos reference, restore will
+#     print a (non-fatal) "WARN: no repos[] entry found" for it.
 root: ""
 repos: []
 folders: []
