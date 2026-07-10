@@ -56,6 +56,6 @@ for ((i = 0; i < folder_count; i++)); do
     done
 
     rm -f "$archive_path"
-    (cd "$parent_dir" && zip -qr "$archive_path" "$folder_name" "${exclude_args[@]}")
+    (cd "$parent_dir" && zip -qr "$archive_path" "$folder_name" "${exclude_args[@]+"${exclude_args[@]}"}")
     echo "Exported $folder_path -> $archive_path"
 done
