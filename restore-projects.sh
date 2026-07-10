@@ -65,12 +65,35 @@ is_nested_repo() {
     return 1
 }
 
-# Clones repos[idx] if its path doesn't exist yet.
+# Restores a single Bitwarden secret item to dest_path, or records a
+# failure in FAILED_ITEMS if the item doesn't exist.
+restore_secret() {
+    local secret_name="$1" dest_path="$2"
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+        echo "DRY-RUN: restore secret $secret_name -> $dest_path"
+        return 0
+    fi
+    if ! bw list items --search "$secret_name" \
+        | jq -e --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0]' >/dev/null; then
+        echo "WARN: Bitwarden item not found for $secret_name (expected at $dest_path)" >&2
+        FAILED_ITEMS+=("$secret_name")
+        return 0
+    fi
+    mkdir -p "$(dirname "$dest_path")"
+    bw list items --search "$secret_name" \
+        | jq -r --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0].notes' \
+        | base64 -d > "$dest_path"
+    echo "Restored secret $secret_name -> $dest_path"
+}
+
+# Clones repos[idx] if its path doesn't exist yet, then restores its
+# gitignored secret files from Bitwarden.
 restore_repo() {
     local idx="$1"
-    local repo_path remote_url
+    local repo_path remote_url repo_rel file_count
     repo_path=$(yq ".repos[$idx].path" "$PROJECTS_YAML")
     remote_url=$(yq ".repos[$idx].remotes[0].url" "$PROJECTS_YAML")
+    repo_rel="${repo_path#"$projects_root"/}"
 
     if [[ -d "$repo_path" ]]; then
         echo "Skipping clone, already exists: $repo_path"
@@ -78,6 +101,14 @@ restore_repo() {
         run mkdir -p "$(dirname "$repo_path")"
         run git clone "$remote_url" "$repo_path"
     fi
+
+    file_count=$(yq ".repos[$idx].ignored_files | length" "$PROJECTS_YAML")
+    for ((j = 0; j < file_count; j++)); do
+        local file_rel secret_name
+        file_rel=$(yq ".repos[$idx].ignored_files[$j]" "$PROJECTS_YAML")
+        secret_name="proj-secret:${repo_rel}:${file_rel}"
+        restore_secret "$secret_name" "$repo_path/$file_rel"
+    done
 }
 
 projects_root=$(yq '.root' "$PROJECTS_YAML")
@@ -92,3 +123,8 @@ for ((i = 0; i < repo_count; i++)); do
     fi
     restore_repo "$i"
 done
+
+if [[ "${#FAILED_ITEMS[@]}" -gt 0 ]]; then
+    echo "== Summary: ${#FAILED_ITEMS[@]} item(s) failed to restore =="
+    printf '  %s\n' "${FAILED_ITEMS[@]}"
+fi
