@@ -169,7 +169,7 @@ for ((i = 0; i < folder_count; i++)); do
         fi
     fi
 
-    if [[ -d "$folder_path" ]]; then
+    if [[ "$DRY_RUN" -eq 1 || -d "$folder_path" ]]; then
         nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
         for ((j = 0; j < nested_count; j++)); do
             nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")

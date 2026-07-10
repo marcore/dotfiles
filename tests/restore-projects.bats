@@ -171,6 +171,40 @@ EOF
     [ -d "$nested_target/.git" ]
 }
 
+@test "--dry-run previews nested repo clone for a folder root without creating anything" {
+    src_root="$WORK/src-fixture/fakejobfailurebundle"
+    mkdir -p "$src_root"
+    echo "hi" > "$src_root/README.md"
+
+    nested_remote="$WORK/remote/vendor-widget.git"
+    make_bare_repo "$nested_remote"
+
+    (cd "$WORK/src-fixture" && zip -qr "$ONEDRIVE_DIR/EY-fakejobfailurebundle.zip" "fakejobfailurebundle")
+
+    folder_target="$PROJECTS_ROOT/EY/fakejobfailurebundle"
+    nested_target="$folder_target/vendor/widget"
+
+    cat > "$WORK/projects.yaml" <<EOF
+root: "$PROJECTS_ROOT"
+repos:
+  - path: "$nested_target"
+    remotes:
+      - name: "origin"
+        url: "$nested_remote"
+    ignored_files: []
+folders:
+  - path: "$folder_target"
+    nested_repos:
+      - "vendor/widget"
+EOF
+
+    run "$RESTORE" --dry-run "$WORK/projects.yaml"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"DRY-RUN: git clone"* ]]
+    [ ! -d "$folder_target" ]
+    [ ! -d "$nested_target" ]
+}
+
 @test "warns and continues when a folder root's archive is missing" {
     cat > "$WORK/projects.yaml" <<EOF
 root: "$PROJECTS_ROOT"
