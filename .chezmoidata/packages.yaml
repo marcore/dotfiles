@@ -44,7 +44,6 @@ packages:
 
     work:
         taps:
-            - "aws/tap"
             - "azure/kubelogin"
             - "dagger/tap"
             - "go-task/tap"
@@ -53,7 +52,6 @@ packages:
             - "awscli"
             - "azure-cli"
         casks:
-            - "copilot-cli"
             - "microsoft-teams"
 
         mas:
