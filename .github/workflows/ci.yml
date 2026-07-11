@@ -10,7 +10,7 @@ jobs:
     name: Initial setup & prerequisites
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Pre-seed chezmoi config (avoids interactive prompts)
         run: |
@@ -37,7 +37,7 @@ jobs:
     name: Bats tests
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install test tooling
         run: brew install bats-core yq
