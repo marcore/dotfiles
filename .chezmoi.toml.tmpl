@@ -1,9 +1,11 @@
 {{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
 {{- $onedriveProjectsBackupDir := promptStringOnce . "onedriveProjectsBackupDir" "Path to the OneDrive folder for Projects zip backups" -}}
+{{- $isCI := eq (env "CI") "true" -}}
 
 [data]
     isWorkComputer = {{ $isWorkComputer }}
     onedriveProjectsBackupDir = {{ $onedriveProjectsBackupDir | quote }}
+    isCI = {{ $isCI }}
 
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-prerequisites.sh"

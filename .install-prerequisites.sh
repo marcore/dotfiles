@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 set -ex
 
 case "$(uname -s)" in
@@ -17,7 +17,7 @@ Linux)
     echo "Linux detected — skipping Homebrew"
     if ! type bw >/dev/null 2>&1; then
         curl -fsSL https://get.pnpm.io/install.sh | sh -
-        npm install -g @bitwarden/cli
+        pnpm install -g @bitwarden/cli
     fi
     ;;
 *)

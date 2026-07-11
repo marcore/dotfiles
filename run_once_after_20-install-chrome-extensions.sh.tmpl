@@ -11,7 +11,7 @@
 */ -}}
 set -euo pipefail
 
-EXTENSIONS_SRC="{{ .chezmoi.sourceDir }}/.chezmoidata/chrome/extensions.json"
+EXTENSIONS_SRC="{{ .chezmoi.sourceDir }}/.chrome-data/extensions.json"
 POLICY_DOMAIN="/Library/Preferences/com.google.Chrome"
 
 if [ ! -f "$EXTENSIONS_SRC" ]; then

@@ -16,7 +16,7 @@ set -euo pipefail
 
 CHROME_SUPPORT_DIR="$HOME/Library/Application Support/Google/Chrome"
 PROFILE_DIR="$CHROME_SUPPORT_DIR/Default"
-BOOKMARKS_SRC="{{ .chezmoi.sourceDir }}/.chezmoidata/chrome/bookmarks.json"
+BOOKMARKS_SRC="{{ .chezmoi.sourceDir }}/.chrome-data/bookmarks.json"
 
 if [ ! -f "$BOOKMARKS_SRC" ]; then
   echo "chrome/bookmarks.json not found in dotfiles repo - skipping bookmark restore."

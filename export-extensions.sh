@@ -27,7 +27,7 @@ fi
 CHROME_PROFILE_DIR="$HOME/Library/Application Support/Google/Chrome/Default"
 SRC="$CHROME_PROFILE_DIR/Secure Preferences"
 DEST_DIR="$(cd "$(dirname "$0")" && pwd)"
-DEST="$DEST_DIR/.chezmoidata/chrome/extensions.json"
+DEST="$DEST_DIR/.chrome-data/extensions.json"
 
 if [ ! -f "$SRC" ]; then
   echo "Error: Secure Preferences file not found at:"
@@ -65,4 +65,4 @@ echo "OK: exported $count extensions to $DEST"
 echo ""
 echo "Review this list before committing - some entries may have generic"
 echo "names pulled from localized manifests (e.g. '__MSG_extName__')."
-echo "Next steps: review the diff, then 'git add chrome/extensions.json && git commit'"
+echo "Next steps: review the diff, then 'git add .chrome-data/extensions.json && git commit'"

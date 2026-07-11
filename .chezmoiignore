@@ -2,3 +2,11 @@ README.md
 settings.json
 claude-configs
 .claude/**
+
+{{ if .isCI -}}
+# Bitwarden-backed secrets: skip in CI, there's no vault to connect to.
+.ssh/id_rsa_adobepc
+.ssh/id_rsa_adobepc.pub
+.ssh/id_git_corp_ed25519
+.ssh/id_git_corp_ed25519.pub
+{{- end }}

@@ -24,10 +24,10 @@ jobs:
       - name: Run .install-prerequisites.sh
         run: yes '' | ./.install-prerequisites.sh
 
-      - name: Run .initial-setup.sh up through chezmoi init
+      - name: Run .initial-setup.sh, including chezmoi apply
         env:
           CHEZMOI_INIT_SOURCE: ${{ github.workspace }}
-          CHEZMOI_APPLY: "false"
+          CHEZMOI_APPLY: "true"
         run: ./.initial-setup.sh
 
       - name: Show resolved chezmoi config

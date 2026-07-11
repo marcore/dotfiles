@@ -18,7 +18,7 @@ set -euo pipefail
 CHROME_PROFILE_DIR="$HOME/Library/Application Support/Google/Chrome/Default"
 SRC="$CHROME_PROFILE_DIR/Bookmarks"
 DEST_DIR="$(cd "$(dirname "$0")" && pwd)"
-DEST="$DEST_DIR/.chezmoidata/chrome/bookmarks.json"
+DEST="$DEST_DIR/.chrome-data/bookmarks.json"
 
 if [ ! -f "$SRC" ]; then
   echo "Error: Bookmarks file not found at:"
@@ -53,4 +53,4 @@ else
   echo "OK: copied to $DEST (install jq to get a bookmark count + validation)"
 fi
 
-echo "Next steps: review the diff, then 'git add chrome/bookmarks.json && git commit'"
+echo "Next steps: review the diff, then 'git add .chrome-data/bookmarks.json && git commit'"
