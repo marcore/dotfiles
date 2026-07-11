@@ -81,11 +81,7 @@ packages:
     private:
         taps: []
         brews:
-            - "bash"
-            - "bat"
-            - "chezmoi"
             - "cloudflared"
-            - "typescript-language-server"
         casks:
             - "spotify"
         mas:
