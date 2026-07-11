@@ -2,7 +2,6 @@ packages:
     universal:
         taps:
             - "hashicorp/tap"
-            - "homebrew/bundle"
             - "oven-sh/bun"
         brews:
             - "bash"
