@@ -7,17 +7,21 @@ on:
 
 jobs:
   setup:
-    name: Initial setup & prerequisites
+    name: "Initial setup & prerequisites (isWorkComputer=${{ matrix.isWorkComputer }})"
     runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        isWorkComputer: [true, false]
     steps:
       - uses: actions/checkout@v6
 
       - name: Pre-seed chezmoi config (avoids interactive prompts)
         run: |
           mkdir -p "$HOME/.config/chezmoi"
-          cat > "$HOME/.config/chezmoi/chezmoi.toml" <<'EOF'
+          cat > "$HOME/.config/chezmoi/chezmoi.toml" <<EOF
           [data]
-              isWorkComputer = false
+              isWorkComputer = ${{ matrix.isWorkComputer }}
               onedriveProjectsBackupDir = "/tmp/onedrive-ci"
           EOF
 

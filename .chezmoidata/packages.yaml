@@ -49,7 +49,6 @@ packages:
             - "azure/kubelogin"
             - "dagger/tap"
             - "go-task/tap"
-            - "experience-platform/internal git@git.corp.adobe.com:experience-platform/homebrew-internal.git"
         brews:
             - "ansible"
             - "awscli"
