@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+bats_require_minimum_version 1.5.0
+
 load test_helper
 
 SCAN_REPOS="$BATS_TEST_DIRNAME/../scan_repos.sh"
@@ -14,7 +16,7 @@ setup() {
     make_plain_dir_with_file "$PROJECTS_DIR/EY/fakejobfailurebundle/core" "pom.xml"
     make_plain_dir_with_file "$PROJECTS_DIR/EY/fakejobfailurebundle/core/src/main/java/com/ey/core/jobs" "Job.java"
 
-    run "$SCAN_REPOS" "$PROJECTS_DIR" 2
+    run --separate-stderr "$SCAN_REPOS" "$PROJECTS_DIR" 2
     [ "$status" -eq 0 ]
     echo "$output" > "$BATS_TEST_TMPDIR/out.yaml"
 
@@ -29,7 +31,7 @@ setup() {
     make_plain_dir_with_file "$PROJECTS_DIR/EY/fakejobfailurebundle" "README.md"
     make_git_repo "$PROJECTS_DIR/EY/fakejobfailurebundle/vendor/widget" "git@example.com:me/widget.git"
 
-    run "$SCAN_REPOS" "$PROJECTS_DIR" 2
+    run --separate-stderr "$SCAN_REPOS" "$PROJECTS_DIR" 2
     [ "$status" -eq 0 ]
     echo "$output" > "$BATS_TEST_TMPDIR/out.yaml"
 
@@ -43,7 +45,7 @@ setup() {
 @test "folder root with no nested repos reports nested_repos as an empty list" {
     make_plain_dir_with_file "$PROJECTS_DIR/EY/plainproj" "notes.txt"
 
-    run "$SCAN_REPOS" "$PROJECTS_DIR" 2
+    run --separate-stderr "$SCAN_REPOS" "$PROJECTS_DIR" 2
     [ "$status" -eq 0 ]
     echo "$output" > "$BATS_TEST_TMPDIR/out.yaml"
 
@@ -56,7 +58,7 @@ setup() {
 @test "existing repo detection (remotes, clean status) is unchanged" {
     make_git_repo "$PROJECTS_DIR/ENI/cf-extension-demo" "git@github.com:marcore/cf-extension-demo.git"
 
-    run "$SCAN_REPOS" "$PROJECTS_DIR" 2
+    run --separate-stderr "$SCAN_REPOS" "$PROJECTS_DIR" 2
     [ "$status" -eq 0 ]
     echo "$output" > "$BATS_TEST_TMPDIR/out.yaml"
 
