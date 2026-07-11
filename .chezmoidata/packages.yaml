@@ -43,6 +43,7 @@ packages:
 
     work:
         taps:
+            - "aws/tap"
             - "azure/kubelogin"
             - "dagger/tap"
             - "go-task/tap"
