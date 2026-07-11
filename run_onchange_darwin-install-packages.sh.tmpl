@@ -14,8 +14,10 @@ brew {{ . | quote }}
 {{ range .packages.universal.casks -}}
 cask {{ . | quote }}
 {{ end -}}
+{{ if not .isCI -}}
 {{ range .packages.universal.mas -}}
 mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
 {{ end -}}
 {{ if .isWorkComputer -}}
 {{ range .packages.work.taps -}}
@@ -27,8 +29,10 @@ brew {{ . | quote }}
 {{ range .packages.work.casks -}}
 cask {{ . | quote }}
 {{ end -}}
+{{ if not .isCI -}}
 {{ range .packages.work.mas -}}
 mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
 {{ end -}}
 {{ else -}}
 {{ range .packages.private.taps -}}
@@ -40,8 +44,10 @@ brew {{ . | quote }}
 {{ range .packages.private.casks -}}
 cask {{ . | quote }}
 {{ end -}}
+{{ if not .isCI -}}
 {{ range .packages.private.mas -}}
 mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 BREWEOF
