@@ -30,7 +30,7 @@ set -euo pipefail
 
 REPO_REL="${1:?Usage: $0 <repo-rel-path>}"
 SECRET_NAME="repo-auth:${REPO_REL}"
-FOLDER_ID="38987615-b6e6-4747-8495-b482008750a4"
+FOLDER_ID="87355180-f451-42e2-b20e-b32500ac9ff2"
 
 read -rp "Username for $SECRET_NAME: " username
 read -rsp "Password/token for $SECRET_NAME: " password
