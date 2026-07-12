@@ -30,6 +30,7 @@ packages:
             - "mise"
             - "pnpm"
             - "pyenv"
+            - "pipenv"
             - "rsync"
             - "tree"
             - "typescript-language-server"

@@ -37,7 +37,7 @@ set -uo pipefail
 
 ROOT_DIR="${1:-.}"
 MAX_JOBS="${2:-8}"
-MAX_DEPTH="${3:-0}"
+MAX_DEPTH="${3:-7}"
 ROOT_DIR="$(cd "$ROOT_DIR" && pwd)"
 
 SKIP_DIRS=(node_modules target dist build .git aem-sdk AEM6.5)
