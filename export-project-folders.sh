@@ -9,8 +9,9 @@
 # Reads .chezmoidata/projects.yaml and, for each entry under `folders:`,
 # zips that folder into the OneDrive backup dir, excluding any
 # nested_repos (those are restored separately via git clone by
-# restore-projects.sh) and any node_modules directories (reinstallable via
-# the package manager, not worth backing up).
+# restore-projects.sh) and any of NOISE_DIRS below (reinstallable/rebuildable
+# artifacts, not worth backing up) -- same list scan_repos.sh already treats
+# as noise when discovering repos/folders (see its SKIP_DIRS).
 #
 # Usage:
 #   ./export-project-folders.sh [PROJECTS_YAML]
@@ -19,6 +20,8 @@
 #   the onedriveProjectsBackupDir chezmoi data value.
 
 set -euo pipefail
+
+NOISE_DIRS=(node_modules target dist build .wrangler playwright-report test-results)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECTS_YAML="${1:-$SCRIPT_DIR/.chezmoidata/projects.yaml}"
@@ -49,7 +52,10 @@ for ((i = 0; i < folder_count; i++)); do
         continue
     fi
 
-    exclude_args=(-x "$folder_name/node_modules/*" -x "$folder_name/*/node_modules/*")
+    exclude_args=()
+    for noise_dir in "${NOISE_DIRS[@]}"; do
+        exclude_args+=(-x "$folder_name/$noise_dir/*" -x "$folder_name/*/$noise_dir/*")
+    done
     nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
     for ((j = 0; j < nested_count; j++)); do
         nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
