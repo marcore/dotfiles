@@ -14,18 +14,22 @@ Secrets never live in this repo. They're stored in Bitwarden (`add_secret_to_bw.
 
 ## Projects backup & restore
 
-`$HOME/Projects` holds development work — some git repos, some plain folders. A curated inventory of what matters lives in `.chezmoidata/projects.yaml` and drives four scripts:
+`$HOME/Projects` holds development work — some git repos, some plain folders. A curated inventory of what matters lives in `.chezmoidata/projects.yaml` and drives six scripts:
 
 | Script | Runs on | Purpose |
 |---|---|---|
 | `scan_repos.sh` | either | Scans a directory tree and prints a YAML inventory of git repos (with remotes/status/ignored files) and plain folder roots (with any nested repos) |
+| `export-projects-yaml.sh` | old laptop | Pushes the curated `.chezmoidata/projects.yaml` itself to Bitwarden |
 | `export-project-secrets.sh` | old laptop | Pushes each curated repo's gitignored secret files to Bitwarden |
 | `export-project-folders.sh` | old laptop | Zips each curated plain-folder root to a OneDrive backup dir |
+| `fetch-projects-yaml.sh` | new laptop | Pulls the curated `.chezmoidata/projects.yaml` back down from Bitwarden |
 | `restore-projects.sh` | new laptop | Clones repos, restores secrets from Bitwarden, unzips folders, and clones nested repos back into place (`--dry-run` supported) |
 
 These are manual scripts, not wired into `chezmoi apply` — rebuilding `$HOME/Projects` is a deliberate step, not something that happens silently. See `docs/superpowers/specs/2026-07-10-projects-backup-restore-design.md` for the design rationale.
 
-To refresh the curated list: run `./scan_repos.sh "$HOME/Projects"`, copy the output into `.chezmoidata/projects.yaml`, and prune it down to what's actually worth backing up.
+`.chezmoidata/projects.yaml` itself is **not committed** to this public repo — the real, curated version names private/internal repos and org structure that don't belong here. Only an empty placeholder (with the schema documented in its header) is tracked; the real file round-trips through Bitwarden via `export-projects-yaml.sh` / `fetch-projects-yaml.sh`, and is marked git-skip-worktree locally so it can't accidentally get committed.
+
+To refresh the curated list: run `./scan_repos.sh "$HOME/Projects"`, copy the output into `.chezmoidata/projects.yaml`, prune it down to what's actually worth backing up, then run `./export-projects-yaml.sh` to push the update to Bitwarden.
 
 ## Setting up a new laptop
 
@@ -42,6 +46,7 @@ chezmoi apply
 Once the machine is set up and SSH/Bitwarden are working, restore your projects:
 
 ```sh
+./fetch-projects-yaml.sh          # pull the real projects.yaml down from Bitwarden
 ./restore-projects.sh --dry-run   # preview
 ./restore-projects.sh             # for real
 ```

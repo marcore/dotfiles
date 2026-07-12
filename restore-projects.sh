@@ -4,7 +4,9 @@
 #
 # Run this MANUALLY on a NEW laptop, from the root of your dotfiles repo,
 # once SSH keys and Bitwarden CLI are already set up (see
-# .install-prerequisites.sh and private_dot_ssh/).
+# .install-prerequisites.sh and private_dot_ssh/) and
+# ./fetch-projects-yaml.sh has been run to pull the real
+# .chezmoidata/projects.yaml down from Bitwarden.
 #
 # Reads .chezmoidata/projects.yaml and:
 #   1. git clones each top-level repo to its original path (skipped if the
@@ -38,6 +40,7 @@ PROJECTS_YAML="${PROJECTS_YAML:-$SCRIPT_DIR/.chezmoidata/projects.yaml}"
 
 if [[ ! -f "$PROJECTS_YAML" ]]; then
     echo "Error: projects YAML not found at $PROJECTS_YAML" >&2
+    echo "Run ./fetch-projects-yaml.sh first to pull it down from Bitwarden." >&2
     exit 1
 fi
 

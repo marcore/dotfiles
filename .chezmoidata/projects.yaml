@@ -4,6 +4,16 @@
 # (also prune each repo's ignored_files down to actual secrets worth
 # restoring, e.g. drop cache/lock files).
 #
+# The real, curated version of this file is NOT committed to this repo --
+# it names private/internal repos and org structure that don't belong in a
+# public dotfiles repo. Instead it round-trips through Bitwarden:
+#   - after curating it locally, run ./export-projects-yaml.sh to push it
+#   - on a new laptop, run ./fetch-projects-yaml.sh to pull it back down
+#     (before running restore-projects.sh)
+# fetch-projects-yaml.sh marks the local file git-skip-worktree, so real
+# data written here won't show up in `git status`/`git diff` or get
+# committed over this placeholder.
+#
 # Schema (matches scan_repos.sh's output):
 #   root: absolute path scan_repos.sh was run against
 #   repos[].path: absolute path to a git repo

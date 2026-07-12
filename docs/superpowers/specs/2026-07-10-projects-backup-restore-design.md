@@ -45,13 +45,20 @@ scan_repos.sh (reworked)
         │
         │  manual prune by hand
         ▼
-.chezmoidata/projects.yaml   ──── committed ────►  .chezmoidata/projects.yaml
-  (repos + folder roots)                             (source of truth on new machine)
-        │                                                    │
-        ├─► export-project-secrets.sh                        │
-        │     (repo ignored_files → Bitwarden,                │
-        │      via add_secret_to_bw.sh)                       │
-        │                                                     ▼
+.chezmoidata/projects.yaml  ──► export-projects-yaml.sh ──► Bitwarden secure note
+  (repos + folder roots,          (base64 in notes,           ("dotfiles:projects.yaml")
+   NOT committed --                like proj-secret items)          │
+   real file is skip-worktree)                                      │
+        │                                              fetch-projects-yaml.sh
+        │                                                (pulls the note back down into
+        │                                                 .chezmoidata/projects.yaml,
+        │                                                 marks it skip-worktree)
+        │                                                            │
+        │                                                            ▼
+        ├─► export-project-secrets.sh                  .chezmoidata/projects.yaml
+        │     (repo ignored_files → Bitwarden,            (source of truth on new machine)
+        │      via add_secret_to_bw.sh)                            │
+        │                                                          ▼
         └─► export-project-folders.sh                  restore-projects.sh
               (zip folder roots, excluding                 1. git clone each repo
                nested_repos, → OneDrive)                    2. pull secrets from Bitwarden
@@ -64,6 +71,15 @@ scan_repos.sh (reworked)
 
 Cloning and unzipping are run manually on the new laptop, not wired into an
 automatic `chezmoi apply` hook.
+
+`projects.yaml` itself isn't committed to this public repo: the curated data
+names private/internal repos and org structure that don't belong in a public
+dotfiles repo (unlike the OneDrive folder archives, which are already a
+private channel, `git@github.com` history is public and permanent). Only an
+empty placeholder is tracked; the real file is round-tripped through
+Bitwarden -- the same private, cross-machine channel already used for
+per-repo secrets -- and kept out of `git status`/`git diff` locally via
+`git update-index --skip-worktree`.
 
 ## Components
 
@@ -102,13 +118,32 @@ folders:
 The `repos:` list's schema (path, remotes, status, ignored_files) is
 unchanged.
 
-### 2. `.chezmoidata/projects.yaml` (curated, committed)
+### 2. `.chezmoidata/projects.yaml` (curated, NOT committed)
 
 Produced by hand: run `scan_repos.sh`, copy its output, and prune entries
 you don't want to carry forward. Same schema as the scan output. Pruning
 also applies to each repo's `ignored_files` — drop cache/lock files
 (`.parcel-cache/*`, etc.) and keep only files that are actual secrets worth
 restoring (`.env`, `.aws.tmp.creds.json`, ...).
+
+Only an empty placeholder (documenting the schema in a header comment) is
+committed to the repo. The real, curated file lives locally, marked
+git-skip-worktree (see `export-projects-yaml.sh` / `fetch-projects-yaml.sh`
+below) so edits to it never show up as a pending change to commit.
+
+### 2a. `export-projects-yaml.sh` / `fetch-projects-yaml.sh` (new, manual)
+
+Round-trip `.chezmoidata/projects.yaml` itself through Bitwarden as a single
+secure note (`dotfiles:projects.yaml`, base64-encoded content in `notes`,
+same convention as `proj-secret:...` items):
+
+- `export-projects-yaml.sh`, run on whichever laptop just re-curated the
+  file, creates the Bitwarden item if missing or updates its content if
+  present (unlike `add_secret_to_bw.sh`, which only ever creates once).
+- `fetch-projects-yaml.sh`, run on a new laptop before `restore-projects.sh`,
+  pulls the item back down, writes it to `.chezmoidata/projects.yaml`
+  (refusing to overwrite an already-curated local file unless `--force`),
+  and marks the file git-skip-worktree.
 
 ### 3. `export-project-secrets.sh` (new, manual, run on old laptop)
 
