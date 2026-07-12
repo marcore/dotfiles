@@ -37,7 +37,11 @@
 #     rely on "whatever's currently loaded" once you're mixing identities.
 #     Omit entirely for repos that don't need identity switching.
 #   repos[].ignored_files[]: gitignored files to restore via Bitwarden
-#     (proj-secret:<repo-path-relative-to-root>:<file-relative-path>)
+#     (proj-secret:<repo-path-relative-to-root>:<file-relative-path>,
+#     stored chunked across multiple secure notes, not base64 in a single
+#     item's `notes` -- Bitwarden caps `notes` at 10000 encrypted
+#     characters, too small for most real secret files, and attachments
+#     require a Bitwarden Premium subscription)
 #   folders[].path: absolute path to a plain (non-git) project root
 #   folders[].nested_repos[]: paths of git repos found inside that root,
 #     relative to it — excluded from its zip archive, restored via clone.

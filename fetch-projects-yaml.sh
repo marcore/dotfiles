@@ -4,8 +4,11 @@
 #
 # Run this MANUALLY on a NEW laptop, before restore-projects.sh, once the
 # Bitwarden CLI is set up and unlocked. Pulls the curated projects inventory
-# back out of Bitwarden (pushed there by export-projects-yaml.sh) and writes
-# it to .chezmoidata/projects.yaml, overwriting the committed placeholder.
+# back out of Bitwarden (pushed there by export-projects-yaml.sh, chunked
+# across multiple secure notes -- a single item's notes field can't hold
+# it, and attachments require Bitwarden Premium, see add_secret_to_bw.sh)
+# and writes it to .chezmoidata/projects.yaml, overwriting the committed
+# placeholder.
 #
 # Refuses to overwrite a projects.yaml that already has real content (i.e.
 # isn't the empty placeholder) unless --force is given, so it won't clobber
@@ -44,16 +47,30 @@ if [[ -f "$PROJECTS_YAML" && "$FORCE" -ne 1 ]]; then
     fi
 fi
 
-if ! bw list items --search "$SECRET_NAME" \
-    | jq -e --arg n "$SECRET_NAME" '[.[] | select(.name==$n)] | .[0]' >/dev/null; then
+items_json=$(bw list items --search "$SECRET_NAME")
+index_notes=$(echo "$items_json" | jq -r --arg n "$SECRET_NAME" '[.[] | select(.name==$n)] | .[0].notes // empty')
+if [[ -z "$index_notes" ]]; then
     echo "Error: Bitwarden item not found for $SECRET_NAME" >&2
     exit 1
 fi
+if [[ "$index_notes" != CHUNKED:* ]]; then
+    echo "Error: Bitwarden item $SECRET_NAME is not in the expected chunked format" >&2
+    exit 1
+fi
+chunk_count="${index_notes#CHUNKED:}"
+
+payload_b64=""
+for ((i = 0; i < chunk_count; i++)); do
+    chunk_notes=$(echo "$items_json" | jq -r --arg n "${SECRET_NAME}#${i}" '[.[] | select(.name==$n)] | .[0].notes // empty')
+    if [[ -z "$chunk_notes" ]]; then
+        echo "Error: missing chunk $i for $SECRET_NAME" >&2
+        exit 1
+    fi
+    payload_b64+="$chunk_notes"
+done
 
 mkdir -p "$(dirname "$PROJECTS_YAML")"
-bw list items --search "$SECRET_NAME" \
-    | jq -r --arg n "$SECRET_NAME" '[.[] | select(.name==$n)] | .[0].notes' \
-    | base64 -d > "$PROJECTS_YAML"
+printf '%s' "$payload_b64" | base64 -d > "$PROJECTS_YAML"
 
 echo "Fetched Bitwarden item $SECRET_NAME -> $PROJECTS_YAML"
 

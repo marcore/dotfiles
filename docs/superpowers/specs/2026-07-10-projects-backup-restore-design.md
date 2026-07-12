@@ -45,19 +45,20 @@ scan_repos.sh (reworked)
         │
         │  manual prune by hand
         ▼
-.chezmoidata/projects.yaml  ──► export-projects-yaml.sh ──► Bitwarden secure note
-  (repos + folder roots,          (base64 in notes,           ("dotfiles:projects.yaml")
-   NOT committed --                like proj-secret items)          │
-   real file is skip-worktree)                                      │
+.chezmoidata/projects.yaml  ──► export-projects-yaml.sh ──► Bitwarden items
+  (repos + folder roots,          (chunked secure notes,     ("dotfiles:projects.yaml"
+   NOT committed --                 like proj-secret items)   + "...#0", "...#1", ...)
+   real file is skip-worktree)                                          │
         │                                              fetch-projects-yaml.sh
-        │                                                (pulls the note back down into
+        │                                                (pulls the chunks back
+        │                                                 down into
         │                                                 .chezmoidata/projects.yaml,
         │                                                 marks it skip-worktree)
         │                                                            │
         │                                                            ▼
         ├─► export-project-secrets.sh                  .chezmoidata/projects.yaml
         │     (repo ignored_files → Bitwarden,            (source of truth on new machine)
-        │      via add_secret_to_bw.sh)                            │
+        │      via add_secret_to_bw.sh --chunked)                    │
         │                                                          ▼
         └─► export-project-folders.sh                  restore-projects.sh
               (zip folder roots, excluding                 1. git clone each repo
@@ -133,17 +134,25 @@ below) so edits to it never show up as a pending change to commit.
 
 ### 2a. `export-projects-yaml.sh` / `fetch-projects-yaml.sh` (new, manual)
 
-Round-trip `.chezmoidata/projects.yaml` itself through Bitwarden as a single
-secure note (`dotfiles:projects.yaml`, base64-encoded content in `notes`,
-same convention as `proj-secret:...` items):
+Round-trip `.chezmoidata/projects.yaml` itself through Bitwarden, **chunked
+across multiple secure-note items** (same convention as `proj-secret:...`
+items) rather than a single item's `notes` field, which caps out at 10000
+encrypted characters -- far smaller than a real curated `projects.yaml`.
+(Bitwarden attachments would avoid the chunking entirely, but they require
+a Premium subscription, which can't be assumed here.) The layout is an
+"index" item (`dotfiles:projects.yaml`, `notes: "CHUNKED:<count>"`) plus
+`count` chunk items (`dotfiles:projects.yaml#0`, `#1`, ...), each holding
+one slice of the base64-encoded file in its own `notes` field:
 
 - `export-projects-yaml.sh`, run on whichever laptop just re-curated the
-  file, is a thin wrapper around `add_secret_to_bw.sh ... --update`: creates
-  the Bitwarden item if missing, or updates its content if present.
+  file, is a thin wrapper around `add_secret_to_bw.sh ... --chunked`:
+  creates the index + chunk items if missing, or replaces their content
+  (and deletes now-orphaned trailing chunks) if present.
 - `fetch-projects-yaml.sh`, run on a new laptop before `restore-projects.sh`,
-  pulls the item back down, writes it to `.chezmoidata/projects.yaml`
-  (refusing to overwrite an already-curated local file unless `--force`),
-  and marks the file git-skip-worktree.
+  reads the index item's chunk count, pulls each chunk item's `notes` in
+  order, concatenates and base64-decodes them, and writes the result to
+  `.chezmoidata/projects.yaml` (refusing to overwrite an already-curated
+  local file unless `--force`), then marks the file git-skip-worktree.
 
 ### 3. `export-project-secrets.sh` (new, manual, run on old laptop)
 
@@ -156,12 +165,20 @@ proj-secret:<repo-path-relative-to-Projects-root>:<file-relative-path>
 
 e.g. `proj-secret:ENI/cf-extension-demo:.env`
 
-and calls the existing `add_secret_to_bw.sh <name> <repo>/<file> --update`,
-using the same Bitwarden folder as SSH key secrets. `--update` means
-re-running this after a project secret's content changes (a rotated token,
-etc.) refreshes the existing item instead of leaving it stale; without the
-flag, `add_secret_to_bw.sh` defaults to create-once-and-skip, which is what
-manual SSH key secret creation still relies on.
+and calls the existing `add_secret_to_bw.sh <name> <repo>/<file>
+--chunked`, using the same Bitwarden folder as SSH key secrets.
+`--chunked` splits the file's base64 content across an index item plus
+`<name>#0`, `#1`, ... chunk items rather than a single item's `notes`
+field (which caps at 10000 encrypted characters -- too small for most real
+secret files, and the original cause of a real "Notes exceeds the maximum
+encrypted value length" failure; Bitwarden attachments were tried first
+but require a Premium subscription) and always replaces the existing
+content, so re-running this after a project secret's content changes (a
+rotated token, etc.) refreshes it instead of leaving it stale. This is a
+different mode from plain `--update` (single-item notes), which
+`add_secret_to_bw.sh` still supports for small, stable secrets; without
+either flag it defaults to create-once-and-skip, which is what manual SSH
+key secret creation still relies on.
 
 ### 3a. `add_repo_auth_to_bw.sh` (new, manual, run on old laptop)
 
@@ -251,6 +268,11 @@ archives.
 - `restore-projects.sh --dry-run` lets a curated `projects.yaml` be sanity
   checked before committing to clones/unzips on a fresh machine.
 - `export-project-secrets.sh` and `export-projects-yaml.sh` both call
-  `add_secret_to_bw.sh ... --update`, so re-running exports after adding new
-  repos or changing secret content is safe: existing items get their
-  content refreshed rather than duplicated or left stale.
+  `add_secret_to_bw.sh ... --chunked`, so re-running exports after adding
+  new repos or changing secret content is safe: existing chunk items get
+  replaced (and orphaned trailing chunks deleted) rather than duplicated or
+  left stale.
+- Verified the chunk split/reassembly logic directly: base64-encoded a
+  ~13.7KB random file, split it into 5000-character chunks, reassembled and
+  base64-decoded the result, and confirmed an exact byte-for-byte match
+  with the original file.

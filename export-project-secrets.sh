@@ -7,15 +7,18 @@
 # files, ...) that need to survive a laptop migration.
 #
 # Reads .chezmoidata/projects.yaml and, for every repo's ignored_files entry,
-# pushes the file's content into Bitwarden as a secure note via
-# add_secret_to_bw.sh --update, using the naming convention:
+# pushes the file's content into Bitwarden, chunked across multiple secure
+# notes, via add_secret_to_bw.sh --chunked, using the naming convention:
 #
 #   proj-secret:<repo-path-relative-to-projects-root>:<file-relative-path>
 #
-# Passing --update means re-running this after a project secret's content
-# changes (a rotated token in .env, etc.) refreshes the existing Bitwarden
-# item instead of leaving it stale -- unlike add_secret_to_bw.sh's default
-# create-only behavior, which is meant for stable secrets like SSH keys.
+# Uses --chunked (not --update/single-notes) because Bitwarden caps the
+# `notes` field at 10000 *encrypted* characters -- in practice only a few
+# KB of raw content -- and secret files (.env, credentials, ...) can exceed
+# that. (Bitwarden attachments would be the obvious alternative, but they
+# require a Premium subscription.) --chunked always replaces the existing
+# content, so re-running this after a project secret's content changes (a
+# rotated token, etc.) refreshes it instead of leaving it stale.
 #
 # Usage:
 #   ./export-project-secrets.sh [PROJECTS_YAML]
@@ -51,6 +54,6 @@ for ((i = 0; i < repo_count; i++)); do
         fi
 
         echo "Exporting $secret_name"
-        "$ADD_SECRET_SCRIPT" "$secret_name" "$secret_path" --update
+        "$ADD_SECRET_SCRIPT" "$secret_name" "$secret_path" --chunked
     done
 done

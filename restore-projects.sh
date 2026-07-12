@@ -76,24 +76,45 @@ is_nested_repo() {
     return 1
 }
 
-# Restores a single Bitwarden secret item to dest_path, or records a
-# failure in FAILED_ITEMS if the item doesn't exist.
+# Restores a single Bitwarden secret item (stored chunked across multiple
+# secure notes by export-project-secrets.sh / add_secret_to_bw.sh
+# --chunked, since Bitwarden attachments require Premium) to dest_path, or
+# records a failure in FAILED_ITEMS if the index item or any chunk is
+# missing.
 restore_secret() {
     local secret_name="$1" dest_path="$2"
     if [[ "$DRY_RUN" -eq 1 ]]; then
         echo "DRY-RUN: restore secret $secret_name -> $dest_path"
         return 0
     fi
-    if ! bw list items --search "$secret_name" \
-        | jq -e --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0]' >/dev/null; then
+    local items_json index_notes chunk_count payload_b64 i chunk_notes
+    items_json=$(bw list items --search "$secret_name")
+    index_notes=$(echo "$items_json" | jq -r --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0].notes // empty')
+    if [[ -z "$index_notes" ]]; then
         echo "WARN: Bitwarden item not found for $secret_name (expected at $dest_path)" >&2
         FAILED_ITEMS+=("$secret_name")
         return 0
     fi
+    if [[ "$index_notes" != CHUNKED:* ]]; then
+        echo "WARN: Bitwarden item $secret_name is not in the expected chunked format (expected at $dest_path)" >&2
+        FAILED_ITEMS+=("$secret_name")
+        return 0
+    fi
+    chunk_count="${index_notes#CHUNKED:}"
+
+    payload_b64=""
+    for ((i = 0; i < chunk_count; i++)); do
+        chunk_notes=$(echo "$items_json" | jq -r --arg n "${secret_name}#${i}" '[.[] | select(.name==$n)] | .[0].notes // empty')
+        if [[ -z "$chunk_notes" ]]; then
+            echo "WARN: missing chunk $i for $secret_name (expected at $dest_path)" >&2
+            FAILED_ITEMS+=("$secret_name")
+            return 0
+        fi
+        payload_b64+="$chunk_notes"
+    done
+
     mkdir -p "$(dirname "$dest_path")"
-    bw list items --search "$secret_name" \
-        | jq -r --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0].notes' \
-        | base64 -d > "$dest_path"
+    printf '%s' "$payload_b64" | base64 -d > "$dest_path"
     chmod 600 "$dest_path"
     echo "Restored secret $secret_name -> $dest_path"
 }
