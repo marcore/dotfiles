@@ -8,12 +8,14 @@
 #
 # Reads .chezmoidata/projects.yaml and, for every repo's ignored_files entry,
 # pushes the file's content into Bitwarden as a secure note via
-# add_secret_to_bw.sh, using the naming convention:
+# add_secret_to_bw.sh --update, using the naming convention:
 #
 #   proj-secret:<repo-path-relative-to-projects-root>:<file-relative-path>
 #
-# add_secret_to_bw.sh already skips creation if the Bitwarden item exists,
-# so re-running this after editing projects.yaml is safe.
+# Passing --update means re-running this after a project secret's content
+# changes (a rotated token in .env, etc.) refreshes the existing Bitwarden
+# item instead of leaving it stale -- unlike add_secret_to_bw.sh's default
+# create-only behavior, which is meant for stable secrets like SSH keys.
 #
 # Usage:
 #   ./export-project-secrets.sh [PROJECTS_YAML]
@@ -49,6 +51,6 @@ for ((i = 0; i < repo_count; i++)); do
         fi
 
         echo "Exporting $secret_name"
-        "$ADD_SECRET_SCRIPT" "$secret_name" "$secret_path"
+        "$ADD_SECRET_SCRIPT" "$secret_name" "$secret_path" --update
     done
 done

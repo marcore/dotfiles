@@ -138,8 +138,8 @@ secure note (`dotfiles:projects.yaml`, base64-encoded content in `notes`,
 same convention as `proj-secret:...` items):
 
 - `export-projects-yaml.sh`, run on whichever laptop just re-curated the
-  file, creates the Bitwarden item if missing or updates its content if
-  present (unlike `add_secret_to_bw.sh`, which only ever creates once).
+  file, is a thin wrapper around `add_secret_to_bw.sh ... --update`: creates
+  the Bitwarden item if missing, or updates its content if present.
 - `fetch-projects-yaml.sh`, run on a new laptop before `restore-projects.sh`,
   pulls the item back down, writes it to `.chezmoidata/projects.yaml`
   (refusing to overwrite an already-curated local file unless `--force`),
@@ -156,9 +156,12 @@ proj-secret:<repo-path-relative-to-Projects-root>:<file-relative-path>
 
 e.g. `proj-secret:ENI/cf-extension-demo:.env`
 
-and calls the existing `add_secret_to_bw.sh <name> <repo>/<file>`, which
-already handles "create in Bitwarden if not present" idempotently, using the
-same Bitwarden folder as SSH key secrets.
+and calls the existing `add_secret_to_bw.sh <name> <repo>/<file> --update`,
+using the same Bitwarden folder as SSH key secrets. `--update` means
+re-running this after a project secret's content changes (a rotated token,
+etc.) refreshes the existing item instead of leaving it stale; without the
+flag, `add_secret_to_bw.sh` defaults to create-once-and-skip, which is what
+manual SSH key secret creation still relies on.
 
 ### 4. `export-project-folders.sh` (new, manual, run on old laptop)
 
@@ -207,6 +210,7 @@ archives.
 
 - `restore-projects.sh --dry-run` lets a curated `projects.yaml` be sanity
   checked before committing to clones/unzips on a fresh machine.
-- `export-project-secrets.sh` relies on `add_secret_to_bw.sh`'s existing
-  idempotent create-if-missing check, so re-running exports after adding new
-  repos to `projects.yaml` is safe and won't duplicate Bitwarden items.
+- `export-project-secrets.sh` and `export-projects-yaml.sh` both call
+  `add_secret_to_bw.sh ... --update`, so re-running exports after adding new
+  repos or changing secret content is safe: existing items get their
+  content refreshed rather than duplicated or left stale.
