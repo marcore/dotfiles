@@ -41,6 +41,21 @@ packages:
             - "google-chrome"
             - "visual-studio-code"
         mas: []
+        npm:
+            - "@adobe/aem-cli"
+            - "@adobe/aio-cli"
+        vscode:
+            - "vscjava.vscode-java-pack"
+            - "ms-vscode-remote.remote-containers"
+            - "ms-playwright.playwright"
+            - "github.vscode-github-actions"
+            - "github.copilot-chat"
+            - "esbenp.prettier-vscode"
+            - "editorconfig.editorconfig"
+            - "eamodio.gitlens"
+            - "docker.docker"
+            - "dbaeumer.vscode-eslint"
+            - "anthropic.claude-code"
 
     work:
         taps:
@@ -73,6 +88,11 @@ packages:
               id:  "1295203466"
             - name: "Microsoft Word" 
               id:  "462054704"
+        npm:
+            - "@adobe/aio-cli"
+
+        vscode: []
+          
 
 
     private:
@@ -89,3 +109,6 @@ packages:
               id: "409201541"
             - name: "Numbers"
               id: "409203825"
+
+        npm: []
+        vscode: []

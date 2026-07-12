@@ -19,6 +19,9 @@ cask {{ . | quote }}
 mas {{ .name | quote }}, id: {{ .id }}
 {{ end -}}
 {{ end -}}
+{{ range .packages.universal.vscode -}}
+vscode {{ . | quote }}
+{{ end -}}
 {{ if .isWorkComputer -}}
 {{ range .packages.work.taps -}}
 tap {{ . | quote | replace " " "\", \"" }}
@@ -33,6 +36,9 @@ cask {{ . | quote }}
 {{ range .packages.work.mas -}}
 mas {{ .name | quote }}, id: {{ .id }}
 {{ end -}}
+{{ end -}}
+{{ range .packages.work.vscode -}}
+vscode {{ . | quote }}
 {{ end -}}
 {{ else -}}
 {{ range .packages.private.taps -}}
@@ -49,6 +55,9 @@ cask {{ . | quote }}
 mas {{ .name | quote }}, id: {{ .id }}
 {{ end -}}
 {{ end -}}
+{{ range .packages.private.vscode -}}
+vscode {{ . | quote }}
+{{ end -}}
 {{ end -}}
 BREWEOF
 
@@ -63,6 +72,19 @@ if [[ -n "$undeclared" ]]; then
     brew bundle cleanup --force --file="$brewfile"
     brew autoremove
 fi
+
+{{ range .packages.universal.npm -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+{{ if .isWorkComputer -}}
+{{ range .packages.work.npm -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+{{ else -}}
+{{ range .packages.private.npm -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+{{ end -}}
 
 mise trust $HOME/.config/mise/config.toml && mise install --verbose
 
