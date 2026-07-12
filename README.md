@@ -14,7 +14,7 @@ Secrets never live in this repo. They're stored in Bitwarden (`add_secret_to_bw.
 
 ## Projects backup & restore
 
-`$HOME/Projects` holds development work — some git repos, some plain folders. A curated inventory of what matters lives in `.chezmoidata/projects.yaml` and drives six scripts:
+`$HOME/Projects` holds development work — some git repos, some plain folders. A curated inventory of what matters lives in `.chezmoidata/projects.yaml` and drives seven scripts:
 
 | Script | Runs on | Purpose |
 |---|---|---|
@@ -22,8 +22,9 @@ Secrets never live in this repo. They're stored in Bitwarden (`add_secret_to_bw.
 | `export-projects-yaml.sh` | old laptop | Pushes the curated `.chezmoidata/projects.yaml` itself to Bitwarden |
 | `export-project-secrets.sh` | old laptop | Pushes each curated repo's gitignored secret files to Bitwarden |
 | `export-project-folders.sh` | old laptop | Zips each curated plain-folder root to a OneDrive backup dir |
+| `add_repo_auth_to_bw.sh` | old laptop | Stores/updates HTTPS username+password for a repo marked `auth: https` (e.g. Adobe Cloud Manager git) |
 | `fetch-projects-yaml.sh` | new laptop | Pulls the curated `.chezmoidata/projects.yaml` back down from Bitwarden |
-| `restore-projects.sh` | new laptop | Clones repos, restores secrets from Bitwarden, unzips folders, and clones nested repos back into place (`--dry-run` supported) |
+| `restore-projects.sh` | new laptop | Clones repos (via SSH, or via stored HTTPS credentials for `auth: https` repos), restores secrets from Bitwarden, unzips folders, and clones nested repos back into place (`--dry-run` supported) |
 
 These are manual scripts, not wired into `chezmoi apply` — rebuilding `$HOME/Projects` is a deliberate step, not something that happens silently. See `docs/superpowers/specs/2026-07-10-projects-backup-restore-design.md` for the design rationale.
 

@@ -163,6 +163,30 @@ etc.) refreshes the existing item instead of leaving it stale; without the
 flag, `add_secret_to_bw.sh` defaults to create-once-and-skip, which is what
 manual SSH key secret creation still relies on.
 
+### 3a. `add_repo_auth_to_bw.sh` (new, manual, run on old laptop)
+
+Some repos can't use SSH -- Adobe Cloud Manager git issues a distinct HTTPS
+username/password (per-repo, not shared -- see `dot_gitconfig.tmpl`'s
+`[credential "git.cloudmanager.adobe.com"] useHttpPath = true`) instead of an
+SSH remote. For these, mark the `projects.yaml` entry with `auth: https`,
+then run:
+
+```
+./add_repo_auth_to_bw.sh <repo-path-relative-to-Projects-root>
+```
+
+which prompts interactively for username and password (hidden input, never
+passed as arguments) and creates or updates a Bitwarden **login** item (not
+a secure note, since this is a real username/password pair) named
+`repo-auth:<repo-path-relative-to-Projects-root>`.
+
+Repos without `auth: https` clone via plain SSH as before, relying on
+`~/.ssh/config` (`private_dot_ssh/private_config`) to pick the right
+identity per remote host alias (e.g. `github.com` vs
+`adobe-ssh.github.com`) -- no new mechanism needed there, since
+`scan_repos.sh` already records each repo's exact remote URL including its
+host alias.
+
 ### 4. `export-project-folders.sh` (new, manual, run on old laptop)
 
 Reads `.chezmoidata/projects.yaml`. For each folder root, zips it to
@@ -174,8 +198,15 @@ duplicated into the archive.
    manually on new laptop)
 
 For each repo in `projects.yaml`:
-- if the target path doesn't already exist, `git clone` from its recorded
-  remote to that path;
+- if the target path doesn't already exist, clone it:
+  - `auth: https` repos look up username/password from the
+    `repo-auth:<repo-rel-path>` Bitwarden login item and clone using a
+    short-lived `GIT_ASKPASS` script (the password never touches
+    `.git/config`'s remote URL or shell argv; the username is
+    percent-encoded via `jq`'s `@uri` before being embedded in the URL,
+    since Cloud Manager usernames are often email addresses containing
+    `@`);
+  - all other repos clone via plain `git clone` over SSH.
 - for each of its `ignored_files`, look up the matching
   `proj-secret:...` Bitwarden item, decode, and write it to the
   corresponding path inside the cloned repo.

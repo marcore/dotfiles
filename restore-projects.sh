@@ -10,7 +10,11 @@
 #
 # Reads .chezmoidata/projects.yaml and:
 #   1. git clones each top-level repo to its original path (skipped if the
-#      path already exists)
+#      path already exists) -- repos marked `auth: https` (e.g. Adobe Cloud
+#      Manager git) are cloned using username/password from a Bitwarden
+#      login item created by add_repo_auth_to_bw.sh; all others clone via
+#      plain SSH, relying on ~/.ssh/config to pick the right identity per
+#      remote host alias
 #   2. restores each repo's gitignored "secret" files from Bitwarden
 #      (items created by export-project-secrets.sh)
 #   3. unzips each plain folder root from the OneDrive backup dir
@@ -90,6 +94,41 @@ restore_secret() {
     echo "Restored secret $secret_name -> $dest_path"
 }
 
+# Clones a repo whose projects.yaml entry has `auth: https`, fetching
+# username/password from the Bitwarden login item repo-auth:<repo_rel>
+# (created by add_repo_auth_to_bw.sh) and feeding the password to git via a
+# short-lived GIT_ASKPASS script -- the password is never embedded in
+# .git/config's remote URL or passed as a plain argv argument. Returns
+# non-zero if the Bitwarden item is missing or the clone fails.
+clone_with_https_auth() {
+    local remote_url="$1" repo_path="$2" repo_rel="$3"
+    local secret_name="repo-auth:${repo_rel}"
+
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+        echo "DRY-RUN: git clone (https, credentials from Bitwarden item $secret_name) $remote_url -> $repo_path"
+        return 0
+    fi
+
+    local item username password askpass authed_url clone_status
+    if ! item=$(bw list items --search "$secret_name" \
+        | jq -e --arg n "$secret_name" '[.[] | select(.name==$n)] | .[0]'); then
+        echo "WARN: Bitwarden login item not found for $secret_name (expected for $repo_path)" >&2
+        return 1
+    fi
+    username=$(echo "$item" | jq -r '.login.username | @uri')
+    password=$(echo "$item" | jq -r '.login.password')
+
+    askpass=$(mktemp)
+    printf '#!/bin/sh\necho "%s"\n' "$password" > "$askpass"
+    chmod 700 "$askpass"
+    authed_url="${remote_url/https:\/\//https://$username@}"
+
+    clone_status=0
+    GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 git clone "$authed_url" "$repo_path" || clone_status=$?
+    rm -f "$askpass"
+    return "$clone_status"
+}
+
 # Finds the index into repos[] whose path equals $1. Echoes the index and
 # returns 0 on success; returns 1 if no match is found.
 find_repo_index_by_path() {
@@ -109,16 +148,23 @@ find_repo_index_by_path() {
 # gitignored secret files from Bitwarden.
 restore_repo() {
     local idx="$1"
-    local repo_path remote_url repo_rel file_count
+    local repo_path remote_url repo_rel auth file_count
     repo_path=$(yq ".repos[$idx].path" "$PROJECTS_YAML")
     remote_url=$(yq ".repos[$idx].remotes[0].url" "$PROJECTS_YAML")
+    auth=$(yq ".repos[$idx].auth // \"\"" "$PROJECTS_YAML")
     repo_rel="${repo_path#"$projects_root"/}"
 
     if [[ -d "$repo_path" ]]; then
         echo "Skipping clone, already exists: $repo_path"
     else
         run mkdir -p "$(dirname "$repo_path")"
-        if ! run git clone "$remote_url" "$repo_path"; then
+        local clone_status=0
+        if [[ "$auth" == "https" ]]; then
+            clone_with_https_auth "$remote_url" "$repo_path" "$repo_rel" || clone_status=$?
+        else
+            run git clone "$remote_url" "$repo_path" || clone_status=$?
+        fi
+        if [[ "$clone_status" -ne 0 ]]; then
             echo "WARN: git clone failed for $repo_path (remote: $remote_url)" >&2
             FAILED_ITEMS+=("$repo_path")
             return 0

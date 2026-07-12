@@ -18,6 +18,14 @@
 #   root: absolute path scan_repos.sh was run against
 #   repos[].path: absolute path to a git repo
 #   repos[].remotes[].name / .url: git remotes
+#   repos[].auth: optional, "https" for repos that need username/password
+#     auth instead of SSH (e.g. Adobe Cloud Manager git, which issues a
+#     distinct token per repo). Omit for plain SSH clones (the default),
+#     which rely on ~/.ssh/config to pick the right identity per remote
+#     host alias. When set to "https", restore-projects.sh looks up
+#     username/password from a Bitwarden login item named
+#     repo-auth:<repo-path-relative-to-root>, created/updated by
+#     ./add_repo_auth_to_bw.sh <repo-path-relative-to-root>.
 #   repos[].ignored_files[]: gitignored files to restore via Bitwarden
 #     (proj-secret:<repo-path-relative-to-root>:<file-relative-path>)
 #   folders[].path: absolute path to a plain (non-git) project root
