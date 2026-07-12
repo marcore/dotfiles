@@ -180,12 +180,15 @@ passed as arguments) and creates or updates a Bitwarden **login** item (not
 a secure note, since this is a real username/password pair) named
 `repo-auth:<repo-path-relative-to-Projects-root>`.
 
-Repos without `auth: https` clone via plain SSH as before, relying on
-`~/.ssh/config` (`private_dot_ssh/private_config`) to pick the right
-identity per remote host alias (e.g. `github.com` vs
-`adobe-ssh.github.com`) -- no new mechanism needed there, since
-`scan_repos.sh` already records each repo's exact remote URL including its
-host alias.
+Repos without `auth: https` clone via plain SSH. Some rely on
+`~/.ssh/config` (`private_dot_ssh/private_config`) host aliases (e.g.
+`adobe-ssh.github.com`) to pick the right identity; others rely on
+whichever key is currently loaded in the ssh-agent (the `gitmre`/
+`gitmarcore` `dot_zshrc` aliases: `ssh-add -D && ssh-add ~/.ssh/<key>`),
+since GitHub doesn't require a distinct hostname per account. For the
+latter, mark the repo's `projects.yaml` entry with `ssh_identity:
+<key-filename>` (see component 5) so `restore-projects.sh` can replicate
+the same agent switch non-interactively before cloning.
 
 ### 4. `export-project-folders.sh` (new, manual, run on old laptop)
 
@@ -206,7 +209,13 @@ For each repo in `projects.yaml`:
     percent-encoded via `jq`'s `@uri` before being embedded in the URL,
     since Cloud Manager usernames are often email addresses containing
     `@`);
-  - all other repos clone via plain `git clone` over SSH.
+  - SSH repos with an `ssh_identity: <key-filename>` entry get that key
+    loaded into the ssh-agent first (`ssh-add -D && ssh-add
+    ~/.ssh/<key-filename>`), skipped when it's already the identity loaded
+    by the previous repo in this run (`CURRENT_SSH_IDENTITY`), so a run of
+    several same-identity repos in a row doesn't reset the agent (and
+    potentially re-prompt for a passphrase) between each one;
+  - all other repos clone via plain `git clone` over SSH as-is.
 - for each of its `ignored_files`, look up the matching
   `proj-secret:...` Bitwarden item, decode, and write it to the
   corresponding path inside the cloned repo.

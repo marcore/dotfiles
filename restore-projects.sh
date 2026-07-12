@@ -12,9 +12,12 @@
 #   1. git clones each top-level repo to its original path (skipped if the
 #      path already exists) -- repos marked `auth: https` (e.g. Adobe Cloud
 #      Manager git) are cloned using username/password from a Bitwarden
-#      login item created by add_repo_auth_to_bw.sh; all others clone via
-#      plain SSH, relying on ~/.ssh/config to pick the right identity per
-#      remote host alias
+#      login item created by add_repo_auth_to_bw.sh; SSH repos with an
+#      `ssh_identity: <key-filename>` entry get that key loaded into the
+#      ssh-agent (ssh-add -D && ssh-add ~/.ssh/<key-filename>, same as the
+#      gitmre/gitmarcore dot_zshrc aliases) before cloning, skipped when it's
+#      already the last-loaded identity; all other SSH repos clone as-is
+#      against whatever identity is currently loaded
 #   2. restores each repo's gitignored "secret" files from Bitwarden
 #      (items created by export-project-secrets.sh)
 #   3. unzips each plain folder root from the OneDrive backup dir
@@ -51,6 +54,7 @@ fi
 ONEDRIVE_DIR="${ONEDRIVE_PROJECTS_BACKUP_DIR:-$(chezmoi data 2>/dev/null | jq -r '.onedriveProjectsBackupDir // empty')}"
 
 FAILED_ITEMS=()
+CURRENT_SSH_IDENTITY=""
 
 # Runs $* normally, or just echoes it under --dry-run.
 run() {
@@ -129,6 +133,29 @@ clone_with_https_auth() {
     return "$clone_status"
 }
 
+# Loads ~/.ssh/<identity> into the ssh-agent (ssh-add -D && ssh-add), same
+# as the gitmre/gitmarcore dot_zshrc aliases -- but only when it differs
+# from the identity already loaded, so consecutive repos sharing an
+# identity don't reset the agent (and potentially re-prompt for a
+# passphrase) for no reason. Returns non-zero if ssh-add fails.
+ensure_ssh_identity() {
+    local identity="$1"
+    [[ "$identity" == "$CURRENT_SSH_IDENTITY" ]] && return 0
+
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+        echo "DRY-RUN: ssh-add -D && ssh-add ~/.ssh/$identity"
+        CURRENT_SSH_IDENTITY="$identity"
+        return 0
+    fi
+
+    if ! ssh-add -D >/dev/null 2>&1 || ! ssh-add "$HOME/.ssh/$identity" >/dev/null 2>&1; then
+        echo "WARN: failed to load ssh identity $identity into ssh-agent" >&2
+        return 1
+    fi
+    CURRENT_SSH_IDENTITY="$identity"
+    echo "Switched ssh-agent identity to $identity"
+}
+
 # Finds the index into repos[] whose path equals $1. Echoes the index and
 # returns 0 on success; returns 1 if no match is found.
 find_repo_index_by_path() {
@@ -148,10 +175,11 @@ find_repo_index_by_path() {
 # gitignored secret files from Bitwarden.
 restore_repo() {
     local idx="$1"
-    local repo_path remote_url repo_rel auth file_count
+    local repo_path remote_url repo_rel auth ssh_identity file_count
     repo_path=$(yq ".repos[$idx].path" "$PROJECTS_YAML")
     remote_url=$(yq ".repos[$idx].remotes[0].url" "$PROJECTS_YAML")
     auth=$(yq ".repos[$idx].auth // \"\"" "$PROJECTS_YAML")
+    ssh_identity=$(yq ".repos[$idx].ssh_identity // \"\"" "$PROJECTS_YAML")
     repo_rel="${repo_path#"$projects_root"/}"
 
     if [[ -d "$repo_path" ]]; then
@@ -161,6 +189,8 @@ restore_repo() {
         local clone_status=0
         if [[ "$auth" == "https" ]]; then
             clone_with_https_auth "$remote_url" "$repo_path" "$repo_rel" || clone_status=$?
+        elif [[ -n "$ssh_identity" ]] && ! ensure_ssh_identity "$ssh_identity"; then
+            clone_status=1
         else
             run git clone "$remote_url" "$repo_path" || clone_status=$?
         fi
