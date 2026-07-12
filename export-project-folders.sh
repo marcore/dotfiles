@@ -9,7 +9,8 @@
 # Reads .chezmoidata/projects.yaml and, for each entry under `folders:`,
 # zips that folder into the OneDrive backup dir, excluding any
 # nested_repos (those are restored separately via git clone by
-# restore-projects.sh).
+# restore-projects.sh) and any node_modules directories (reinstallable via
+# the package manager, not worth backing up).
 #
 # Usage:
 #   ./export-project-folders.sh [PROJECTS_YAML]
@@ -48,7 +49,7 @@ for ((i = 0; i < folder_count; i++)); do
         continue
     fi
 
-    exclude_args=()
+    exclude_args=(-x "$folder_name/node_modules/*" -x "$folder_name/*/node_modules/*")
     nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
     for ((j = 0; j < nested_count; j++)); do
         nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
