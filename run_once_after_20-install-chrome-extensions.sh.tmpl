@@ -11,6 +11,11 @@
 */ -}}
 set -euo pipefail
 
+{{ if .isCI -}}
+echo "CI environment detected - skipping interactive Chrome extension force-install step."
+exit 0
+{{ end -}}
+
 EXTENSIONS_SRC="{{ .chezmoi.sourceDir }}/.chrome-data/extensions.json"
 POLICY_DOMAIN="/Library/Preferences/com.google.Chrome"
 
