@@ -307,7 +307,7 @@ total_repos="${#REPO_LIST[@]}"
 total_folders="${#FOLDER_LIST[@]}"
 
 idx=0
-for dir in "${REPO_LIST[@]}"; do
+for dir in "${REPO_LIST[@]+"${REPO_LIST[@]}"}"; do
     while (( $(jobs -rp | wc -l) >= MAX_JOBS )); do
         sleep 0.05
     done
@@ -317,7 +317,7 @@ for dir in "${REPO_LIST[@]}"; do
 done
 
 idx=0
-for dir in "${FOLDER_LIST[@]}"; do
+for dir in "${FOLDER_LIST[@]+"${FOLDER_LIST[@]}"}"; do
     while (( $(jobs -rp | wc -l) >= MAX_JOBS )); do
         sleep 0.05
     done
