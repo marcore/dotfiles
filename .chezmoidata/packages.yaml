@@ -39,7 +39,7 @@ packages:
             - "zsh"
         casks:
             - "google-chrome"
-            - "obs"
+            - "visual-studio-code"
         mas: []
 
     work:
@@ -81,6 +81,7 @@ packages:
             - "cloudflared"
         casks:
             - "spotify"
+            - "obs"
         mas:
             - name: "Kindle"
               id: "302584613"
