@@ -70,7 +70,7 @@ run() {
 
 # True (exit 0) if $1 is a path inside any folders[].path in PROJECTS_YAML.
 is_nested_repo() {
-    local repo_path="$1" folder_count="$2"
+    local repo_path="$1" folder_count="$2" k
     for ((k = 0; k < folder_count; k++)); do
         local folder_path
         folder_path=$(yq ".folders[$k].path" "$PROJECTS_YAML")
@@ -186,7 +186,7 @@ ensure_ssh_identity() {
 # Finds the index into repos[] whose path equals $1. Echoes the index and
 # returns 0 on success; returns 1 if no match is found.
 find_repo_index_by_path() {
-    local target="$1" count="$2"
+    local target="$1" count="$2" k
     for ((k = 0; k < count; k++)); do
         local p
         p=$(yq ".repos[$k].path" "$PROJECTS_YAML")
@@ -202,7 +202,7 @@ find_repo_index_by_path() {
 # gitignored secret files from Bitwarden.
 restore_repo() {
     local idx="$1"
-    local repo_path remote_url repo_rel auth auth_secret ssh_identity file_count
+    local repo_path remote_url repo_rel auth auth_secret ssh_identity file_count j
     repo_path=$(yq ".repos[$idx].path" "$PROJECTS_YAML")
     remote_url=$(yq ".repos[$idx].remotes[0].url" "$PROJECTS_YAML")
     auth=$(yq ".repos[$idx].auth // \"\"" "$PROJECTS_YAML")
