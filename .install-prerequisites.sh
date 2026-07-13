@@ -6,7 +6,8 @@ Darwin)
     if type bw >/dev/null 2>&1; then
         echo "Bitwarden CLI is already installed"
     else
-        brew install pnpm
+        brew install pnpm mise
+        mise trust $HOME/.config/mise/config.toml && mise install --verbose # Node is needed for pnpm
         pnpm install -g @bitwarden/cli
     fi
 
@@ -19,6 +20,8 @@ Linux)
     echo "Linux detected — skipping Homebrew"
     if ! type bw >/dev/null 2>&1; then
         curl -fsSL https://get.pnpm.io/install.sh | sh -
+        sudo apt-get update && sudo apt-get install -y mise
+        mise trust $HOME/.config/mise/config.toml && mise install --verbose # Node is needed for pnpm
         pnpm install -g @bitwarden/cli
     fi
     ;;
