@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+source ${CHEZMOI_WORKING_TREE}/util/confirm.sh 
+
+# Set up dock
+
+echo
+echo "---"
+if [[ "yes" == $(confirm "Do you want to reset the Dock?") ]]; then
+    defaults write com.apple.dock persistent-apps -array
+
+    {{ range .dock -}}
+        dock_item={{ . | quote }}
+        defaults write com.apple.dock persistent-apps -array-add "$dock_item"
+    {{ end -}}
+
+    killall Dock
+fi
