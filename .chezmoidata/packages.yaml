@@ -45,6 +45,7 @@ packages:
         npm:
             - "@adobe/aem-cli"
             - "@adobe/aio-cli"
+            - "@bitwarden/cli"
         vscode:
             - "vscjava.vscode-java-pack"
             - "ms-vscode-remote.remote-containers"
