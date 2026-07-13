@@ -125,6 +125,13 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/Users/marcore/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# mise
+eval "$(mise activate zsh)"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME/bin:$PATH"
+
 
 # bun completions
 [ -s "/Users/marcore/.bun/_bun" ] && source "/Users/marcore/.bun/_bun"

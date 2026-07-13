@@ -21,6 +21,14 @@ fi
 
 brew install chezmoi
 
+# .install-prerequisites.sh (run by chezmoi as a hook) installs node (via mise) and
+# bw (via pnpm) into these directories. Exporting them here, before chezmoi runs,
+# means chezmoi itself (and the ssh key template that shells out to bw) inherits
+# this PATH too — env vars exported by the hook script don't propagate back up to
+# the chezmoi process that spawned it.
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME/bin:$HOME/.local/share/mise/shims:$PATH"
+
 CHEZMOI_INIT_SOURCE="${CHEZMOI_INIT_SOURCE:-marcore}"
 chezmoi init "$CHEZMOI_INIT_SOURCE"
 
