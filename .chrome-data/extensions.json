@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "igkmdomcgoebiipaifhmpfjhbjccggml",
+    "name": "AEM Sidekick",
+    "version": "7.33.0",
+    "webstore_url": "https://chrome.google.com/webstore/detail/igkmdomcgoebiipaifhmpfjhbjccggml"
+  },
+  {
+    "id": "nmmhkkegccagdldgiimedpiccmgmieda",
+    "name": "Chrome Web Store Payments",
+    "version": "1.0.0.6",
+    "webstore_url": "https://chrome.google.com/webstore/detail/nmmhkkegccagdldgiimedpiccmgmieda"
+  },
+  {
+    "id": "doikmfpjbcjjimnbablebijofdbgfepb",
+    "name": "Extension Exporter",
+    "version": "3.0.1",
+    "webstore_url": "https://chrome.google.com/webstore/detail/doikmfpjbcjjimnbablebijofdbgfepb"
+  },
+  {
+    "id": "mlomiejdfkolichcflejclcbmpeaniij",
+    "name": "Ghostery AdBlocker for Privacy",
+    "version": "10.5.51",
+    "webstore_url": "https://chrome.google.com/webstore/detail/mlomiejdfkolichcflejclcbmpeaniij"
+  },
+  {
+    "id": "dioefchpekkdigjeiecepnlhpdcgnmml",
+    "name": "Proofpoint ZenWeb",
+    "version": "3.0.0.4166",
+    "webstore_url": "https://chrome.google.com/webstore/detail/dioefchpekkdigjeiecepnlhpdcgnmml"
+  },
+  {
+    "id": "fmkadmapgofadopljbjfkapdkoienihi",
+    "name": "React Developer Tools",
+    "version": "7.0.1",
+    "webstore_url": "https://chrome.google.com/webstore/detail/fmkadmapgofadopljbjfkapdkoienihi"
+  },
+  {
+    "id": "egnjhciaieeiiohknchakcodbpgjnchh",
+    "name": "Tab Wrangler",
+    "version": "8.3.0",
+    "webstore_url": "https://chrome.google.com/webstore/detail/egnjhciaieeiiohknchakcodbpgjnchh"
+  },
+  {
+    "id": "oicakdoenlelpjnkoljnaakdofplkgnd",
+    "name": "Tree Style Tab",
+    "version": "2.2.1",
+    "webstore_url": "https://chrome.google.com/webstore/detail/oicakdoenlelpjnkoljnaakdofplkgnd"
+  },
+  {
+    "id": "nhdogjmejiglipccpnnnanhbledajbpd",
+    "name": "Vue.js devtools",
+    "version": "7.7.7",
+    "webstore_url": "https://chrome.google.com/webstore/detail/nhdogjmejiglipccpnnnanhbledajbpd"
+  }
+]

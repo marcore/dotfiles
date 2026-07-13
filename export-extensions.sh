@@ -42,6 +42,10 @@ fi
 #   5 = COMPONENT (built into Chrome, e.g. PDF viewer)     -> skip
 #   10 = EXTERNAL_PREF_DOWNLOAD                            -> keep
 #
+# Modern Chrome has no top-level "state" field on extensions -- enabled vs.
+# disabled is tracked via "disable_reasons": an empty (or absent) array
+# means enabled, a non-empty array (e.g. [1], [8192]) means disabled.
+#
 # We keep extensions with a webstore-style manifest and drop components.
 jq '
   [
@@ -49,7 +53,7 @@ jq '
     | to_entries[]
     | select(.value.manifest != null)
     | select(.value.location != 5)
-    | select(.value.state == 1)
+    | select((.value.disable_reasons // []) == [])
     | {
         id: .key,
         name: (.value.manifest.name // "unknown"),
