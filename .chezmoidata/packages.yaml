@@ -41,6 +41,7 @@ packages:
         casks:
             - "google-chrome"
             - "visual-studio-code"
+            - "claude-code"
         mas: []
         npm:
             - "@adobe/aem-cli"
