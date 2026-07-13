@@ -12,7 +12,7 @@ Darwin)
         brew install pnpm mise
         mise trust $HOME/.config/mise/config.toml && mise install node --verbose # Node is needed for pnpm
         eval "$(mise env -s bash)" # put mise-installed node on PATH for this script
-        pnpm install -g @bitwarden/cli
+        pnpm install -g buffer @bitwarden/cli
     fi
 
     if [ "${CI:-}" != "true" ]; then
@@ -27,7 +27,7 @@ Linux)
         sudo apt-get update && sudo apt-get install -y mise
         mise trust $HOME/.config/mise/config.toml && mise install node --verbose # Node is needed for pnpm
         eval "$(mise env -s bash)" # put mise-installed node on PATH for this script
-        pnpm install -g @bitwarden/cli
+        pnpm install -g buffer @bitwarden/cli
     fi
     ;;
 *)
