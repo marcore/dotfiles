@@ -7,7 +7,7 @@ Darwin)
         echo "Bitwarden CLI is already installed"
     else
         brew install pnpm
-        npm install -g @bitwarden/cli
+        pnpm install -g @bitwarden/cli
     fi
 
     if [ "${CI:-}" != "true" ]; then
