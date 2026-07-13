@@ -1,3 +1,5 @@
+Include /Users/marcore/.colima/ssh_config
+
 Host git.corp.adobe.com
   UseKeychain yes
   AddKeysToAgent yes
