@@ -3,33 +3,35 @@
 # add_repo_auth_to_bw.sh
 #
 # Run this MANUALLY whenever you need to store (or refresh) HTTPS
-# username/password credentials for a repo that can't use SSH -- e.g. Adobe
-# Cloud Manager git, which issues a distinct access token per repo via its
-# UI (dot_gitconfig.tmpl's `useHttpPath = true` for
-# git.cloudmanager.adobe.com reflects this: credentials are per-repo-path,
-# not shared).
+# username/password credentials for repos that can't use SSH -- e.g. Adobe
+# Cloud Manager git (dot_gitconfig.tmpl sets `useHttpPath = true` for
+# git.cloudmanager.adobe.com since credentials are per-repo-path in the URL,
+# but in practice the same username/password work for every repo under a
+# given customer's Cloud Manager program).
 #
 # Creates or updates a Bitwarden LOGIN item (not a secure note -- this is a
 # real username/password pair) named:
 #
-#   repo-auth:<repo-rel-path>
+#   repo-auth:<auth_secret>
 #
-# where <repo-rel-path> is the repo's path relative to projects_root, same
-# convention as proj-secret:<repo-rel-path>:<file> items. restore-projects.sh
-# looks this item up for any repo whose projects.yaml entry has `auth:
-# https`.
+# where <auth_secret> must match the auth_secret value set alongside
+# `auth: https` in projects.yaml for each repo that should use these
+# credentials. Repos that share credentials (e.g. all repos under one
+# customer's Cloud Manager program) just set the same auth_secret value, so
+# a common choice is the customer name, but any string works as long as it
+# matches what's in projects.yaml.
 #
 # Prompts interactively for username and password (password input hidden)
 # rather than taking them as arguments, so credentials never end up in
 # shell history or process listings.
 #
 # Usage:
-#   ./add_repo_auth_to_bw.sh <repo-rel-path>
+#   ./add_repo_auth_to_bw.sh <auth_secret>
 
 set -euo pipefail
 
-REPO_REL="${1:?Usage: $0 <repo-rel-path>}"
-SECRET_NAME="repo-auth:${REPO_REL}"
+AUTH_SECRET="${1:?Usage: $0 <auth_secret>}"
+SECRET_NAME="repo-auth:${AUTH_SECRET}"
 FOLDER_ID="87355180-f451-42e2-b20e-b32500ac9ff2"
 
 read -rp "Username for $SECRET_NAME: " username

@@ -11,8 +11,11 @@
 # Reads .chezmoidata/projects.yaml and:
 #   1. git clones each top-level repo to its original path (skipped if the
 #      path already exists) -- repos marked `auth: https` (e.g. Adobe Cloud
-#      Manager git) are cloned using username/password from a Bitwarden
-#      login item created by add_repo_auth_to_bw.sh; SSH repos with an
+#      Manager git) are cloned using username/password from the Bitwarden
+#      login item repo-auth:<auth_secret>, where auth_secret is set
+#      alongside `auth: https` in the repo's projects.yaml entry (created
+#      by add_repo_auth_to_bw.sh; repos that share credentials just use the
+#      same auth_secret value); SSH repos with an
 #      `ssh_identity: <key-filename>` entry get that key loaded into the
 #      ssh-agent (ssh-add -D && ssh-add ~/.ssh/<key-filename>, same as the
 #      gitmre/gitmarcore dot_zshrc aliases) before cloning, skipped when it's
@@ -120,14 +123,17 @@ restore_secret() {
 }
 
 # Clones a repo whose projects.yaml entry has `auth: https`, fetching
-# username/password from the Bitwarden login item repo-auth:<repo_rel>
+# username/password from the Bitwarden login item repo-auth:<auth_secret>
 # (created by add_repo_auth_to_bw.sh) and feeding the password to git via a
 # short-lived GIT_ASKPASS script -- the password is never embedded in
-# .git/config's remote URL or passed as a plain argv argument. Returns
-# non-zero if the Bitwarden item is missing or the clone fails.
+# .git/config's remote URL or passed as a plain argv argument. auth_secret
+# comes straight from the repo's projects.yaml entry, so sibling repos that
+# share one set of credentials (e.g. all repos under one customer's Cloud
+# Manager program) just set the same auth_secret value. Returns non-zero if
+# the Bitwarden item is missing or the clone fails.
 clone_with_https_auth() {
-    local remote_url="$1" repo_path="$2" repo_rel="$3"
-    local secret_name="repo-auth:${repo_rel}"
+    local remote_url="$1" repo_path="$2" auth_secret="$3"
+    local secret_name="repo-auth:${auth_secret}"
 
     if [[ "$DRY_RUN" -eq 1 ]]; then
         echo "DRY-RUN: git clone (https, credentials from Bitwarden item $secret_name) $remote_url -> $repo_path"
@@ -196,10 +202,11 @@ find_repo_index_by_path() {
 # gitignored secret files from Bitwarden.
 restore_repo() {
     local idx="$1"
-    local repo_path remote_url repo_rel auth ssh_identity file_count
+    local repo_path remote_url repo_rel auth auth_secret ssh_identity file_count
     repo_path=$(yq ".repos[$idx].path" "$PROJECTS_YAML")
     remote_url=$(yq ".repos[$idx].remotes[0].url" "$PROJECTS_YAML")
     auth=$(yq ".repos[$idx].auth // \"\"" "$PROJECTS_YAML")
+    auth_secret=$(yq ".repos[$idx].auth_secret // \"\"" "$PROJECTS_YAML")
     ssh_identity=$(yq ".repos[$idx].ssh_identity // \"\"" "$PROJECTS_YAML")
     repo_rel="${repo_path#"$projects_root"/}"
 
@@ -209,7 +216,12 @@ restore_repo() {
         run mkdir -p "$(dirname "$repo_path")"
         local clone_status=0
         if [[ "$auth" == "https" ]]; then
-            clone_with_https_auth "$remote_url" "$repo_path" "$repo_rel" || clone_status=$?
+            if [[ -z "$auth_secret" ]]; then
+                echo "WARN: $repo_path has auth: https but no auth_secret set in $PROJECTS_YAML" >&2
+                FAILED_ITEMS+=("$repo_path")
+                return 0
+            fi
+            clone_with_https_auth "$remote_url" "$repo_path" "$auth_secret" || clone_status=$?
         elif [[ -n "$ssh_identity" ]] && ! ensure_ssh_identity "$ssh_identity"; then
             clone_status=1
         else

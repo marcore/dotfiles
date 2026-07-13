@@ -19,11 +19,16 @@
 #   repos[].path: absolute path to a git repo
 #   repos[].remotes[].name / .url: git remotes
 #   repos[].auth: optional, "https" for repos that need username/password
-#     auth instead of SSH (e.g. Adobe Cloud Manager git, which issues a
-#     distinct token per repo). Omit for plain SSH clones (the default).
-#     When set to "https", restore-projects.sh looks up username/password
-#     from a Bitwarden login item named repo-auth:<repo-path-relative-to-root>,
-#     created/updated by ./add_repo_auth_to_bw.sh <repo-path-relative-to-root>.
+#     auth instead of SSH (e.g. Adobe Cloud Manager git). Omit for plain SSH
+#     clones (the default). When set to "https", auth_secret must also be
+#     set (see below).
+#   repos[].auth_secret: required when auth is "https" -- restore-projects.sh
+#     looks up username/password from a Bitwarden login item named
+#     repo-auth:<auth_secret>, created/updated by
+#     ./add_repo_auth_to_bw.sh <auth_secret>. Repos that share credentials
+#     (e.g. all repos under one customer's Cloud Manager program) should
+#     use the same auth_secret value -- a common choice is the customer
+#     name, but any string works as long as it's consistent.
 #   repos[].ssh_identity: optional, for SSH repos only -- the filename (under
 #     ~/.ssh) of the key that must be loaded in the ssh-agent to clone this
 #     repo, e.g. "id_git_corp_ed25519" vs "id_rsa_adobepc" for a different
