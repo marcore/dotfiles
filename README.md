@@ -35,14 +35,10 @@ To refresh the curated list: run `./scan_repos.sh "$HOME/Projects"`, copy the ou
 ## Setting up a new laptop
 
 ```sh
-xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install chezmoi
-chezmoi init marcore
-chezmoi apply
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/marcore/dotfiles/refs/heads/main/.initial-setup.sh)"
 ```
 
-(`.initial-setup.sh` automates the above.) During `chezmoi init` you'll be prompted for a few values (e.g. whether this is a work computer, the OneDrive backup folder path) and Bitwarden will be used to pull down SSH keys and other secrets.
+During `chezmoi init` you'll be prompted for a few values (e.g. whether this is a work computer, the OneDrive backup folder path) and Bitwarden will be used to pull down SSH keys and other secrets.
 
 Once the machine is set up and SSH/Bitwarden are working, restore your projects:
 
