@@ -88,6 +88,8 @@ npm install -g {{ . | quote }}
 
 mise trust $HOME/.config/mise/config.toml && mise install --verbose
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Enable colima to auto-start at login
 brew services restart colima
 
