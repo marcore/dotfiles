@@ -57,6 +57,8 @@ fi
 ONEDRIVE_DIR="${ONEDRIVE_PROJECTS_BACKUP_DIR:-$(chezmoi data 2>/dev/null | jq -r '.onedriveProjectsBackupDir // empty')}"
 
 FAILED_ITEMS=()
+FAILED_REPO_INDICES=()
+FAILED_FOLDER_INDICES=()
 CURRENT_SSH_IDENTITY=""
 
 # Runs $* normally, or just echoes it under --dry-run.
@@ -83,9 +85,14 @@ is_nested_repo() {
 # secure notes by export-project-secrets.sh / add_secret_to_bw.sh
 # --chunked, since Bitwarden attachments require Premium) to dest_path, or
 # records a failure in FAILED_ITEMS if the index item or any chunk is
-# missing.
+# missing. Skips (not a failure) if dest_path already exists, so reruns
+# against already-restored repos don't silently overwrite local edits.
 restore_secret() {
     local secret_name="$1" dest_path="$2"
+    if [[ -f "$dest_path" ]]; then
+        echo "Skipping restore, already exists: $dest_path"
+        return 0
+    fi
     if [[ "$DRY_RUN" -eq 1 ]]; then
         echo "DRY-RUN: restore secret $secret_name -> $dest_path"
         return 0
@@ -219,6 +226,7 @@ restore_repo() {
             if [[ -z "$auth_secret" ]]; then
                 echo "WARN: $repo_path has auth: https but no auth_secret set in $PROJECTS_YAML" >&2
                 FAILED_ITEMS+=("$repo_path")
+                FAILED_REPO_INDICES+=("$idx")
                 return 0
             fi
             clone_with_https_auth "$remote_url" "$repo_path" "$auth_secret" || clone_status=$?
@@ -230,10 +238,12 @@ restore_repo() {
         if [[ "$clone_status" -ne 0 ]]; then
             echo "WARN: git clone failed for $repo_path (remote: $remote_url)" >&2
             FAILED_ITEMS+=("$repo_path")
+            FAILED_REPO_INDICES+=("$idx")
             return 0
         fi
     fi
 
+    local failed_before=${#FAILED_ITEMS[@]}
     file_count=$(yq ".repos[$idx].ignored_files | length" "$PROJECTS_YAML")
     for ((j = 0; j < file_count; j++)); do
         local file_rel secret_name
@@ -241,6 +251,9 @@ restore_repo() {
         secret_name="proj-secret:${repo_rel}:${file_rel}"
         restore_secret "$secret_name" "$repo_path/$file_rel"
     done
+    if [[ "${#FAILED_ITEMS[@]}" -gt "$failed_before" ]]; then
+        FAILED_REPO_INDICES+=("$idx")
+    fi
 }
 
 projects_root=$(yq '.root' "$PROJECTS_YAML")
@@ -273,11 +286,13 @@ for ((i = 0; i < folder_count; i++)); do
     elif [[ ! -f "$archive_path" ]]; then
         echo "WARN: archive not found for $folder_path (expected $archive_path)" >&2
         FAILED_ITEMS+=("$archive_path")
+        FAILED_FOLDER_INDICES+=("$i")
     else
         run mkdir -p "$parent_dir"
         if ! run unzip -q "$archive_path" -d "$parent_dir"; then
             echo "WARN: unzip failed for $folder_path (archive: $archive_path)" >&2
             FAILED_ITEMS+=("$archive_path")
+            FAILED_FOLDER_INDICES+=("$i")
         fi
     fi
 
@@ -299,4 +314,45 @@ done
 if [[ "${#FAILED_ITEMS[@]}" -gt 0 ]]; then
     echo "== Summary: ${#FAILED_ITEMS[@]} item(s) failed to restore =="
     printf '  %s\n' "${FAILED_ITEMS[@]}"
+fi
+
+# Writes a PROJECTS_YAML-shaped file containing only the repos/folders that
+# failed above, so a subsequent run can retry just those with:
+#   ./restore-projects.sh <retry-yaml>
+# Folders that failed to unzip also pull in repos[] entries for their
+# nested_repos, so a successful retry of the unzip can immediately re-clone
+# them too in the same run.
+if [[ "${#FAILED_REPO_INDICES[@]}" -gt 0 || "${#FAILED_FOLDER_INDICES[@]}" -gt 0 ]]; then
+    retry_repo_indices=()
+    if [[ "${#FAILED_REPO_INDICES[@]}" -gt 0 ]]; then
+        retry_repo_indices+=("${FAILED_REPO_INDICES[@]}")
+    fi
+    if [[ "${#FAILED_FOLDER_INDICES[@]}" -gt 0 ]]; then
+        for i in "${FAILED_FOLDER_INDICES[@]}"; do
+            folder_path=$(yq ".folders[$i].path" "$PROJECTS_YAML")
+            nested_count=$(yq ".folders[$i].nested_repos | length" "$PROJECTS_YAML")
+            for ((j = 0; j < nested_count; j++)); do
+                nested_rel=$(yq ".folders[$i].nested_repos[$j]" "$PROJECTS_YAML")
+                idx=$(find_repo_index_by_path "$folder_path/$nested_rel" "$repo_count") || continue
+                retry_repo_indices+=("$idx")
+            done
+        done
+    fi
+
+    repos_filter="[]"
+    if [[ "${#retry_repo_indices[@]}" -gt 0 ]]; then
+        repo_idx_csv=$(printf '%s\n' "${retry_repo_indices[@]}" | sort -un | paste -sd, -)
+        repos_filter="[load(\"$PROJECTS_YAML\").repos.[${repo_idx_csv}]]"
+    fi
+
+    folders_filter="[]"
+    if [[ "${#FAILED_FOLDER_INDICES[@]}" -gt 0 ]]; then
+        folder_idx_csv=$(printf '%s\n' "${FAILED_FOLDER_INDICES[@]}" | sort -un | paste -sd, -)
+        folders_filter="[load(\"$PROJECTS_YAML\").folders.[${folder_idx_csv}]]"
+    fi
+
+    retry_yaml="${PROJECTS_YAML%.yaml}-retry.yaml"
+    yq -n "{\"root\": load(\"$PROJECTS_YAML\").root, \"repos\": $repos_filter, \"folders\": $folders_filter}" \
+        > "$retry_yaml"
+    echo "== Wrote failed item(s) to $retry_yaml -- retry with: ./restore-projects.sh $retry_yaml =="
 fi
