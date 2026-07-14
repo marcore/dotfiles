@@ -1,0 +1,10 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
+defaults write -g AppleInterfaceStyle -string "Dark"
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+
+mkdir -p ~/Documents/Screenshots
+defaults write com.apple.screencapture location ~/Documents/Screenshots/
+
+killall Dock
+{{ end -}}
