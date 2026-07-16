@@ -28,8 +28,10 @@
 [color]
 	diff = auto
 
-
+{{ if .isWorkComputer -}}
 [include]
   path = ~/.gitconfig_custom
+{{ end -}}
+
 [http]
 	postBuffer = 524288000

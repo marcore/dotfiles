@@ -1,5 +1,7 @@
 Include /Users/marcore/.colima/ssh_config
 
+{{ if .isWorkComputer -}}
+
 Host git.corp.adobe.com
   UseKeychain yes
   AddKeysToAgent yes
@@ -22,3 +24,20 @@ Host adobe-ssh.github.com
   Hostname ssh.github.com
   User git
   IdentityFile ~/.ssh/id_git_corp_ed25519
+{{ else -}}
+
+Host bitbucket.org
+     Hostname bitbucket.org
+     IdentityFile ~/.ssh/id_rsa
+
+Host personal
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+
+Host source.developers.google.com
+  User ingmarcore@gmail.com
+  IdentityFile ~/.ssh/googledev_rsa
+  Port 2022
+
+{{- end }}

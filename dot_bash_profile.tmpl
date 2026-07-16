@@ -1,6 +1,8 @@
+{{ if .isWorkComputer -}}
 export ARTIFACTORY_USER=mre
 export ARTIFACTORY_API_TOKEN={{ (bitwarden "item" "ARTIFACTORY_CORP_API_TOKEN").notes }}
 auth=$(curl -s -u${ARTIFACTORY_USER}:${ARTIFACTORY_API_TOKEN} https://artifactory.corp.adobe.com/artifactory/api/npm/auth)
 export NPM_AUTH=$(echo "${auth}" | grep "_auth" | awk -F " " '{ print $3 }')
 
 export NPM_TOKEN={{ (bitwarden "item" "NPM_CORP_REGISTRY_TOKEN").notes }}
+{{ end -}}
