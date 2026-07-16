@@ -85,9 +85,11 @@ packages:
 
 
     private:
-        taps: []
+        taps: 
+            - "heroku/tap"
         brews:
             - "cloudflared"
+            - "heroku"
         casks:
             - "spotify"
             - "obs"
