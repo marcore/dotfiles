@@ -72,6 +72,9 @@ packages:
             - "ansible"
             - "awscli"
             - "azure-cli"
+            - "Azure/kubelogin/kubelogin"
+            - "watch"
+            - "parallel"
         casks:
             - "microsoft-teams"
             - "zotero"
